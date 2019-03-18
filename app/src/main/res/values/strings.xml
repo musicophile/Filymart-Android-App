@@ -74,4 +74,7 @@
     <string name="total_amount_data">Rs 1500</string>
     <string name="checkbox_text">I have Successfully Received the product</string>
     <string name="get_signature_text">Get Signature</string>
+    <string name="categories_available_in_store">Categories Available in Store</string>
+    <string name="price_200tsh">Price: 200Tsh</string>
+    <string name="long_text">Your Warmly Welcome to Filymart Filymart is the best online supermarket for all your daily needs. For all your grocery needs plus wide variety and range and brands you can get all in filymart. Shop now easly Welcome again!</string>
 </resources>

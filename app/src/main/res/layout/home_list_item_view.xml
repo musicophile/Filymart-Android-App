@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardElevation="@dimen/textspacing"
+    app:cardCornerRadius="3dp"
+    android:layout_margin="5dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvItemViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grapes"
+            android:textStyle="bold"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintStart_toEndOf="@id/ivItemViewImage"
+            app:layout_constraintTop_toTopOf="@+id/ivItemViewImage" />
+
+        <TextView
+            android:id="@+id/tvItemViewTextprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textspacing"
+            app:layout_constraintStart_toStartOf="@id/tvItemViewName"
+            app:layout_constraintTop_toBottomOf="@id/tvItemViewName"
+            android:text="@string/price_200tsh"/>
+
+        <TextView
+            android:id="@+id/tvItemViewtextdescription"
+            android:layout_width="305dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/textspacing"
+            android:text="@string/long_text"
+            app:layout_constraintStart_toStartOf="@id/tvItemViewName"
+            app:layout_constraintTop_toBottomOf="@id/tvItemViewTextprice" />
+        <ImageView
+            android:id="@+id/ivItemViewImage"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:padding="@dimen/textspacing"
+            android:layout_width="@dimen/image_item_size"
+            android:layout_height="@dimen/image_item_size"
+            android:src="@drawable/vergetables"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

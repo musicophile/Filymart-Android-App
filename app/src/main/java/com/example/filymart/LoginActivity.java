@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -40,9 +41,9 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = RegisterActivity.class.getSimpleName();
     private Button btnLogin;
-    private Button skipBtn;
+    private TextView skipBtn;
     private Button btnLinkToRegister;
-    private Button btnForgotPassword;
+    private TextView btnForgotPassword;
     private EditText inputEmail;
     private EditText inputPassword;
     private ProgressDialog pDialog;

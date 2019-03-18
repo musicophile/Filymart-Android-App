@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    tools:context=".ProductDetailsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_height="?actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <ImageButton
+                android:id="@+id/backPdetails"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product Details"
+                android:textSize="20dp"
+                android:textColor="@color/input_register_bg"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_gravity="center"
+                />
+            <ImageButton
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:layout_width="?actionBarSize"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_shopping_cart_black_24dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appbar">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".ProductDetailsActivity">
+
+
+            <TextView
+                android:id="@+id/p_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Product Name"
+                android:textColor="@color/input_register_bg"
+                android:textSize="25dp"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="25dp"
+                android:textColor="@color/input_register_bg"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Product Price"
+                android:textSize="25dp"
+                android:textColor="@color/input_register_bg"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="TSH. "
+                android:textColor="@color/input_register_bg"
+                android:textSize="25dp"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter Amount"
+                android:textSize="25dp"
+                android:textColor="@color/input_register_bg"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"
+                />
+
+            <EditText
+                android:id="@+id/amount"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:textSize="25dp"
+                android:padding="10dp"
+                android:inputType="number"
+                android:textColor="@color/input_register_bg"
+                android:background="@drawable/rounded_edittext_states"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"/>
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:src="@drawable/vergetables"
+                android:layout_marginBottom="10dp"/>
+
+            <Button
+                android:id="@+id/addBtn"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"
+                android:text="ADD TO CART"
+                android:textSize="25dp"
+                android:gravity="center"
+                android:background="@drawable/button"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product About"
+                android:textColor="@color/input_register_bg"
+                android:textSize="25dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This are all informations about the particular product so that a customer will understand more about the product source all are here."
+                android:textSize="20dp"
+                android:gravity="left"
+                android:textColor="@color/input_register_bg"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Product Benefits"
+                android:textSize="25dp"
+                android:layout_gravity="center"
+                android:textColor="@color/input_register_bg"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"/>
+
+            <TextView
+                android:id="@+id/benefits"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This are all informations about the particular product so that a customer will understand more about the product source all are here."
+                android:textSize="20dp"
+                android:gravity="left"
+                android:textColor="@color/input_register_bg"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:id="@+id/first_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter First Name"
+        android:textSize="20dp"
+        android:background="@drawable/rounded_edittext_focused"
+        android:layout_marginBottom="1dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/input_register_bg"
+        />
+
+    <EditText
+        android:id="@+id/second_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Second Name"
+        android:textSize="20dp"
+        android:background="@drawable/rounded_edittext_focused"
+        android:layout_marginBottom="1dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/input_register_bg"
+        />
+
+    <EditText
+        android:id="@+id/phonenumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phonenumber"
+        android:textSize="20dp"
+        android:textColor="@color/input_register_bg"
+        android:background="@drawable/rounded_edittext_focused"
+        android:layout_marginBottom="1dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/appartment_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Appartment Name"
+        android:textSize="20dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/rounded_edittext_focused"
+        android:textColor="@color/input_register_bg"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/address_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Address Name"
+        android:textSize="20dp"
+        android:background="@drawable/rounded_edittext_focused"
+        android:textColor="@color/input_register_bg"
+        android:layout_marginBottom="1dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+    <EditText
+        android:id="@+id/street"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Street Details"
+        android:textSize="20dp"
+        android:background="@drawable/rounded_edittext_focused"
+        android:textColor="@color/input_register_bg"
+        android:layout_marginBottom="1dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Location"
+        android:textSize="20dp"
+        android:background="@drawable/rounded_edittext_focused"
+        android:textColor="@color/input_register_bg"
+        android:layout_marginBottom="1dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/lat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Latitude "
+        android:textSize="20dp"
+        android:background="@drawable/rounded_edittext_focused"
+        android:textColor="@color/input_register_bg"
+        android:layout_marginBottom="1dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+    <EditText
+        android:id="@+id/lng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Longitude"
+        android:background="@drawable/rounded_edittext_focused"
+        android:textColor="@color/input_register_bg"
+        android:textSize="20dp"
+        android:layout_marginBottom="1dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CREATE ADDRESS"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/button"
+        android:onClick="map"/>
+
+
+</ScrollView>

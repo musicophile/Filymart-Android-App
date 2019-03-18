@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager_slider"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="5dp" />
+
+<TextView
+    android:id="@+id/title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/view_pager_slider"
+    android:text="Categories Available in Store"
+    android:textAlignment="center"
+    android:textSize="20dp"
+    android:textColor="@color/input_register_bg"
+    />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/fruit_vergetbl"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/title"
+        android:onClick="fruitsVergetable"
+        android:layout_margin="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Fruits and Vergetables"
+                android:textSize="20dp"
+                android:layout_weight="1"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:textColor="@color/input_register_bg"/>
+            <ImageView
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/vergetables"/>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/food_grain"
+        android:layout_below="@id/fruit_vergetbl"
+        android:layout_width="match_parent"
+        android:onClick="foodGrainOil"
+        android:layout_height="100dp"
+        android:layout_margin="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Food Grain and Oil Products"
+                android:textSize="20dp"
+                android:singleLine="true"
+                android:layout_weight="1"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:textColor="@color/input_register_bg"/>
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/foodgrains"/>
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/eggs_meat"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:onClick="eggsMeatFish"
+        android:layout_below="@id/food_grain"
+        android:layout_margin="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Eggs, Meat And Fish"
+            android:textSize="20dp"
+            android:singleLine="true"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:textColor="@color/input_register_bg"/>
+
+            <ImageView
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/eggsmeatmilk"/>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/beverages"
+        android:layout_below="@id/eggs_meat"
+        android:onClick="beveragesDrinks"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Beverages and Drinks Here"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:textColor="@color/input_register_bg"/>
+
+            <ImageView
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/beverages"/>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/other"
+        android:layout_below="@id/beverages"
+        android:layout_width="match_parent"
+        android:onClick="otherProducts"
+        android:layout_height="100dp"
+        android:layout_margin="3dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:text="Other Products"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+            android:textColor="@color/input_register_bg"/>
+
+
+    </android.support.v7.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_below="@id/other"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/name"
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Filymart"
+            android:textSize="25dp"
+            android:textColor="@color/input_register_bg"/>
+
+        <TextView
+            android:layout_margin="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/input_register_bg"
+            android:text="Your Warmly Welcome to Filymart
+Filymart is the best online supermarket for all your daily needs.
+ For all your grocery needs plus wide variety and range and brands
+ you can get all in filymart. Shop now easly Welcome again! "
+            android:textSize="20dp"/>
+
+    </LinearLayout>
+</RelativeLayout>

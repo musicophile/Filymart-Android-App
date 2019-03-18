@@ -26,11 +26,18 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class ForgotPasswordActivity extends AppCompatActivity {
 
-    private EditText femail;
-    private EditText fpassword;
-    private Button btnReset;
+    @BindView(R.id.email)
+    EditText femail;
+    @BindView(R.id.password)
+    EditText fpassword;
+    @BindView(R.id.btnReset)
+    Button btnReset;
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
@@ -41,42 +48,21 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
+        ButterKnife.bind(this);
 
         Window window = getWindow();
 
-// clear FLAG_TRANSLUCENT_STATUS flag:
+        // clear FLAG_TRANSLUCENT_STATUS flag:
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
-// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+        // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
-// finally change the color
+        // finally change the color
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
         }
 
-        femail = findViewById(R.id.email);
-        fpassword = findViewById(R.id.password);
-        btnReset = findViewById(R.id.btnReset);
-
-        btnReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = femail.getText().toString().trim();
-                String password = fpassword.getText().toString().trim();
-
-                // Check for empty data in the form
-                if (!email.isEmpty() && !password.isEmpty()) {
-                    // login user
-                    new CreateNewProduct().execute();
-                } else {
-                    // Prompt user to enter credentials
-                    Toast.makeText(getApplicationContext(),
-                            "Please enter the credentials!", Toast.LENGTH_LONG)
-                            .show();
-                }
-            }
-        });
 
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
@@ -88,11 +74,24 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
     }
 
+    @OnClick(R.id.btnReset)
+    public void reset() {
+        if (!femail.getText().toString().isEmpty() && !fpassword.getText().toString().isEmpty()) {
+            // login user
+            new CreateNewProduct().execute();
+        } else {
+            // Prompt user to enter credentials
+            Toast.makeText(getApplicationContext(),
+                    "Please enter the credentials!", Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
+
     class CreateNewProduct extends AsyncTask<String, String, String> {
 
         /**
          * Before starting background thread Show Progress Dialog
-         * */
+         */
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -105,9 +104,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
         /**
          * Creating product
-         * */
+         */
         protected String doInBackground(String... args) {
-
 
 
             String email = femail.getText().toString().trim();
@@ -186,7 +184,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
         /**
          * After completing background task Dismiss the progress dialog
-         * **/
+         **/
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once done
             pDialog.dismiss();

@@ -43,14 +43,21 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 
 public class ShoppingFragment extends Fragment {
 
     private static final String URL_PRODUCTS = "http://www.filymart.com/get_all_products.php";
 
-    private RecyclerView recyclerView;
-    private EditText searchBar;
-    private Button btnSearch;
+    @BindView (R.id.recycler_view)
+    RecyclerView recyclerView;
+    @BindView(R.id.searchBar)
+    EditText searchBar;
+    @BindView(R.id.btnSearch)
+    Button btnSearch;
     private ProductsAdapter adapter;
     private List<Product> productList;
     private ProgressDialog pDialog;
@@ -74,10 +81,7 @@ public class ShoppingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_shopping, container, false);
-
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        searchBar = view.findViewById(R.id.searchBar);
-        btnSearch = view.findViewById(R.id.btnSearch);
+        ButterKnife.bind(this,view);
 
 
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
@@ -98,26 +102,6 @@ public class ShoppingFragment extends Fragment {
 
         loadProducts();
 
-        btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String value = searchBar.getText().toString().trim();
-
-                // Check for empty data in the form
-                if (!value.isEmpty()) {
-                    // login user
-                    Intent intent = new Intent(getContext(), SearchedActivity.class);
-                    intent.putExtra("value", value);
-                    startActivity(intent);
-                } else {
-                    // Prompt user to enter credentials
-                    Toast.makeText(getContext(),
-                            "Please enter the credentials!", Toast.LENGTH_LONG)
-                            .show();
-                }
-            }
-        });
-
         if(getActivity().getIntent().getIntExtra("fragmentNumber",0)==1){
             //set the desired fragment as current fragment to fragment pager
             Toast.makeText(getContext(),
@@ -126,6 +110,23 @@ public class ShoppingFragment extends Fragment {
         }
 
         return view;
+    }
+    @OnClick(R.id.btnSearch)
+    public void search(){
+        String value = searchBar.getText().toString().trim();
+
+        // Check for empty data in the form
+        if (!value.isEmpty()) {
+            // login user
+            Intent intent = new Intent(getContext(), SearchedActivity.class);
+            intent.putExtra("value", value);
+            startActivity(intent);
+        } else {
+            // Prompt user to enter credentials
+            Toast.makeText(getContext(),
+                    "Please enter the credentials!", Toast.LENGTH_LONG)
+                    .show();
+        }
     }
 
     private void loadProducts() {

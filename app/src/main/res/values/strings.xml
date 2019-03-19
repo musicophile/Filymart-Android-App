@@ -47,7 +47,7 @@
     <string name="hint_name">Fullname</string>
     <string name="btn_login">LOGIN</string>
     <string name="btn_register">REGISTER</string>
-    <string name="btn_link_to_register">Not a member? Sign up now.</string>
+    <string name="btn_link_to_register">Not a member? Sign up now</string>
     <string name="btn_link_to_login">Already registred! Login Me.</string>
     <string name="welcome">Welcome</string>
     <string name="btn_logout">LOGOUT</string>
@@ -74,7 +74,15 @@
     <string name="total_amount_data">Rs 1500</string>
     <string name="checkbox_text">I have Successfully Received the product</string>
     <string name="get_signature_text">Get Signature</string>
+
     <string name="categories_available_in_store">Categories Available in Store</string>
     <string name="price_200tsh">Price: 200Tsh</string>
     <string name="long_text">Your Warmly Welcome to Filymart Filymart is the best online supermarket for all your daily needs. For all your grocery needs plus wide variety and range and brands you can get all in filymart. Shop now easly Welcome again!</string>
+
+    <string name="login">Login</string>
+    <string name="hint_email_example">youremail@example.com</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="skip">Skip</string>
+    <string name="login_page">Login Page</string>
+
 </resources>

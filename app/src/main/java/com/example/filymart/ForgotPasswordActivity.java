@@ -130,29 +130,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 //  int success = 1;
 
                 if (success == 1) {
-                    // successfully created product
-                    // user successfully logged in
-                    // Create login session
-                    //  session.setLogin(true);
 
-                    // Now store the user in SQLite
-                 /*   JSONObject user = json.getJSONObject("user");
-                    String uid = user.getString("id");
-                    String name = user.getString("name");
-                    String emaill = user.getString("email");
-                    String created_at = user
-                            .getString("created_at");
-
-                    // Inserting row in users table
-                    db.addUser(name, emaill, uid, created_at);
-                   */ //HashMap<String, String> user = db.getUserDetails();
-
-                    //String name = user.get("name");
-                    //String email = user.get("email");
-
-                    // Displaying the user details on the screen
-                    // txtName.setText(name);
-                    // txtEmail.setText(email);
 
                     Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(i);

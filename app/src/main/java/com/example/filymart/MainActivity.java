@@ -1,6 +1,7 @@
 package com.example.filymart;
 
 import android.os.Build;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +20,7 @@ import com.example.filymart.activity.HomeActivity;
 public class MainActivity extends AppCompatActivity {
 
     private ViewPager mSlideViewPager;
-    private LinearLayout mDotLayout;
+    private ConstraintLayout mDotLayout;
 
     private TextView[] mDots;
     private Button mNextBtn;

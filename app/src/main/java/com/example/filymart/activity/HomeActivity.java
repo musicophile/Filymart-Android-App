@@ -36,6 +36,7 @@ import com.example.filymart.LoginActivity;
 import com.example.filymart.NewAddressActivity;
 import com.example.filymart.OtherProductsActivity;
 import com.example.filymart.R;
+import com.example.filymart.RegisterActivity;
 import com.example.filymart.fragment.HomeFragment;
 import com.example.filymart.fragment.BusketsFragment;
 import com.example.filymart.fragment.NotificationsFragment;
@@ -443,7 +444,8 @@ public class HomeActivity extends AppCompatActivity {
 
         }
         if (id == R.id.action_register) {
-            Toast.makeText(getApplicationContext(), "Register user!", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(this, RegisterActivity.class));
+            //Toast.makeText(getApplicationContext(), "Register user!", Toast.LENGTH_LONG).show();
             return true;
         }
 

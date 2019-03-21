@@ -12,6 +12,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.filymart.app.AppConfig;
@@ -38,6 +39,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     EditText fpassword;
     @BindView(R.id.btnReset)
     Button btnReset;
+    @BindView(R.id.bacArrow)
+    TextView backArrow;
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
@@ -85,6 +88,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                     "Please enter the credentials!", Toast.LENGTH_LONG)
                     .show();
         }
+    }
+    @OnClick(R.id.bacArrow)
+    public void closeThisActivityIntent(){
+        this.finish();
     }
 
     class CreateNewProduct extends AsyncTask<String, String, String> {

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
-    tools:context=".fragment.ShoppingFragment">
+    tools:context=".fragment.Shoppingg Fragment">
 
     <LinearLayout
         android:id="@+id/text1"
@@ -21,20 +21,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:background="@drawable/rounded_edittext_states"
+            android:background="@drawable/edittext_selector"
             android:hint="Search By Name"
             android:inputType="text"
             android:singleLine="true"
             android:textColor="@color/input_login"
             android:textColorHint="@color/input_login" />
 
-        <Button
+        <TextView
             android:id="@+id/btnSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Search"
-            android:background="@drawable/small_button"
+            android:padding="@dimen/tendp"
+            android:drawableLeft="@drawable/places_ic_search"
             />
     </LinearLayout>
 

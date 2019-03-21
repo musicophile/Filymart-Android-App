@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -57,7 +59,7 @@ public class ShoppingFragment extends Fragment {
     @BindView(R.id.searchBar)
     EditText searchBar;
     @BindView(R.id.btnSearch)
-    Button btnSearch;
+    TextView btnSearch;
     private ProductsAdapter adapter;
     private List<Product> productList;
     private ProgressDialog pDialog;
@@ -81,6 +83,7 @@ public class ShoppingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_shopping, container, false);
+
         ButterKnife.bind(this,view);
 
 

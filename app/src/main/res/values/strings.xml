@@ -84,5 +84,7 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="skip">Skip</string>
     <string name="login_page">Login Page</string>
+    <string name="register">Registration Page</string>
+    <string name="re_hint_password">Re-enter password</string>
 
 </resources>

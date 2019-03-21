@@ -1,128 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/background"
-    tools:context=".RegisterActivity"
+    android:padding="@dimen/edittext_padding"
+    tools:context=".RegisterActivity">
 
-    >
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/bar"
-        android:layout_width="match_parent"
-        android:layout_marginBottom="4dp"
-        android:layout_height="?actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
+    <TextView
+        android:id="@+id/register_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/edittext_padding"
+        android:text="@string/register"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="@color/input_register_bg"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Register"
-            android:textSize="20dp"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="@color/input_register_bg"
-            android:layout_gravity="center"
-           />
-    </android.support.design.widget.AppBarLayout>
-    <android.support.constraint.ConstraintLayout
+
+    <EditText
+        android:id="@+id/name"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/tendp"
-        >
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_selector"
+        android:hint="@string/hint_name"
+        android:inputType="text"
+        android:layout_marginTop="80dp"
+        android:padding="@dimen/edittext_padding"
+        android:textAppearance="?android:textAppearanceSmall"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/register_title"
+        app:layout_constraintVertical_bias="0.355"
+        tools:layout_editor_absoluteX="0dp" />
 
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_selector"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
+        android:padding="@dimen/edittext_padding"
+        android:singleLine="true"
+        android:textAppearance="?android:textAppearanceSmall"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toBottomOf="@id/name" />
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_edittext_states"
-            android:hint="@string/hint_name"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:inputType="textCapWords"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.355"
-            tools:layout_editor_absoluteX="0dp"
-          />
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_selector"
+        android:hint="Phone"
+        android:inputType="textEmailAddress"
+        android:padding="@dimen/edittext_padding"
+        android:singleLine="true"
+        android:textAppearance="?android:textAppearanceSmall"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toBottomOf="@id/email" />
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:hint="@string/hint_email"
-            android:inputType="textEmailAddress"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:background="@drawable/rounded_edittext_states"
-            app:layout_constraintTop_toBottomOf="@id/name"
-            app:layout_constraintStart_toStartOf="@id/name"/>
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_selector"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        android:padding="@dimen/edittext_padding"
+        android:textAppearance="?android:textAppearanceSmall"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toBottomOf="@id/phone" />
 
-        <EditText
-            android:id="@+id/phone"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edittext_states"
-            android:hint="Phone"
-            android:inputType="textEmailAddress"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:padding="10dp"
-            android:singleLine="true"
-            app:layout_constraintTop_toBottomOf="@id/email"
-            app:layout_constraintStart_toStartOf="@id/name"
-            />
+    <EditText
+        android:id="@+id/re_password"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/edittext_selector"
+        android:hint="@string/re_hint_password"
+        android:inputType="textPassword"
+        android:padding="@dimen/edittext_padding"
+        android:textAppearance="?android:textAppearanceSmall"
+        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintTop_toBottomOf="@id/password" />
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/rounded_edittext_states"
-            android:hint="@string/hint_password"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:singleLine="true"
-            android:textAppearance="?android:textAppearanceSmall"
-            app:layout_constraintTop_toBottomOf="@id/phone"
-            app:layout_constraintStart_toStartOf="@id/name"/>
+    <!-- Login Button -->
 
-        <!-- Login Button -->
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fortydp"
+        android:background="@drawable/button"
+        android:text="@string/btn_register"
+        android:layout_marginStart="@dimen/tendp"
+        android:layout_marginEnd="@dimen/tendp"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/re_password" />
 
-        <Button
-            android:id="@+id/btnRegister"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button"
-            android:text="@string/btn_register"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:textColor="@color/colorWhite"
-            app:layout_constraintTop_toBottomOf="@id/password"
-            app:layout_constraintStart_toStartOf="@id/name"/>
+    <!-- Link to Login Screen -->
 
-        <!-- Link to Login Screen -->
-
-        <Button
-            android:id="@+id/btnLinkToLoginScreen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@null"
-            android:text="@string/btn_link_to_login"
-            android:textAllCaps="false"
-            android:textColor="@color/colorPrimary"
-            android:textAppearance="?android:textAppearanceSmall"
-            app:layout_constraintTop_toBottomOf="@id/btnRegister"
-            app:layout_constraintStart_toEndOf="@id/btnRegister"/>
-    </android.support.constraint.ConstraintLayout>
-
+    <TextView
+        android:id="@+id/btnLinkToLoginScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tendp"
+        android:text="@string/btn_link_to_login"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnRegister"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnRegister" />
 </android.support.constraint.ConstraintLayout>

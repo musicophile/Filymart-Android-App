@@ -1,42 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
     tools:context=".fragment.ShoppingFragment">
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="10dp"
-        android:layout_marginBottom="2dp"
-        android:weightSum="3">
+        android:weightSum="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
 
         <EditText
             android:id="@+id/searchBar"
-            android:layout_weight="2"
-            android:layout_width="match_parent"
+            app:layout_constraintHorizontal_weight="8"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:background="@drawable/rounded_edittext_states"
             android:hint="Search By Name"
             android:inputType="text"
             android:singleLine="true"
+            android:textAppearance="?android:textAppearanceSmall"
+            android:cursorVisible="true"
             android:textColor="@color/input_login"
-            android:textColorHint="@color/input_login" />
+            android:textColorHint="@color/input_login"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnSearch"/>
 
-        <Button
+        <ImageButton
             android:id="@+id/btnSearch"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Search"
-            android:background="@drawable/small_button"
+            android:padding="10dp"
+            android:layout_marginLeft="@dimen/tendp"
+            app:layout_constraintHorizontal_weight="1"
+            android:src="@drawable/ic_search_black_24dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             />
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
 
 
@@ -45,20 +57,29 @@
         android:layout_below="@id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="@dimen/tendp"
+        android:layout_marginRight="@dimen/tendp"
         android:textColor="@color/input_register_bg"
-        android:layout_marginBottom="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text1"
         >
 
     </Spinner>
 
-    <RelativeLayout
+
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/shop"
         android:layout_below="@id/spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spinner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
 
         <include layout="@layout/content_main" />
 
-    </RelativeLayout>
+    </android.support.constraint.ConstraintLayout>
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

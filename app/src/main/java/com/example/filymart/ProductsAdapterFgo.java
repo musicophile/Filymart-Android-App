@@ -60,7 +60,7 @@ public class ProductsAdapterFgo extends RecyclerView.Adapter<ProductsAdapterFgo.
         holder.thumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(v.getContext(), ProductDetailsActivity.class);
+                Intent intent=new Intent(v.getContext(), ProductDetailsHomeActivity.class);
                 intent.putExtra("id", productList.get(position).getId());
                 // intent.putExtra("id", product.getId());
                 mContext. startActivity(intent);

@@ -1,8 +1,13 @@
 package com.example.filymart.activity;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
+import android.provider.ContactsContract;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -26,24 +31,22 @@ import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOption
 
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.example.filymart.BeveragesDrinksActivity;
+import com.example.filymart.CheckAddressActivity;
 import com.example.filymart.EggsMeatFishActivity;
 import com.example.filymart.FoodGrainOilActivity;
 import com.example.filymart.FruitsVergetablesActivity;
 import com.example.filymart.LoginActivity;
-import com.example.filymart.NewAddressActivity;
 import com.example.filymart.OtherProductsActivity;
 import com.example.filymart.R;
+import com.example.filymart.RegisterActivity;
 import com.example.filymart.fragment.HomeFragment;
 import com.example.filymart.fragment.BusketsFragment;
-import com.example.filymart.fragment.NotificationsFragment;
+import com.example.filymart.fragment.ContactUsFragment;
 import com.example.filymart.fragment.ShoppingFragment;
 import com.example.filymart.fragment.SettingsFragment;
 import com.example.filymart.helper.SQLiteHandler;
 import com.example.filymart.helper.SessionManager;
-import com.example.filymart.other.CircleTransform;
 
 import java.util.HashMap;
 
@@ -124,8 +127,29 @@ public class HomeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
+
+                PackageManager pm=getPackageManager();
+                try {
+
+                    Intent waIntent = new Intent(Intent.ACTION_SEND);
+                    waIntent.setType("text/plain");
+                    String text = "YOUR TEXT HERE";
+
+                    PackageInfo info=pm.getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
+                    //Check if package exists or not. If not then code
+                    //in catch block will be called
+                    waIntent.setPackage("com.whatsapp");
+
+                    waIntent.putExtra(Intent.EXTRA_TEXT, text);
+                    startActivity(Intent.createChooser(waIntent, "Share with"));
+
+                } catch (PackageManager.NameNotFoundException e) {
+                    Toast.makeText(HomeActivity.this, "WhatsApp not Installed", Toast.LENGTH_SHORT)
+                            .show();
+                }
+
+
             }
         });
         db = new SQLiteHandler(getApplicationContext());
@@ -140,11 +164,15 @@ public class HomeActivity extends AppCompatActivity {
         // initializing navigation menu
         setUpNavigationView();
 
-        if(getIntent().getIntExtra("fragmentNumber",0)==1){
+        if(getIntent().getIntExtra("fragment",0)== 4){
+            //set the desired fragment as current fragment to fragment pager
+            navItemIndex = 0;
+            loadHomeFragment();
+        }else if(getIntent().getIntExtra("fragmentNumber",0)==1){
             //set the desired fragment as current fragment to fragment pager
             navItemIndex = 1;
             loadHomeFragment();
-        }else if (getIntent().getIntExtra("fragment",0)==1){
+        }else if (getIntent().getIntExtra("value",0)==3){
             navItemIndex = 1;
             loadHomeFragment();
         }else if (getIntent().getIntExtra("fragment",0)== 2){
@@ -193,14 +221,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-        // Loading profile image
-     /*   Glide.with(this).asBitmap()
-                .load(urlProfileImg)
-                //.transition(withCrossFade())
-                .thumbnail(0.5f)
-               // .bitmapTransform(new CircleTransform(this))
-               // .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(imgProfile);*/
+
 
         // showing dot next to notifications label
         navigationView.getMenu().getItem(3).setActionView(R.layout.menu_dot);
@@ -277,7 +298,7 @@ public class HomeActivity extends AppCompatActivity {
                 return moviesFragment;
             case 3:
                 // notifications fragment
-                NotificationsFragment notificationsFragment = new NotificationsFragment();
+                ContactUsFragment notificationsFragment = new ContactUsFragment();
                 return notificationsFragment;
 
             case 4:
@@ -443,8 +464,8 @@ public class HomeActivity extends AppCompatActivity {
 
         }
         if (id == R.id.action_register) {
-            Toast.makeText(getApplicationContext(), "Register user!", Toast.LENGTH_LONG).show();
-            return true;
+            Intent intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
         }
 
         // user is in notifications fragment
@@ -471,7 +492,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void proceed(View view) {
-        Intent intent = new Intent(this, NewAddressActivity.class);
+        Intent intent = new Intent(this, CheckAddressActivity.class);
         startActivity(intent);
     }
     private void logoutUser() {

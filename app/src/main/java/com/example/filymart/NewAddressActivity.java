@@ -1,8 +1,11 @@
 package com.example.filymart;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -47,6 +50,7 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         GoogleMap.OnMarkerDragListener,
+        GoogleMap.OnMapClickListener,
         GoogleMap.OnMapLongClickListener,
         View.OnClickListener {
 
@@ -55,6 +59,7 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
     //To store longitude and latitude from map
     private double longitude;
     private double latitude;
+    private String name;
     private Marker m;
 
     //Google ApiClient
@@ -111,9 +116,7 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
         firstName = findViewById(R.id.first_name);
         secondName = findViewById(R.id.second_name);
         phoneNumber = findViewById(R.id.phonenumber);
-        appartmentName = findViewById(R.id.appartment_name);
         addressName = findViewById(R.id.address_name);
-        streetDetails = findViewById(R.id.street);
         location = findViewById(R.id.location);
         cityName = findViewById(R.id.city_name);
         createBtn = findViewById(R.id.create);
@@ -128,9 +131,24 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
         createBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new PostAddressInfo().execute();
+
+                if (isNetworkAvailable()){
+                    new PostAddressInfo().execute();
+
+                }else{
+                    Toast.makeText(getApplicationContext(),
+                            "Check Your Network Connection", Toast.LENGTH_LONG)
+                            .show();
+                }
             }
         });
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     /**
@@ -318,9 +336,36 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
     }
 
     public void addressBack(View view) {
-        Intent intent1 = new Intent(getApplicationContext(), HomeActivity.class);
-        intent1.putExtra("fragment",2);
+        Intent intent1 = new Intent(getApplicationContext(), CheckAddressActivity.class);
+      //  intent1.putExtra("fragment",2);
         startActivity(intent1);
+    }
+
+    @Override
+    public void onMapClick(LatLng latLng) {
+        mMap.clear();
+
+        //Adding a new marker to the current pressed position we are also making the draggable true
+        mMap.addMarker(new MarkerOptions()
+                .position(latLng)
+                .draggable(true));
+        //Moving the camera
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+
+        //Animating the camera
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(18));
+        mMap.setMapType(mMap.MAP_TYPE_SATELLITE);
+
+        latitude = latLng.latitude;
+        longitude = latLng.longitude;
+
+        String msg = latitude + ", "+longitude;
+        String lat= Double.toString(latitude);
+        String lng= Double.toString(longitude);
+        mlatitude.setText (lat);
+        mlongitude.setText(lng);
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+
     }
 
     class PostAddressInfo extends AsyncTask<String, String, String> {
@@ -346,21 +391,14 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
             HashMap<String, String> users = db.getUserDetails();
 
 
-            //String email = user.get("email");
-
-            // Displaying the user details on the screen
-            // txtName.setText(name);
-            // txtEmail.setText(email);
 
             String adfirstname = firstName.getText().toString().trim();
             String adsecondname = secondName.getText().toString().trim();
             String adphone = phoneNumber.getText().toString().trim();
             String adadrress = addressName.getText().toString().trim();
-            String adstreet = streetDetails.getText().toString().trim();
             String adlocation = location.getText().toString().trim();
             String adlatitude = mlatitude.getText().toString().trim();
             String adlongitude = mlongitude.getText().toString().trim();
-            String adappname = appartmentName.getText().toString().trim();
             String addcityname = cityName.getText().toString().trim();
             String user_id = users.get("uid");
 
@@ -373,12 +411,10 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
             params.add(new BasicNameValuePair("last_name", adsecondname));
             params.add(new BasicNameValuePair("phone", adphone));
             params.add(new BasicNameValuePair("address_name", adadrress));
-            params.add(new BasicNameValuePair("street_details", adstreet));
             params.add(new BasicNameValuePair("location", adlocation));
             params.add(new BasicNameValuePair("city_name", addcityname));
             params.add(new BasicNameValuePair("lat", adlatitude));
             params.add(new BasicNameValuePair("lng", adlongitude));
-            params.add(new BasicNameValuePair("apartment_name", adappname));
             params.add(new BasicNameValuePair("user_id", user_id));
 
             // getting JSON Object
@@ -395,36 +431,11 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
                 //  int success = 1;
 
                 if (success == 1) {
-                    // successfully created product
 
 
-                    // Now store the user in SQLite
-                   /* JSONObject user = json.getJSONObject("user");
-                    String uid = user.getString("id");
-                    String name = user.getString("name");
-                    String emaill = user.getString("email");
-                    String created_at = user
-                            .getString("created_at");
-
-                    // Inserting row in users table
-                    db.addUser(name, emaill, uid, created_at);
-
-/*/
-                    final String errorMsg = json.getString("msg");
-                    // successfully created product
-                    // successfully created product
-                    runOnUiThread(new Runnable() {
-                        public void run() {
-                            // String errorMsg = json.getString("error_msg");
-                            Toast.makeText(getApplicationContext(),
-                                    errorMsg, Toast.LENGTH_LONG)
-                                    .show();
-                        }
-
-                    });
                     Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                    intent.putExtra("addressId", json.getString("addressid"));
                     startActivity(intent);
-                    // closing this screen
                        finish();
                 }
                 if (success == 2) {

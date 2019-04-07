@@ -8,8 +8,8 @@
     <!-- Navigation Drawer menu labels -->
     <string name="nav_home">Home</string>
     <string name="nav_photos">Shopping</string>
-    <string name="nav_movies">Busket</string>
-    <string name="nav_notifications">Notifications</string>
+    <string name="nav_movies">My Busket</string>
+    <string name="nav_notifications">Contact Us</string>
     <string name="nav_settings">Settings</string>
     <string name="nav_about_us">About Us</string>
 
@@ -17,8 +17,8 @@
     <string-array name="nav_item_activity_titles">
         <item>Home</item>
         <item>Shopping</item>
-        <item>Busket</item>
-        <item>Notifications</item>
+        <item>My Busket</item>
+        <item>Contact Us</item>
         <item>Settings</item>
     </string-array>
 
@@ -42,7 +42,7 @@
     <string name="title_activity_maps">Map</string>
 
     <!--login strings-->
-    <string name="hint_email">Email</string>
+    <string name="hint_email">youremail@example.com</string>
     <string name="hint_password">Password</string>
     <string name="hint_name">Fullname</string>
     <string name="btn_login">LOGIN</string>
@@ -58,7 +58,7 @@
     <string name="sign_here_title">Sign Here</string>
     <string name="hint_cancel">Cancel</string>
     <string name="hint_clear">Clear</string>
-    <string name="hint_save">Save</string>
+    <string name="hint_save">Proceed</string>
     <string name="bill_details_title">Bill Details</string>
     <string name="date">Date</string>
     <string name="date_data">16 Mar 2017</string>
@@ -77,12 +77,94 @@
 
     <string name="categories_available_in_store">Categories Available in Store</string>
     <string name="price_200tsh">Price: 200Tsh</string>
-    <string name="long_text">Your Warmly Welcome to Filymart Filymart is the best online supermarket for all your daily needs. For all your grocery needs plus wide variety and range and brands you can get all in filymart. Shop now easly Welcome again!</string>
+    <string name="privacy">Terms and Conditions
+Filbert Eusebius he is owner of the brand Filymart and the website filymart.com . Filymart respects your privacy.
+        This Privacy Policy provides succinctly the manner your data is collected and used by Filymart on the Site. As
+        a visitor to the Site/ Customer you are advised to please read the Privacy Policy carefully. By accessing the
+        services provided by the Site you agree to the collection and use of your data by Filymart in the manner provided
+        in this Privacy Policy. Services overview As part of the registration process on the Site, Filymart may collect
+        the following personally identifiable information about you: Name including first and last name, alternate email
+        address, mobile phone number and contact details, Postal code, Demographic profile (like your age, gender, occupation,
+        education, address etc.) and information about the pages on the site you visit/access, the links you click on the site.
+Eligibility
+Services of the Site would be available to only select geographies in Tanzania. Persons who do not obey all Tanzanian Act etc.
+        are not eligible to use the Site. If you are a minor i.e. under the age of 18 years but at least 13 years of age you
+        may use the Site only under the supervision of a parent or legal guardian who agrees to be bound by these Terms of Use.
+        If your age is below 18 years your parents or legal guardians can transact on behalf of you if they are registered users.
+That in the event that a non-delivery occurs on account of a mistake by you (i.e. wrong name or address or any other wrong
+        information) any extra cost incurred by Filymart for redelivery shall be claimed from you.
+You may not use the Site for any of the following purposes:
+Disseminating any unlawful, harassing, libellous, abusive, threatening, harmful, vulgar, obscene, or otherwise objectionable
+        material. Transmitting material that encourages conduct that constitutes a criminal offence or results in civil
+        liability or otherwise breaches any relevant laws, regulations or code of practice. Gaining unauthorized access to
+        other computer systems. Interfering with any other person\'s use or enjoyment of the Site. Breaching any applicable
 
+        laws; Interfering or disrupting networks or web sites connected to the Site.</string>
+    <string name="about">
+About Us
+Hello. Welcome to Filymart. So glad you are here.
+Filymart established February 2019 based in Arusha Tanzania, Filbert Eusabius he is the founder and Owner of Filymart.
+        Filymart focus to become the largest online mart for grocery and food products store East Africa and all over Africa.
+
+What is Filymart?
+Filymart is newest online food and grocery store. With over 100 products and many brands in our catalogue you will find
+        everything you are looking for. Right from fresh Fruits and Vegetables, Rice and Seasonings to Packaged products,
+        Beverages, Personal care products, Meats – we have it all. Choose from a wide range of options in every category,
+        exclusively handpicked to help you find the best quality available at the normal prices. Select a time slot for delivery
+        and your order will be delivered right to your doorstep, anywhere in Arusha and Moshi but soon we will open our
+        branches in Dar es salaam Tanzania and Nairobi Kenya, You can pay by cash we call it on-delivery but we hope
+        before march we will enable online payment through credit card and mobile payment methods. We guarantee on time delivery,
+        and the best quality! Happy Shopping
+Why should I use filymart.com?
+Filymart allows you to walk away from the drudgery of grocery shopping and welcome an easy relaxed way of browsing and
+        shopping for groceries. Discover new products and shop for all your food and grocery needs from the comfort of your
+        home or office. No more getting stuck in traffic jams, paying for parking, standing in long queues and carrying heavy
+        bags – get everything you need, when you need, right at your doorstep. Food shopping online is now easy all you want
+        is now available online at filymart.com ,The newest best online food and grocery store.
+You own it, Just click it&#8320;
+</string>
+    <string name="short_text">Your Warmly Welcome to Filymart</string>
+    <string name="long_text"> Filymart is the best online supermarket for all your daily needs.
+        For all your grocery needs plus wide variety and range and brands you can get all in filymart.
+        Shop now easly Welcome again!</string>
+    <string name="text_category">Your Warmly Welcome to Filymart Filymart is the best online supermarket for all your daily needs.</string>
     <string name="login">Login</string>
     <string name="hint_email_example">youremail@example.com</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="skip">Skip</string>
     <string name="login_page">Login Page</string>
 
+    <string name="consumer_key">1l0jlUv/Zv+2nq5ybOECZpnYKAMqHgN8</string>
+    <string name="consumer_secret">heUWN5Dv6EcGs/E1E54BsHkvjas=</string>
+
+
+
+    <string name="app_author_email">info@kevinomyonga.com</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="description">Description</string>
+    <string name="amount">Amount</string>
+    <string name="proceed">Proceed to Portal</string>
+    <string name="fname_required">First Name Required</string>
+    <string name="lname_required">Last Name Required</string>
+    <string name="email_required">Email Address Required</string>
+    <string name="phone_required">Phone Number Required</string>
+    <string name="desc_required">Description Required</string>
+    <string name="amount_required">Amount Required</string>
+    <string name="about_the_project">This project is intended to show an example of how you can utilize the PesapalDroid library in your project.\n\n
+    Visit my github repo to find out how you can integrate it.\n\n
+    Enjoy.</string>
+    <string name="github">Github</string>
+    <string name="send_feedback">Send Feedback</string>
+    <string name="donate">Buy Developer a Coffee</string>
+    <string name="names">Names</string>
+    <string name="contacts">Contacts</string>
+    <string name="transaction_details">Transaction Details</string>
+    <string name="amount_warning">For purposes of this demo, use amounts between 1 and 1000</string>
+
+    <string name="error_message">Error Message</string>
+    <string name="retry">Retry</string>
+    <string name="loading">Loading</string>
 </resources>

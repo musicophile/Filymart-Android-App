@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".app.AppController"
@@ -19,7 +20,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchedActivity"></activity>
+        <activity android:name=".PesapalActivity"></activity>
+        <activity android:name=".PortalActivity"></activity>
+        <activity android:name=".ProductDetailsHomeActivity" />
+        <activity android:name=".InfoActivity" />
+        <activity android:name=".CheckAddressActivity" />
+        <activity android:name=".SearchedActivity" />
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".OtherProductsActivity" />
         <activity android:name=".BeveragesDrinksActivity" />

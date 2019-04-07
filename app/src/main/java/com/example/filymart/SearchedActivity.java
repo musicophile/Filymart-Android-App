@@ -1,9 +1,12 @@
 package com.example.filymart;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -81,10 +84,20 @@ public class SearchedActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
 
 
-        loadProducts();
-
+        if (isNetworkAvailable()){
+            loadProducts();
+        }else{
+            Toast.makeText(getApplicationContext(),
+                    "Check Your Network Connection", Toast.LENGTH_LONG)
+                    .show();
+        }
     }
-
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
 
     private void loadProducts() {
 
@@ -124,7 +137,7 @@ public class SearchedActivity extends AppCompatActivity {
 
                                     //adding the product to product list
                                     productList.add(new Product(
-                                            product.getInt("id"),
+                                            product.getString("id"),
                                             product.getString("product_name"),
                                             product.getString("category"),
                                             product.getInt("price"),

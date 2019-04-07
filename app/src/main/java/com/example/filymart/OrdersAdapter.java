@@ -1,17 +1,24 @@
 package com.example.filymart;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.filymart.activity.HomeActivity;
@@ -47,7 +54,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
         public ImageView thumbnail;
         private Button updateBtn;
         private EditText Qntyy;
-        private Button deleteBtn;
+        private ImageButton deleteBtn;
 
 
         public MyViewHolder(View view) {
@@ -58,6 +65,10 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
             deleteBtn = view.findViewById(R.id.delete);
             updateBtn = view.findViewById(R.id.update);
             Qntyy = view.findViewById(R.id.qnty);
+
+
+
+
 
 
         }
@@ -88,27 +99,61 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
     public void onBindViewHolder(final MyViewHolder holder, final int position) {
         final Orders orders = albumList.get(position);
         holder.title.setText(orders.getName());
-        holder.count.setText(orders.getNumOfSongs() + " Tsh");
+        holder.count.setText("Tsh." + orders.getNumOfSongs() );
+        holder.Qntyy.setText(orders.getQuantity());
+
 
         // loading album cover using Glide library
         Glide.with(mContext).load(orders.getThumbnail()).into(holder.thumbnail);
 
-        id = albumList.get(position).getName().toString();
-        Qntyty = holder.Qntyy.getText().toString().trim();
+        id = albumList.get(position).getId();
+
+        holder.Qntyy.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Qntyty =
+                        holder.Qntyy.getText().toString();
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
 
 
        holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new DeleteOrder().execute();
+
+
+                if (isNetworkAvailable()){
+                    new DeleteOrder().execute();
+                }else{
+                    Toast.makeText(mContext.getContext(),
+                            "Check Your Network Connection", Toast.LENGTH_LONG)
+                            .show();
+                }
             }
         });
 
         holder.updateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new UpdateOrder().execute();
+                if (isNetworkAvailable()){
+                    new UpdateOrder().execute();
+                }else{
+                    Toast.makeText(mContext.getContext(),
+                            "Check Your Network Connection", Toast.LENGTH_LONG)
+                            .show();
+                }
+
             }
         });
 
@@ -118,6 +163,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
     public int getItemCount() {
         return albumList.size();
     }
+
 
     class UpdateOrder extends AsyncTask<String, String, String> {
 
@@ -147,6 +193,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("product_id", id));
             params.add(new BasicNameValuePair("user_id", user_id));
+            params.add(new BasicNameValuePair("quantity", Qntyty));
 
             // getting JSON Object
             // Note that create product url accepts POST method
@@ -167,6 +214,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
                     Intent intent1 = new Intent(mContext.getContext(), HomeActivity.class);
                     intent1.putExtra("fragment",2);
                     mContext.startActivity(intent1);
+                    finalize();
 
                 }
                 if (success == 2) {
@@ -175,6 +223,8 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
+            } catch (Throwable throwable) {
+                throwable.printStackTrace();
             }
 
 
@@ -187,6 +237,7 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
         protected void onPostExecute(String file_url) {
             // dismiss the dialog once done
             pDialog.dismiss();
+
         }
 
     }
@@ -217,7 +268,6 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
             params.add(new BasicNameValuePair("product_id", id));
-            params.add(new BasicNameValuePair("quantity", Qntyty));
             params.add(new BasicNameValuePair("user_id", user_id));
 
             // getting JSON Object
@@ -256,6 +306,13 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
             pDialog.dismiss();
         }
 
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) mContext.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 

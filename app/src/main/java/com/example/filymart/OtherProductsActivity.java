@@ -1,18 +1,25 @@
 package com.example.filymart;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -20,7 +27,10 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.filymart.activity.HomeActivity;
+import com.example.filymart.helper.SQLiteHandler;
+import com.example.filymart.helper.SessionManager;
 
+import org.apache.http.NameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,6 +44,11 @@ public class OtherProductsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProductsAdapterOp adapter;
     private List<Product> productList;
+    private SessionManager session;
+    private SQLiteHandler db;
+    JSONParser jsonParser = new JSONParser();
+
+    private ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +78,24 @@ public class OtherProductsActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         productList = new ArrayList<>();
 
+        pDialog = new ProgressDialog(getApplicationContext());
+        pDialog.setCancelable(false);;
+        db = new SQLiteHandler(getApplicationContext());
+        session = new SessionManager(getApplicationContext());
+        if (isNetworkAvailable()){
+            new OtherProducts().execute();
+        }else{
+            Toast.makeText(getApplicationContext(),
+                    "Check Your Network Connection", Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
 
-        loadProducts();
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     private void loadProducts() {
@@ -92,7 +123,7 @@ public class OtherProductsActivity extends AppCompatActivity {
 
                                 //adding the product to product list
                                 productList.add(new Product(
-                                        product.getInt("id"),
+                                        product.getString("id"),
                                         product.getString("product_name"),
                                         product.getString("category"),
                                         product.getInt("price"),
@@ -119,6 +150,87 @@ public class OtherProductsActivity extends AppCompatActivity {
         Volley.newRequestQueue(getApplicationContext()).add(stringRequest);
     }
 
+
+    class OtherProducts extends AsyncTask<String, String, String> {
+
+        /**
+         * Before starting background thread Show Progress Dialog
+         * */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(OtherProductsActivity.this);
+            pDialog.setMessage("Products Loading..");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(false);
+            pDialog.show();
+        }
+
+        /**
+         * Creating product
+         * */
+        protected String doInBackground(String... args) {
+
+
+
+            // Building Parameters
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+
+            // getting JSON Object
+            // Note that create product url accepts POST method
+            final String URL_PRDUCTS = "http://www.filymart.com/brandedsnacksfood";
+            JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
+                    "GET", params);
+
+            // check log cat fro response
+
+
+            Log.d("Create Response", json.toString());
+
+            try {
+
+                JSONObject o = json.getJSONObject("order");
+                JSONArray array = o.getJSONArray("order");
+
+                for (int i = 0; i < array.length(); i++) {
+
+                    //getting product object from json array
+                    JSONObject product = array.getJSONObject(i);
+
+                    productList.add(new Product(
+                            product.getString("id"),
+                            product.getString("product_name"),
+                            product.getString("category"),
+                            product.getInt("price"),
+                            product.getString("image")
+                    ));
+
+
+                }
+                // int success = json.getInt("success");
+                //  JSONObject user = json.getJSONObject("user");
+
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog once done
+            pDialog.dismiss();
+            adapter = new ProductsAdapterOp(OtherProductsActivity.this, productList);
+            recyclerView.setAdapter(adapter);
+        }
+
+    }
     public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
 
         private int spanCount;

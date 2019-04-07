@@ -1,7 +1,10 @@
 package com.example.filymart;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -122,7 +125,15 @@ public class LoginActivity extends AppCompatActivity {
                 // Check for empty data in the form
                 if (!email.isEmpty() && !password.isEmpty()) {
                     // login user
-                    new CreateNewProduct().execute();
+                    ;
+
+                    if (isNetworkAvailable()){
+                        new CreateNewProduct().execute();
+                    }else{
+                        Toast.makeText(getApplicationContext(),
+                                "Check Your Network Connection", Toast.LENGTH_LONG)
+                                .show();
+                    }
                 } else {
                     // Prompt user to enter credentials
                     Toast.makeText(getApplicationContext(),
@@ -145,6 +156,14 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
 
     class CreateNewProduct extends AsyncTask<String, String, String> {
 
@@ -205,14 +224,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             // Inserting row in users table
                             db.addUser(name, emaill, uid, created_at);
-                            //HashMap<String, String> user = db.getUserDetails();
 
-                            //String name = user.get("name");
-                            //String email = user.get("email");
-
-                            // Displaying the user details on the screen
-                           // txtName.setText(name);
-                           // txtEmail.setText(email);
 
                             Intent i = new Intent(getApplicationContext(), HomeActivity.class);
                             startActivity(i);
@@ -229,6 +241,21 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(),
                                      errorMsg, Toast.LENGTH_LONG)
                                     .show();
+                                }
+
+                            });
+
+                        }
+
+                        if (success == 3) {
+                            final String errorMsg = json.getString("error_msg");
+                            // successfully created product
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+                                    // String errorMsg = json.getString("error_msg");
+                                    Toast.makeText(getApplicationContext(),
+                                            errorMsg, Toast.LENGTH_LONG)
+                                            .show();
                                 }
 
                             });
@@ -252,100 +279,5 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * function to verify login details in mysql db
-     * */
-    /*private void checkLogin(final String email, final String password) {
-        // Tag used to cancel the request
-        String tag_string_req = "req_login";
 
-        pDialog.setMessage("Logging in ...");
-        showDialog();
-
-        StringRequest strReq = new StringRequest(Request.Method.GET,
-                AppConfig.URL_LOGIN, new Response.Listener<String>() {
-
-            @Override
-            public void onResponse(String response) {
-                Log.d(TAG, "Login Response: " + response.toString());
-                hideDialog();
-
-                try {
-
-                    JSONObject jObj = new JSONObject(response);
-
-                    boolean error = jObj.getBoolean("error");
-
-                    // Check for error node in json
-                    if (!error) {
-                        // user successfully logged in
-                        // Create login session
-                      //  session.setLogin(true);
-
-                        // Now store the user in SQLite
-                        String uid = jObj.getString("id");
-
-                        JSONObject user = jObj.getJSONObject("user");
-                        String name = user.getString("name");
-                        String email = user.getString("email");
-                        String created_at = user
-                                .getString("created_at");
-
-                        // Inserting row in users table
-                        db.addUser(name, email, uid, created_at);
-
-                        // Launch main activity
-                        Intent intent = new Intent(LoginActivity.this,
-                                HomeActivity.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        // Error in login. Get the error message
-                        String errorMsg = jObj.getString("error_msg");
-                        Toast.makeText(getApplicationContext(),
-                                errorMsg, Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    // JSON error
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Login Error: " + error.getMessage());
-                Toast.makeText(getApplicationContext(),
-                        "Login Error: "+error.getMessage(), Toast.LENGTH_LONG).show();
-                hideDialog();
-            }
-        }) {
-
-            @Override
-            protected Map<String, String> getParams() {
-                // Posting parameters to login url
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("email", email);
-                params.put("password", password);
-
-                return params;
-            }
-
-        };
-
-        // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
-    }
-
-    private void showDialog() {
-        if (!pDialog.isShowing())
-            pDialog.show();
-    }
-
-    private void hideDialog() {
-        if (pDialog.isShowing())
-            pDialog.dismiss();
-    }*/
 }

@@ -1,15 +1,25 @@
 package com.example.filymart;
 
+import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 
+import com.example.filymart.helper.SQLiteHandler;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.common.ConnectionResult;
@@ -26,6 +36,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.net.Uri;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -38,11 +50,15 @@ import com.google.android.gms.maps.model.PolylineOptions;
 
 import com.google.maps.android.SphericalUtil;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -53,9 +69,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         GoogleMap.OnMarkerDragListener,
         GoogleMap.OnMapLongClickListener,
         View.OnClickListener,
-        LocationListener {
+        LocationListener,
+        AdapterView.OnItemSelectedListener {
 
     private GoogleMap mMap;
+    String ordersum, deliveryC, Maintotal;
+
+    private double tolongitude;
+    private double tolatitude;
 
     //To store longitude and latitude from map
     private double longitude;
@@ -73,11 +94,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleApiClient googleApiClient;
 
     //Our buttons
-    private Button buttonSetTo;
-    private Button buttonSetFrom;
-    private Button buttonCalcDistance;
-    private Button proceedPayment;
+    private Button buttonCalcDistance, standardBtn, fastBtn;
+    private Button proceedPayment, changeAddress;
+    private TextView standardPrice, fastDeliveryTime, busketTotal, DeliveryTotal, Total;
+    private TextView fastPrice, AddressIfo, DistanceInfo;
+    private SQLiteHandler db;
+    JSONParser jsonParser = new JSONParser();
+    String deliverytime, addressInfomation, distanceInformation;
+    private ProgressDialog pDialog;
+    String[] bankNames={"07:30am - 11:30am","02:00pm-07:00pm"};
 
+    private RecyclerView recyclerView;
+    private OrderSummaryAdapter adapter;
+    private List<OrderSummary> orderSummaryList;
+    private double distanceKm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +127,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
         }
+        Spinner spin =  findViewById(R.id.simpleSpinner);
+        spin.setOnItemSelectedListener(this);
+
+        //Creating the ArrayAdapter instance having the bank name list
+        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,bankNames);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//Setting the ArrayAdapter data on the Spinner
+        spin.setAdapter(aa);
+
+        recyclerView = findViewById(R.id.recyclerViewOrderSummary);
+        LinearLayoutManager linearVertical = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(linearVertical);
+
+        orderSummaryList = new ArrayList<>();
+        pDialog = new ProgressDialog(getApplicationContext());
+        pDialog.setCancelable(false);
+        db = new SQLiteHandler(getApplicationContext());
+
+
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -112,31 +161,71 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .addApi(LocationServices.API)
                 .addApi(AppIndex.API).build();
 
-        double fro = -3.3727086922955514;
-        double frot = 36.69473072275389;
 
-
-        fromLatitude = fro;
-        fromLongitude = frot;
-
-        double too = -3.397213442332311;
-        double tot = 36.70116802438963;
-        toLatitude = too;
-        toLongitude = tot;
-
-
-
-        buttonSetTo = (Button) findViewById(R.id.buttonSetTo);
-        buttonSetFrom = (Button) findViewById(R.id.buttonSetFrom);
-        buttonCalcDistance = (Button) findViewById(R.id.buttonCalcDistance);
+        buttonCalcDistance =  findViewById(R.id.buttonCalcDistance);
         proceedPayment = findViewById(R.id.proceed_payment);
+        standardPrice = findViewById(R.id.tvSPrice);
+        fastPrice = findViewById(R.id.tvFastPrice);
+        standardBtn = findViewById(R.id.standardBtn);
+        fastBtn = findViewById(R.id.fastBtn);
+        fastDeliveryTime = findViewById(R.id.tvFastDeliveryTime);
+        busketTotal = findViewById(R.id.totalBusket);
+        DeliveryTotal = findViewById(R.id.tvDeliveryCost);
+        Total = findViewById(R.id.tvTotal);
+        changeAddress = findViewById(R.id.btnChangeAddress);
+        AddressIfo = findViewById(R.id.addressInfo);
+        DistanceInfo = findViewById(R.id.mapInfo);
 
-        buttonSetTo.setOnClickListener(this);
-        buttonSetFrom.setOnClickListener(this);
+
         buttonCalcDistance.setOnClickListener(this);
         proceedPayment.setOnClickListener(this);
 
-        getDirection();
+        changeAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MapsActivity.this, CheckAddressActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        standardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (isNetworkAvailable()){
+                    new StandardDelivery().execute();
+                }else{
+                    Toast.makeText(getApplicationContext(),
+                            "Check Your Network Connection", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+        });
+
+        fastBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNetworkAvailable()){
+                    new FastDelivery().execute();
+                }else{
+                    Toast.makeText(getApplicationContext(),
+                            "Check Your Network Connection", Toast.LENGTH_LONG)
+                            .show();
+                }
+
+            }
+        });
+
+
+        if (isNetworkAvailable()){
+            new Ordersum().execute();
+        }else{
+            Toast.makeText(getApplicationContext(),
+                    "Check Your Network Connection", Toast.LENGTH_LONG)
+                    .show();
+        }
+
     }
 
 
@@ -246,11 +335,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void getDirection(){
+
+        double fro = -3.3727086922955514;
+        double frot = 36.69473072275389;
+
+
+        fromLatitude = fro;
+        fromLongitude = frot;
+
+        double too = tolatitude;
+        double tot = tolongitude;
+        toLatitude = too;
+        toLongitude = tot;
         //Getting the URL
         String url = makeURL(fromLatitude, fromLongitude, toLatitude, toLongitude);
 
         //Showing a dialog till we get the route
-        final ProgressDialog loading = ProgressDialog.show(this, "Getting Route", "Please wait...", false, false);
+        ProgressDialog loading = ProgressDialog.show(this, "Getting Route", "Please wait...", false, false);
 
         //Creating a string request
         StringRequest stringRequest = new StringRequest(url,
@@ -275,7 +376,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void deliveryBack(View view) {
-        Intent intent = new Intent(getApplicationContext(), NewAddressActivity.class);
+        Intent intent = new Intent(getApplicationContext(), CheckAddressActivity.class);
         startActivity(intent);
 
 
@@ -290,8 +391,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Calculating the distance in meters
         Double distance = SphericalUtil.computeDistanceBetween(from, to);
 
-        //Displaying the distance
-        Toast.makeText(this,String.valueOf(distance+" Meters"),Toast.LENGTH_SHORT).show();
         mMap.clear();
         //Adding a new marker to the current pressed position
         mMap.addMarker(new MarkerOptions()
@@ -308,8 +407,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         try {
             //Parsing json
             final JSONObject json = new JSONObject(result);
+
             JSONArray routeArray = json.getJSONArray("routes");
             JSONObject routes = routeArray.getJSONObject(0);
+            JSONArray legs = routes.getJSONArray("legs");
+            JSONObject steps = legs.getJSONObject(0);
+            JSONObject realdistance = steps.getJSONObject("distance");
+             distanceKm = Double.parseDouble(realdistance.getString("value"));
             JSONObject overviewPolylines = routes.getJSONObject("overview_polyline");
             String encodedString = overviewPolylines.getString("points");
             List<LatLng> list = decodePoly(encodedString);
@@ -325,6 +429,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         catch (JSONException e) {
 
         }
+
+
+        Double distanceKmm = distanceKm / 1000;
+        Double StandadP = distanceKmm * 600;
+        Double fastP = distanceKmm * 600 * 2;
+        standardPrice.setText(new DecimalFormat("##.##").format(StandadP));
+        fastPrice.setText(new DecimalFormat("##.##").format(fastP));
+        DistanceInfo.setText("Delivery cost is charged per 1Km is Tsh.600 and the distance from your address location to markert is "+distanceKmm+"Km");
+
     }
 
     private List<LatLng> decodePoly(String encoded) {
@@ -421,30 +534,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onClick(View v) {
-        if(v == buttonSetFrom){
-            double fro = -3.3727086922955514;
-            double frot = 36.69473072275389;
 
-
-            fromLatitude = fro;
-            fromLongitude = frot;
-            Toast.makeText(this,"From set",Toast.LENGTH_SHORT).show();
-        }
-
-        if(v == buttonSetTo){
-            double too = -3.397213442332311;
-            double tot = 36.70116802438963;
-            toLatitude = too;
-            toLongitude = tot;
-            Toast.makeText(this,"To set",Toast.LENGTH_SHORT).show();
-        }
 
         if(v == buttonCalcDistance){
             getDirection();
         }
 
         if(v == proceedPayment){
-            Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
+
+            Intent intent = new Intent(getApplicationContext(), SignatureActivity.class);
             startActivity(intent);
             finish();
         }
@@ -452,6 +550,285 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onLocationChanged(Location location) {
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        deliverytime = bankNames[position];
+        Toast.makeText(getApplicationContext(), deliverytime, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    class Ordersum extends AsyncTask<String, String, String> {
+
+        /**
+         * Before starting background thread Show Progress Dialog
+         * */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(MapsActivity.this);
+            pDialog.setMessage("Delivery Methods..");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
+        }
+
+        /**
+         * Creating product
+         * */
+        protected String doInBackground(String... args) {
+
+            HashMap<String, String> users = db.getUserDetails();
+
+            String user_id = users.get("uid");
+            Intent intent = getIntent();
+            String addressId = intent.getStringExtra("addressId");
+
+            // Building Parameters
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("user_id", user_id));
+            params.add(new BasicNameValuePair("address_id", addressId));
+
+            // getting JSON Object
+            // Note that create product url accepts POST method
+            final String URL_PRDUCTS = "http://www.filymart.com/showMobileorderSummary";
+            JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
+                    "GET", params);
+
+            // check log cat fro response
+
+
+            Log.d("Create Response", json.toString());
+
+            try {
+
+                ordersum = json.getString("ordersum");
+                deliveryC = json.getString("delivery");
+                Maintotal = json.getString("MainTotal");
+                tolatitude = json.getDouble("AddressLat");
+                tolongitude = json.getDouble("AddressLng");
+                addressInfomation = json.getString("AddressName");
+                distanceInformation = json.getString("AddressForDelivery");
+                JSONObject o = json.getJSONObject("order");
+                JSONArray array = o.getJSONArray("order");
+
+                for (int i = 0; i < array.length(); i++) {
+
+                    //getting product object from json array
+                    JSONObject product = array.getJSONObject(i);
+
+                    orderSummaryList.add(new OrderSummary(
+                            product.getString("id"),
+                            product.getString("product_name"),
+                            product.getString("total")
+                    ));
+
+
+                }
+
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog once done
+            pDialog.dismiss();
+            adapter = new OrderSummaryAdapter(MapsActivity.this, orderSummaryList);
+            recyclerView.setAdapter(adapter);
+            busketTotal.setText(ordersum);
+            DeliveryTotal.setText(deliveryC);
+            Total.setText(Maintotal);
+            AddressIfo.setText("Your delivery address is " +addressInfomation+" and its location is at "+distanceInformation+" as shown below on a map. If this is not your address you want your order to be delivered you may Change address by click the button below to Change Address");
+
+            if (Maintotal.equals("Null")){
+            proceedPayment.setVisibility(View.INVISIBLE);
+            }else{
+                proceedPayment.setVisibility(View.VISIBLE);
+            }
+            getDirection();
+        }
+
+    }
+
+    class StandardDelivery extends AsyncTask<String, String, String> {
+
+        /**
+         * Before starting background thread Show Progress Dialog
+         * */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(MapsActivity.this);
+            pDialog.setMessage("Standard Delivery Method..");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
+        }
+
+        /**
+         * Creating product
+         * */
+        protected String doInBackground(String... args) {
+
+            HashMap<String, String> users = db.getUserDetails();
+
+            String user_id = users.get("uid");
+
+
+            // Building Parameters
+            String delivery = "1";
+            String name = "Standard Delivery";
+            String cost = standardPrice.getText().toString();
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("user_id", user_id));
+            params.add(new BasicNameValuePair("delivery", delivery));
+            params.add(new BasicNameValuePair("name", name));
+            params.add(new BasicNameValuePair("deliverytime", deliverytime));
+            params.add(new BasicNameValuePair("cost", cost));
+
+            // getting JSON Object
+            // Note that create product url accepts POST method
+            final String URL_STANDARD = "http://www.filymart.com/deliverymobilestandard";
+            JSONObject json = jsonParser.makeHttpRequest(URL_STANDARD,
+                    "GET", params);
+
+            // check log cat fro response
+
+
+            Log.d("Create Response", json.toString());
+
+            try {
+
+
+                ordersum = json.getString("Ordersum");
+                deliveryC = json.getString("delivery");
+                Maintotal = json.getString("MainTotal");
+                JSONObject o = json.getJSONObject("order");
+
+
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog once done
+            pDialog.dismiss();
+            DeliveryTotal.setText(deliveryC);
+            Total.setText(Maintotal);
+            proceedPayment.setVisibility(View.VISIBLE);
+            getDirection();
+
+        }
+
+    }
+
+    class FastDelivery extends AsyncTask<String, String, String> {
+
+        /**
+         * Before starting background thread Show Progress Dialog
+         * */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(MapsActivity.this);
+            pDialog.setMessage("Fast Delivery Method..");
+            pDialog.setIndeterminate(false);
+            pDialog.setCancelable(true);
+            pDialog.show();
+        }
+
+        /**
+         * Creating product
+         * */
+        protected String doInBackground(String... args) {
+
+            HashMap<String, String> users = db.getUserDetails();
+
+            String user_id = users.get("uid");
+            String delivery = "2";
+            String name = "Fast Delivery";
+            String fastTime = fastDeliveryTime.getText().toString().trim();
+            String cost = fastPrice.getText().toString().trim();
+
+            // Building Parameters
+            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            params.add(new BasicNameValuePair("user_id", user_id));
+            params.add(new BasicNameValuePair("delivery", delivery));
+            params.add(new BasicNameValuePair("name", name));
+            params.add(new BasicNameValuePair("deliverytime", fastTime));
+            params.add(new BasicNameValuePair("cost", cost));
+
+            // getting JSON Object
+            // Note that create product url accepts POST method
+            final String URL_FAST = "http://www.filymart.com/deliverymobilestandard";
+            JSONObject json = jsonParser.makeHttpRequest(URL_FAST,
+                    "GET", params);
+
+            // check log cat fro response
+
+
+            Log.d("Create Response", json.toString());
+
+            try {
+
+
+                ordersum = json.getString("Ordersum");
+                deliveryC = json.getString("delivery");
+                Maintotal = json.getString("MainTotal");
+                JSONObject o = json.getJSONObject("order");
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+            return null;
+        }
+
+        /**
+         * After completing background task Dismiss the progress dialog
+         * **/
+        protected void onPostExecute(String file_url) {
+            // dismiss the dialog once done
+            pDialog.dismiss();
+            DeliveryTotal.setText(deliveryC);
+            Total.setText(Maintotal);
+            proceedPayment.setVisibility(View.VISIBLE);
+            getDirection();
+
+        }
 
     }
 }

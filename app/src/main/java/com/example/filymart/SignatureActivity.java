@@ -110,7 +110,7 @@ public class SignatureActivity extends AppCompatActivity {
             } else if(v == mCancel){
                 Log.v("log_tag", "Panel Canceled");
                 // Calling the BillDetailsActivity
-                Intent intent = new Intent(SignatureActivity.this, PaymentActivity.class);
+                Intent intent = new Intent(SignatureActivity.this, CheckAddressActivity.class);
                 startActivity(intent);
             }
         }
@@ -136,7 +136,7 @@ public class SignatureActivity extends AppCompatActivity {
         if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
 
             view.setDrawingCacheEnabled(true);
-            mSignature.save(view, StoredPath);
+            mSignature.save(view, StoredPath );
             Toast.makeText(getApplicationContext(), "Successfully Saved", Toast.LENGTH_SHORT).show();
             // Calling the same class
             recreate();
@@ -177,6 +177,7 @@ public class SignatureActivity extends AppCompatActivity {
             try {
                 // Output the file
                 FileOutputStream mFileOutStream = new FileOutputStream(StoredPath);
+                //FileOutputStream mFileOutStreamA = new FileOutputStream(full_picname);
                 v.draw(canvas);
 
                 // Convert the output file to Image such as .png

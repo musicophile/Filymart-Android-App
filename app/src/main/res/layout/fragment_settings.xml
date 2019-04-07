@@ -1,15 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
     tools:context=".fragment.SettingsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-</FrameLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/tendp">
+
+            <TextView
+                android:id="@+id/tvAccountInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account Informations"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvNameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tendp"
+                android:text="Name"
+                android:padding="@dimen/tendp"
+                app:layout_constraintTop_toBottomOf="@id/tvAccountInfo"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvCustomerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/tendp"
+                android:text="Fillbert Nyakunga"
+                app:layout_constraintStart_toEndOf="@id/tvNameTitle"
+                app:layout_constraintTop_toTopOf="@id/tvNameTitle"/>
+
+            <TextView
+                android:id="@+id/tvEmailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:layout_marginTop="@dimen/tendp"
+                android:padding="@dimen/tendp"
+                app:layout_constraintTop_toBottomOf="@id/tvNameTitle"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvCustomerEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="feusebius1710@gmail.com"
+                android:padding="@dimen/tendp"
+                app:layout_constraintStart_toEndOf="@id/tvEmailTitle"
+                app:layout_constraintTop_toTopOf="@id/tvEmailTitle"/>
+
+
+            <TextView
+                android:id="@+id/tvPhoneTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:layout_marginTop="@dimen/tendp"
+                android:padding="@dimen/tendp"
+                app:layout_constraintTop_toBottomOf="@id/tvEmailTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tvCustomerPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+255 765438924"
+                android:padding="@dimen/tendp"
+                app:layout_constraintStart_toEndOf="@id/tvPhoneTitle"
+                app:layout_constraintTop_toTopOf="@id/tvPhoneTitle"/>
+
+            <ImageButton
+                android:id="@+id/btnEditInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/tendp"
+                android:src="@drawable/ic_edit_black_24dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintTop_toBottomOf="@id/tvPhoneTitle"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/deleteAccountInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tendp"
+                android:text="Delete Your Account If you delete Account and you have not finished to place your order you will also delete the unfinished process Any Finished order will be safe You may contact us fo any feed back or any support you need before deleting your Account."
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnEditInfo"/>
+
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/tendp"
+                android:layout_marginTop="@dimen/tendp"
+                android:background="@color/colorWhite"
+                android:src="@drawable/ic_delete_black_24dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/deleteAccountInfo"/>
+
+            <TextView
+                android:id="@+id/tvAddressInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Address Informations"
+                android:layout_marginTop="@dimen/tendp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnDelete"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="@dimen/tendp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAddressInfo"/>
+
+
+
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

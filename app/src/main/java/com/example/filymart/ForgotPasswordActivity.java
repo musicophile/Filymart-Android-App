@@ -1,7 +1,10 @@
 package com.example.filymart;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
@@ -78,13 +81,28 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     public void reset() {
         if (!femail.getText().toString().isEmpty() && !fpassword.getText().toString().isEmpty()) {
             // login user
-            new CreateNewProduct().execute();
+
+
+            if (isNetworkAvailable()){
+                new CreateNewProduct().execute();
+            }else{
+                Toast.makeText(getApplicationContext(),
+                        "Check Your Network Connection", Toast.LENGTH_LONG)
+                        .show();
+            }
         } else {
             // Prompt user to enter credentials
             Toast.makeText(getApplicationContext(),
                     "Please enter the credentials!", Toast.LENGTH_LONG)
                     .show();
         }
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     class CreateNewProduct extends AsyncTask<String, String, String> {
@@ -118,7 +136,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            JSONObject json = jsonParser.makeHttpRequest(AppConfig.URL_LOGIN,
+            JSONObject json = jsonParser.makeHttpRequest(AppConfig.URL_FORGOT_PASSWORD,
                     "GET", params);
 
             // check log cat fro response

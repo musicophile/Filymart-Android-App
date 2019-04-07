@@ -1,26 +1,28 @@
 package com.example.filymart;
 
 public class Orders{
-        private int id;
+        private String id;
         private String name;
         private int numOfSongs;
+        private String quantity;
         private String thumbnail;
 
         public Orders() {
         }
 
-        public Orders(int id, String name, int numOfSongs, String thumbnail) {
+        public Orders(String id, String name, int numOfSongs, String quantity, String thumbnail) {
             this.id = id;
             this.name = name;
             this.numOfSongs = numOfSongs;
+            this.quantity = quantity;
             this.thumbnail = thumbnail;
         }
 
-        public int getId(){
+        public String getId(){
             return id;
         }
 
-        public void setId(int id){
+        public void setId(String id){
             this.id = id;
         }
 
@@ -39,6 +41,14 @@ public class Orders{
         public void setNumOfSongs(int numOfSongs) {
             this.numOfSongs = numOfSongs;
         }
+
+        public String getQuantity() {
+            return quantity;
+        }
+
+        public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
 
         public String getThumbnail() {
             return thumbnail;

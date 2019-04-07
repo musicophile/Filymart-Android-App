@@ -6,4 +6,79 @@
     android:layout_height="match_parent"
     tools:context=".activity.PrivacyPolicyActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        >
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/bar"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="4dp"
+                android:layout_height="?actionBarSize"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <ImageButton
+                        android:id="@+id/back"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="?actionBarSize"
+                        android:onClick="privacyBack"
+                        android:padding="@dimen/tendp"
+                        android:background="@color/colorPrimary"
+                        android:src="@drawable/ic_arrow_back_black_24dp"
+                        android:layout_gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <TextView
+                        android:layout_weight="3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Privacy Policy"
+                        android:textSize="20dp"
+                        android:padding="@dimen/tendp"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textColor="@color/input_register_bg"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/back"
+                        />
+                </android.support.constraint.ConstraintLayout>
+
+
+            </android.support.design.widget.AppBarLayout>
+
+
+            <TextView
+                android:layout_margin="@dimen/tendp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bar"
+                android:layout_marginTop="@dimen/tendp"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+
+
 </android.support.constraint.ConstraintLayout>

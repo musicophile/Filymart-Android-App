@@ -1,7 +1,7 @@
 package com.example.filymart;
 
 public class Product {
-    private int id;
+    private String id;
     private String product_name;
     private String category;
     private int price;
@@ -10,7 +10,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String product_name, String category, int price, String image) {
+    public Product(String id, String product_name, String category, int price, String image) {
         this.id = id;
         this.product_name = product_name;
         this.category = category;
@@ -18,11 +18,11 @@ public class Product {
         this.image = image;
     }
 
-    public int getId(){
+    public String getId(){
         return id;
     }
 
-    public void setId(int id){
+    public void setId(String id){
         this.id = id;
     }
 

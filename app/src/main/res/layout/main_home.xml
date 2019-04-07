@@ -19,22 +19,263 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:layout_below="@id/view_pager_slider"
         android:text="@string/categories_available_in_store"
         android:textAppearance="?android:textAppearanceSmall"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_pager_slider"/>
 
-    <ListView
-        android:id="@+id/homeItemsListView"
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/fruit_vergetable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/btn_login"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardElevation="@dimen/textspacing"
+        app:cardCornerRadius="3dp"
+        android:layout_margin="5dp"
+        android:onClick="fruitsVergetable"
         app:layout_constraintStart_toStartOf="@id/title"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        tools:listitem="@layout/home_list_item_view">
+        app:layout_constraintTop_toBottomOf="@id/title">
 
-    </ListView>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <TextView
+                android:id="@+id/tvItemViewName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fruits and Vergetables"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivItemViewImage"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                android:padding="@dimen/textspacing"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/vergetables"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvItemViewName"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/food_grain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardElevation="@dimen/textspacing"
+        app:cardCornerRadius="3dp"
+        android:onClick="beveragesDrinks"
+        android:layout_margin="5dp"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/fruit_vergetable">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvItemViewName_"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beverages and Drinks"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/ivItemViewImage_"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                android:padding="@dimen/textspacing"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/beverages"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvItemViewName_"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/beverages_drinks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardElevation="@dimen/textspacing"
+        app:cardCornerRadius="3dp"
+        android:layout_margin="5dp"
+        android:onClick="foodGrainOil"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/food_grain">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvItemViewName1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Food Grain and Oil"
+                android:textStyle="bold"
+                android:layout_marginLeft="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/ivItemViewImage1"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                android:padding="@dimen/textspacing"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/foodgrains"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvItemViewName1"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/eggs_meat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardElevation="@dimen/textspacing"
+        app:cardCornerRadius="3dp"
+        android:layout_margin="5dp"
+        android:onClick="eggsMeatFish"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/beverages_drinks">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvItemViewName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eggs Meat and Fish"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <ImageView
+                android:id="@+id/ivItemViewImage2"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                android:padding="@dimen/textspacing"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/eggsmeatmilk"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvItemViewName2"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/other_products"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardElevation="@dimen/textspacing"
+        app:cardCornerRadius="3dp"
+        android:onClick="otherProducts"
+        android:layout_margin="5dp"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/eggs_meat">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/tvItemViewName3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other Products"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            <ImageView
+                android:id="@+id/ivItemViewImage3"
+                android:layout_weight="1"
+                android:scaleType="centerCrop"
+                android:padding="@dimen/textspacing"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/vergetables"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvItemViewName3"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/lastcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardElevation="@dimen/textspacing"
+        app:cardCornerRadius="3dp"
+        android:layout_margin="5dp"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/other_products">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+           <TextView
+               android:id="@+id/tvText"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="@dimen/textspacing"
+               android:textStyle="bold"
+               android:text="@string/short_text"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_height="wrap_content"
+                android:text="@string/long_text"
+                app:layout_constraintStart_toStartOf="@id/tvText"
+                app:layout_constraintTop_toBottomOf="@id/tvText"/>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
 
 </android.support.constraint.ConstraintLayout>

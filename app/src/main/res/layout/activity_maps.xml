@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,25 +14,30 @@
         android:id="@+id/bar"
         android:layout_width="match_parent"
         android:layout_marginBottom="4dp"
-        android:layout_height="?actionBarSize">
+        android:layout_height="?actionBarSize"
+        map:layout_constraintTop_toTopOf="parent"
+        map:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:weightSum="4">
 
             <ImageButton
-                android:layout_weight="1"
+                android:id="@+id/icon"
+                android:padding="@dimen/tendp"
                 android:layout_width="wrap_content"
                 android:layout_height="?actionBarSize"
                 android:onClick="deliveryBack"
                 android:background="@color/colorPrimary"
                 android:src="@drawable/ic_arrow_back_black_24dp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                map:layout_constraintStart_toStartOf="parent"
+                map:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
-                android:layout_weight="3"
+                android:padding="@dimen/tendp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Delivery Option"
@@ -41,19 +46,24 @@
                 android:textStyle="bold"
                 android:gravity="left"
                 android:layout_gravity="center"
+                map:layout_constraintTop_toTopOf="@id/icon"
+                map:layout_constraintStart_toEndOf="@id/icon"
                 />
-        </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
 
 
     </android.support.design.widget.AppBarLayout>
 
     <ScrollView
-        android:layout_below="@id/bar"
+        android:id="@+id/scrollDeliveryView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="@dimen/tendp"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toBottomOf="@id/bar">
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -62,445 +72,449 @@
         >
 
         <android.support.v7.widget.CardView
+            android:id="@+id/standardCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="2dp">
+            android:layout_marginTop="@dimen/tendp"
+            app:cardElevation="3dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
 
-            <LinearLayout
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:weightSum="2"
                 android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    app:layout_constraintHorizontal_weight="1"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:id="@+id/tvStandard"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Standard Delivery"
                         android:textColor="@color/input_register_bg"
-                        android:textSize="20dp"/>
-                    <TextView
-                        android:layout_width="match_parent"
+                        android:textSize="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <Spinner
+                        android:id="@+id/simpleSpinner"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
                         android:textColor="@color/input_register_bg"
-                        android:text="11:00 - 18:00"/>
+                        app:layout_constraintTop_toBottomOf="@id/tvStandard"
+                        app:layout_constraintStart_toStartOf="@id/tvStandard"/>
 
-                </LinearLayout>
+                </android.support.constraint.ConstraintLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    app:layout_constraintHorizontal_weight="1"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
 
                     <TextView
+                        android:id="@+id/tvtsh2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TSH."
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textColor="@color/input_register_bg"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tvSPrice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="TSH.8000"
-                        android:textColor="@color/input_register_bg"/>
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textColor="@color/input_register_bg"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvtsh2"/>
 
                     <Button
+                        android:id="@+id/standardBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/colorPrimary"
-                        android:text="STANDARD"/>
+                        android:background="@drawable/button"
+                        android:text="STANDARD"
+                        app:layout_constraintTop_toBottomOf="@id/tvSPrice"
+                        app:layout_constraintStart_toStartOf="@id/tvSPrice"/>
 
-                </LinearLayout>
-            </LinearLayout>
+                </android.support.constraint.ConstraintLayout>
+            </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
 
 
         <android.support.v7.widget.CardView
+            android:id="@+id/fastCard"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tendp"
+            app:cardElevation="3dp"
+            app:cardCornerRadius="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/standardCard">
 
-            <LinearLayout
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="2"
                 android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:id="@+id/tvFast"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Fast Delivery"
                         android:textColor="@color/input_register_bg"
-                        android:textSize="20dp"/>
+                        android:textSize="20dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
                     <TextView
-                        android:layout_width="match_parent"
+                        android:id="@+id/tvFastDeliveryTime"
+                        android:layout_width="wrap_content"
                         android:textColor="@color/input_register_bg"
                         android:layout_height="wrap_content"
-                        android:text="Within 90Mnts"/>
+                        android:text="Within 90Mnts"
+                        app:layout_constraintStart_toStartOf="@id/tvFast"
+                        app:layout_constraintTop_toBottomOf="@id/tvFast"/>
 
-                </LinearLayout>
+                </android.support.constraint.ConstraintLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/input_register_bg"
-                        android:text="TSH.12000"/>
-
-                    <Button
+                        android:id="@+id/tvtsh"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/colorPrimary"
-                        android:text="FAST"/>
+                        android:text="TSH."
+                        android:textColor="@color/input_register_bg"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
 
-                </LinearLayout>
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvFastPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/input_register_bg"
+                        android:text="TSH.12000"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvtsh"/>
+
+                    <Button
+                        android:id="@+id/fastBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button"
+                        android:text="FAST"
+                        app:layout_constraintTop_toBottomOf="@id/tvFastPrice"
+                        app:layout_constraintStart_toStartOf="@id/tvFastPrice"/>
+
+                </android.support.constraint.ConstraintLayout>
+            </android.support.constraint.ConstraintLayout>
         </android.support.v7.widget.CardView>
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/summaryOrder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/fastCard"
+            app:layout_constraintStart_toStartOf="@id/standardCard"
             android:layout_marginBottom="4dp">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tvTitleOrderSummary"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Order Summary"
                 android:textColor="@color/input_register_bg"
                 android:textSize="20dp"
                 android:layout_gravity="center"
-                android:gravity="center"/>
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="2"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Tomato"
-                            android:textColor="@color/input_register_bg"
-                            android:textSize="20dp"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="TSH.12000"
-                            android:textColor="@color/input_register_bg"
-                            android:textSize="20dp"/>
-
-                    </LinearLayout>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="2"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Tomato"
-                            android:textColor="@color/input_register_bg"
-                            android:textSize="20dp"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="TSH.12000"
-                            android:textColor="@color/input_register_bg"
-                            android:textSize="20dp"/>
-
-                    </LinearLayout>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:weightSum="2"
-                    android:orientation="horizontal">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Tomato"
-                            android:textColor="@color/input_register_bg"
-                            android:textSize="20dp"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="TSH.12000"
-                            android:textColor="@color/input_register_bg"
-                            android:textSize="20dp"/>
-
-                    </LinearLayout>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2"
-            android:orientation="horizontal">
-            <LinearLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerViewOrderSummary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="@dimen/tendp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitleOrderSummary"/>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/sumLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tendp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/summaryOrder"
+            app:layout_constraintStart_toStartOf="@id/standardCard">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total Busket"
                     android:textColor="@color/input_register_bg"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-            </LinearLayout>
+            </android.support.constraint.ConstraintLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/totalBusket"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TSH.33000"
                     android:textColor="@color/input_register_bg"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
 
-            </LinearLayout>
-        </LinearLayout>
-        <LinearLayout
+            </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/deliveryCost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="2"
+            app:layout_constraintTop_toBottomOf="@id/sumLayout"
+            app:layout_constraintStart_toStartOf="@id/standardCard"
             android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="match_parent"
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Delivery Cost"
                     android:textColor="@color/input_register_bg"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-            </LinearLayout>
+            </android.support.constraint.ConstraintLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvDeliveryCost"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TSH.33000"
                     android:textColor="@color/input_register_bg"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-            </LinearLayout>
-        </LinearLayout>
+            </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/totalCost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:weightSum="2"
             android:layout_margin="3dp"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_width="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/standardCard"
+            app:layout_constraintTop_toBottomOf="@id/deliveryCost">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Total Cost"
                     android:textColor="@color/input_register_bg"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-            </LinearLayout>
+            </android.support.constraint.ConstraintLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvTotal"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="TSH.33000"
                     android:textColor="@color/input_register_bg"
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-            </LinearLayout>
-        </LinearLayout>
+            </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
 
         <Button
             android:id="@+id/proceed_payment"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Proceed Payment"
-            android:background="@drawable/small_button"
+            android:background="@drawable/button"
             android:layout_gravity="center"
-            android:gravity="center"/>
+            android:padding="@dimen/tendp"
+            android:gravity="center"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@id/totalCost"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/infoLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/standardCard"
+            app:layout_constraintTop_toBottomOf="@id/proceed_payment">
 
             <TextView
+                android:id="@+id/addressInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your delivery address is Home address and
-                its location is according to how the map shown below.
-                 If this is not your address you want your order to be
-                 delivered you may Change address by click the button
-                 below for Change Address"
+                android:text="Your delivery address is Home address and its location is according to how the map shown below. If this is not your address you want your order to be delivered you may Change address by click the button below for Change Address"
                 android:textSize="17dp"
                 android:textColor="@color/input_register_bg"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
                 />
             <Button
+                android:id="@+id/btnChangeAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Change Address"
-                android:background="@drawable/small_button"
+                android:background="@drawable/button"
                 android:layout_gravity="center"
-                android:gravity="center"/>
+                android:padding="@dimen/tendp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/addressInfo"/>
 
             <TextView
+                android:id="@+id/mapInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/input_register_bg"
-                android:text="Delivery cost is charged
-                per km such that 1Km is Tsh.600 and the
-                distance from your address location to
-                markert is 5Km"
-                android:textSize="17dp"/>
+                android:text="Delivery cost is charged per km such that 1Km is Tsh.600 and the distance from your address location to markert is 5Km"
+                android:textSize="17dp"
+                app:layout_constraintTop_toBottomOf="@id/btnChangeAddress"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
 
-        </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
     <fragment
+        app:layout_constraintStart_toStartOf="@id/standardCard"
+        app:layout_constraintTop_toBottomOf="@id/btnLayout"
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="500dp"
          />
 
-    <LinearLayout
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/btnLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/infoLayout"
+        app:layout_constraintStart_toStartOf="@id/standardCard">
 
-        <LinearLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#cc3b60a7"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <Button
-                android:id="@+id/buttonSetFrom"
-                android:text="Set From"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/buttonSetTo"
-                android:text="Set To"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-            <Button
+                       <Button
                 android:id="@+id/buttonCalcDistance"
                 android:text="Calc Distance"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_marginLeft="@dimen/tendp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
 
-        </LinearLayout>
-    </LinearLayout>
-    </LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
 
     </ScrollView>
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

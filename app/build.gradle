@@ -58,4 +58,7 @@ dependencies {
     //JakeWarthon
     implementation 'com.jakewharton:butterknife:9.0.0-rc1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:9.0.0-rc1'
+
+    //paypal
+    implementation 'com.kevinomyonga.pesapaldroid:library:1.0.0'
 }

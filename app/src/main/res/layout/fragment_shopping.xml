@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".fragment.Shoppingg Fragment">
+
+    <LinearLayout
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_marginBottom="2dp"
+        android:weightSum="3">
+
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/edittext_selector"
+            android:hint="Search By Name"
+            android:inputType="text"
+            android:singleLine="true"
+            android:textColor="@color/input_login"
+            android:textColorHint="@color/input_login" />
+
+        <TextView
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/tendp"
+            android:drawableLeft="@drawable/places_ic_search"
+            />
+    </LinearLayout>
+
+
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_below="@id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/input_register_bg"
+        android:layout_marginBottom="1dp"
+        >
+
+    </Spinner>
+
+    <RelativeLayout
+        android:id="@+id/shop"
+        android:layout_below="@id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/content_main" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

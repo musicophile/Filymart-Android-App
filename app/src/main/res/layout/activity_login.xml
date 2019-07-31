@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:padding="@dimen/tendp"
+    tools:context=".LoginActivity">
+
+
+    <TextView
+        android:id="@+id/texViewLoginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/title_magin"
+        android:text="@string/login_page"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textAppearance="?android:textAppearanceSmall"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittext_selector"
+        android:hint="@string/hint_email_example"
+        android:inputType="textEmailAddress"
+        android:padding="@dimen/edittext_padding"
+        android:textAppearance="?android:textAppearanceSmall"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.355"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tendp"
+        android:background="@drawable/edittext_selector"
+        android:hint="@string/hint_password"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:inputType="textPassword"
+        android:padding="@dimen/edittext_padding"
+        android:singleLine="true"
+        app:layout_constraintTop_toBottomOf="@id/email" />
+
+    <!-- Login Button -->
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/twentydp"
+        android:text="@string/btn_login"
+        android:background="@drawable/button_white"
+        android:textAppearance="?android:textAppearanceSmall"
+        app:layout_constraintStart_toStartOf="@id/email"
+        app:layout_constraintTop_toBottomOf="@id/password" />
+
+
+    <TextView
+        android:id="@+id/btnSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tendp"
+        android:layout_marginRight="@dimen/tendp"
+        android:layout_weight="1"
+        android:text="@string/skip"
+        android:clickable="true"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/btnLinkToForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/tendp"
+        android:text="@string/forgot_password"
+        android:textAllCaps="false"
+        android:clickable="true"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintStart_toEndOf="@id/btnLogin"
+        app:layout_constraintTop_toTopOf="@+id/btnLogin" />
+
+
+    <Button
+        android:id="@+id/btnLinkToRegisterScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fortydp"
+        android:background="@null"
+        android:text="@string/btn_link_to_register"
+        android:textAllCaps="false"
+        android:textAppearance="?android:textAppearanceSmall"
+        app:layout_constraintTop_toBottomOf="@id/btnLogin"
+        app:layout_constraintStart_toStartOf="@id/email"
+        app:layout_constraintEnd_toEndOf="@id/email"/>
+
+
+</android.support.constraint.ConstraintLayout>

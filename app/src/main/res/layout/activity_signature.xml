@@ -14,9 +14,15 @@ android:background="@android:color/white">
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimaryDark"
+<<<<<<< HEAD
     android:text="@string/sign_here"
     android:textColor="@android:color/white"
     android:textSize="16sp"
+=======
+    android:text="Sign Here"
+    android:textColor="@android:color/white"
+    android:textSize="16dp"
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
     android:gravity="center"/>
 <LinearLayout
     android:id="@+id/buttonLayout"

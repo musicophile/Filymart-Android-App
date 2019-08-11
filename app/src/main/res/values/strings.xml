@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <resources xmlns:tools="http://schemas.android.com/tools">
+=======
+<resources>
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
     <string name="app_name">Filymart</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -8,8 +12,13 @@
     <!-- Navigation Drawer menu labels -->
     <string name="nav_home">Home</string>
     <string name="nav_photos">Shopping</string>
+<<<<<<< HEAD
     <string name="nav_movies">My Busket</string>
     <string name="nav_notifications">Contact Us</string>
+=======
+    <string name="nav_movies">Busket</string>
+    <string name="nav_notifications">Notifications</string>
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
     <string name="nav_settings">Settings</string>
     <string name="nav_about_us">About Us</string>
 
@@ -17,8 +26,13 @@
     <string-array name="nav_item_activity_titles">
         <item>Home</item>
         <item>Shopping</item>
+<<<<<<< HEAD
         <item>My Busket</item>
         <item>Contact Us</item>
+=======
+        <item>Busket</item>
+        <item>Notifications</item>
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
         <item>Settings</item>
     </string-array>
 
@@ -29,6 +43,10 @@
     <string name="action_login">Login</string>
     <string name="action_register">Register</string>
     <string name="action_mark_all_read">Mark All as Read</string>
+<<<<<<< HEAD
+=======
+    <string name="privacy_policy">Privacy Policy</string>
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -41,7 +59,11 @@
     <string name="title_activity_maps">Map</string>
 
     <!--login strings-->
+<<<<<<< HEAD
     <string name="hint_email">youremail@example.com</string>
+=======
+    <string name="hint_email">Email</string>
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
     <string name="hint_password">Password</string>
     <string name="hint_name">Fullname</string>
     <string name="btn_login">LOGIN</string>
@@ -57,7 +79,11 @@
     <string name="sign_here_title">Sign Here</string>
     <string name="hint_cancel">Cancel</string>
     <string name="hint_clear">Clear</string>
+<<<<<<< HEAD
     <string name="hint_save">Proceed</string>
+=======
+    <string name="hint_save">Save</string>
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
     <string name="bill_details_title">Bill Details</string>
     <string name="date">Date</string>
     <string name="date_data">16 Mar 2017</string>
@@ -76,6 +102,7 @@
 
     <string name="categories_available_in_store">Categories Available in Store</string>
     <string name="price_200tsh">Price: 200Tsh</string>
+<<<<<<< HEAD
     <string name="privacy">
 FILYMART COMPANY are the owner of the brand Filymart, the website filymart.com and Filymart App. Filymart respects your privacy.
         This Privacy Policy provides succinctly the manner your data is collected and used by Filymart on the Site. As
@@ -126,6 +153,11 @@ You own it, Just click it&#8320;
         For all your grocery needs plus wide variety and range and brands you can get all in filymart.
         Shop now easly Welcome again!</string>
     <string name="text_category">Your Warmly Welcome to Filymart Filymart is the best online supermarket for all your daily needs.</string>
+=======
+    <string name="long_text">Your Warmly Welcome to Filymart Filymart is the best online supermarket for all your daily needs. For all your grocery needs plus wide variety and range and brands you can get all in filymart. Shop now easly Welcome again!</string>
+
+    <string name="login">Login</string>
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
     <string name="hint_email_example">youremail@example.com</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="skip">Skip</string>
@@ -133,6 +165,7 @@ You own it, Just click it&#8320;
     <string name="register">Registration Page</string>
     <string name="re_hint_password">Re-enter password</string>
 
+<<<<<<< HEAD
     <string name="consumer_key">1l0jlUv/Zv+2nq5ybOECZpnYKAMqHgN8</string>
     <string name="consumer_secret">heUWN5Dv6EcGs/E1E54BsHkvjas=</string>
 
@@ -222,4 +255,6 @@ You own it, Just click it&#8320;
     <string name="privacy_policyyy">Privacy Policy</string>
     <string name="privacy_policyyyy">Privacy Policy</string>
 
+=======
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
 </resources>

@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+=======
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         app:cardElevation="@dimen/textspacing"
         app:cardCornerRadius="3dp"
         android:layout_margin="3dp"
@@ -17,10 +25,17 @@
         >
 
         <android.support.constraint.ConstraintLayout
+=======
+        android:layout_margin="3dp"
+        >
+
+        <LinearLayout
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:orientation="horizontal"
+<<<<<<< HEAD
             android:weightSum="3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -42,11 +57,21 @@
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title">
+=======
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
 
 
 
                 <ImageView
                     android:id="@+id/thumbnail"
+<<<<<<< HEAD
                     android:layout_width="120dp"
                     android:layout_height="100dp"
                     android:src="@drawable/f"
@@ -69,11 +94,37 @@
                 android:layout_weight="1">
 
 
+=======
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:src="@drawable/eat_icon"
+                    android:scaleType="fitXY"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tomato"
+                    android:textColor="@color/input_register_bg"
+                    android:textSize="18dp"
+                    android:layout_marginBottom="1dp"/>
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
 
                 <TextView
                     android:id="@+id/count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+<<<<<<< HEAD
                     android:text="@string/kg_1"
                     android:textAppearance="?android:textAppearanceSmall"
                     android:layout_marginBottom="1dp"
@@ -89,18 +140,46 @@
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/buttonLayout"
                 android:layout_width="wrap_content"
+=======
+                    android:text="Kg 1"
+                    android:textSize="18dp"
+                    android:textColor="@color/input_register_bg"
+                    android:layout_marginBottom="1dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/count_"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kg 1"
+                    android:textSize="18dp"
+                    android:textColor="@color/input_register_bg"
+                    android:layout_marginBottom="1dp"
+
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:layout_gravity="center"
+<<<<<<< HEAD
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+=======
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
                 android:layout_weight="1">
 
 
 
                     <EditText
                         android:id="@+id/qnty"
+<<<<<<< HEAD
                         android:layout_width="0dp"
                         app:layout_constraintEnd_toEndOf="@id/update"
                         android:layout_height="wrap_content"
@@ -113,6 +192,15 @@
                         android:inputType="number"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"/>
+=======
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/rounded_edittext_states"
+                        android:padding="7dp"
+                        android:text="2"
+                        android:singleLine="true"
+                        android:inputType="number"/>
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
 
                     <Button
                         android:id="@+id/update"
@@ -121,6 +209,7 @@
                         android:background="@color/colorPrimary"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+<<<<<<< HEAD
                         android:textSize="12sp"
                         android:text="@string/update"
                         app:layout_constraintStart_toStartOf="@id/qnty"
@@ -143,3 +232,24 @@
     </android.support.v7.widget.CardView>
 
 </android.support.constraint.ConstraintLayout>
+=======
+                        android:textSize="12dp"
+                        android:text="Update"/>
+                    <Button
+                        android:id="@+id/delete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12dp"
+                        android:background="#FF0000"
+                        android:textColor="@color/colorWhite"
+                        android:text="Delete"
+                        android:layout_marginBottom="1dp"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06

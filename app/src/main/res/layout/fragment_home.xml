@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     tools:context=".fragment.HomeFragmentContent.HomeFragment"
+=======
+    tools:context=".fragment.HomeFragment"
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
     android:background="@color/colorWhite"
     tools:showIn="@layout/fragment_home">
 

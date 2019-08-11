@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
+<<<<<<< HEAD
     tools:context=".fragment.BusketFragmentContent.BusketsFragment">
+=======
+    tools:context=".fragment.BusketsFragment">
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
 
     <include layout="@layout/content_busket" />
 
 
+<<<<<<< HEAD
 </android.support.constraint.ConstraintLayout>
+=======
+</RelativeLayout>
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06

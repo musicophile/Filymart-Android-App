@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,15 +12,20 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".fragment.ShoppingFragment"
     tools:showIn="@layout/fragment_shopping">
+<<<<<<< HEAD
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clickable="true"
         android:id="@+id/fragmentLayout">
+=======
+
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
+<<<<<<< HEAD
         android:clickable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,3 +37,11 @@
 
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>
+=======
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+      />
+
+</RelativeLayout>
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06

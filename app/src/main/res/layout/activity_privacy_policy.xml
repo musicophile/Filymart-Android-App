@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.PrivacyPolicyActivity">
 
+<<<<<<< HEAD
                <android.support.design.widget.AppBarLayout
                 android:id="@+id/bar"
                 android:layout_width="match_parent"
@@ -86,3 +87,6 @@
         </android.support.constraint.ConstraintLayout>
                </ScrollView>
         </android.support.constraint.ConstraintLayout>
+=======
+</android.support.constraint.ConstraintLayout>
+>>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06

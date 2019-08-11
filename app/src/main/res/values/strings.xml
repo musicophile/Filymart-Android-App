@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Filymart</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -29,7 +29,6 @@
     <string name="action_login">Login</string>
     <string name="action_register">Register</string>
     <string name="action_mark_all_read">Mark All as Read</string>
-    <string name="privacy_policy">Privacy Policy</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -77,15 +76,14 @@
 
     <string name="categories_available_in_store">Categories Available in Store</string>
     <string name="price_200tsh">Price: 200Tsh</string>
-    <string name="privacy">Terms and Conditions
-Filbert Eusebius he is owner of the brand Filymart and the website filymart.com . Filymart respects your privacy.
+    <string name="privacy">
+FILYMART COMPANY are the owner of the brand Filymart, the website filymart.com and Filymart App. Filymart respects your privacy.
         This Privacy Policy provides succinctly the manner your data is collected and used by Filymart on the Site. As
         a visitor to the Site/ Customer you are advised to please read the Privacy Policy carefully. By accessing the
         services provided by the Site you agree to the collection and use of your data by Filymart in the manner provided
         in this Privacy Policy. Services overview As part of the registration process on the Site, Filymart may collect
         the following personally identifiable information about you: Name including first and last name, alternate email
-        address, mobile phone number and contact details, Postal code, Demographic profile (like your age, gender, occupation,
-        education, address etc.) and information about the pages on the site you visit/access, the links you click on the site.
+        address, mobile phone number and contact details, Postal code, Demographic profile (address etc.) and information about the pages on the site you visit/access, the links you click on the site.
 Eligibility
 Services of the Site would be available to only select geographies in Tanzania. Persons who do not obey all Tanzanian Act etc.
         are not eligible to use the Site. If you are a minor i.e. under the age of 18 years but at least 13 years of age you
@@ -100,20 +98,20 @@ Disseminating any unlawful, harassing, libellous, abusive, threatening, harmful,
         other computer systems. Interfering with any other person\'s use or enjoyment of the Site. Breaching any applicable
 
         laws; Interfering or disrupting networks or web sites connected to the Site.</string>
-    <string name="about">
-About Us
-Hello. Welcome to Filymart. So glad you are here.
-Filymart established February 2019 based in Arusha Tanzania, Filbert Eusabius he is the founder and Owner of Filymart.
+    <string name="about">Welcome to Filymart. So glad you are here.
+Filymart established February 2019 based in Arusha Tanzania. Filbert Eusabius\' and Lucy Jerome\'s are the founders and owners of Filymart Co.
         Filymart focus to become the largest online mart for grocery and food products store East Africa and all over Africa.
-
-What is Filymart?
-Filymart is newest online food and grocery store. With over 100 products and many brands in our catalogue you will find
+    </string>
+    <string name="what">
+    What is Filymart?</string>
+    <string name="what2">
+Filymart is newest online food and grocerieas store and other many Products. With over 100 products and many brands in our catalogue you will find
         everything you are looking for. Right from fresh Fruits and Vegetables, Rice and Seasonings to Packaged products,
         Beverages, Personal care products, Meats – we have it all. Choose from a wide range of options in every category,
         exclusively handpicked to help you find the best quality available at the normal prices. Select a time slot for delivery
         and your order will be delivered right to your doorstep, anywhere in Arusha and Moshi but soon we will open our
-        branches in Dar es salaam Tanzania and Nairobi Kenya, You can pay by cash we call it on-delivery but we hope
-        before march we will enable online payment through credit card and mobile payment methods. We guarantee on time delivery,
+        branches in Dar es salaam Tanzania and Nairobi Kenya. You can pay by cash we call it on-delivery payment but also we have
+        online payment through credit card and mobile payment methods with High security. We guarantee on time delivery,
         and the best quality! Happy Shopping
 Why should I use filymart.com?
 Filymart allows you to walk away from the drudgery of grocery shopping and welcome an easy relaxed way of browsing and
@@ -128,19 +126,18 @@ You own it, Just click it&#8320;
         For all your grocery needs plus wide variety and range and brands you can get all in filymart.
         Shop now easly Welcome again!</string>
     <string name="text_category">Your Warmly Welcome to Filymart Filymart is the best online supermarket for all your daily needs.</string>
-    <string name="login">Login</string>
     <string name="hint_email_example">youremail@example.com</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="skip">Skip</string>
     <string name="login_page">Login Page</string>
+    <string name="register">Registration Page</string>
+    <string name="re_hint_password">Re-enter password</string>
 
     <string name="consumer_key">1l0jlUv/Zv+2nq5ybOECZpnYKAMqHgN8</string>
     <string name="consumer_secret">heUWN5Dv6EcGs/E1E54BsHkvjas=</string>
 
 
-
     <string name="app_author_email">info@kevinomyonga.com</string>
-    <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
     <string name="phone">Phone</string>
@@ -167,4 +164,62 @@ You own it, Just click it&#8320;
     <string name="error_message">Error Message</string>
     <string name="retry">Retry</string>
     <string name="loading">Loading</string>
+    <string name="about_us">About Us</string>
+    <string name="about_us_filymart">About Us Filymart</string>
+    <string name="beverages_and_drinks">Beverages And Drinks</string>
+    <string name="brands_products">Brands Products</string>
+    <string name="address_available">Address Available</string>
+    <string name="create_address">Create Address</string>
+    <string name="username">USERNAME</string>
+    <string name="password">PASSWORD</string>
+    <string name="clear">Clear</string>
+    <string name="correct_user_mvp_mvp">correct user: mvp, mvp</string>
+    <string name="eggs_meat_and_fish">Eggs Meat and Fish</string>
+    <string name="food_grain_and_oil">Food Grain and Oil</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="fruits_and_vergetables">Fruits And Vergetables</string>
+    <string name="new_address_info">New Address Info</string>
+    <string name="phone_i_e_255765438924">Phone.i.e:+25576XXXXXXX</string>
+    <string name="submit">Submit</string>
+    <string name="sign_here">Sign Here</string>
+    <string name="searched_products">Searched Products</string>
+    <string name="product_details">Product Details</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_price">Product Price</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="benefits">This are all informations about the particular product so that a customer will understand more about the product source all are here.</string>
+    <string name="abouttt">This are all informations about the particular product so that a customer will understand more about the product source all are here.</string>
+    <string name="add_to_cart">ADD TO CART</string>
+    <string name="product_about">Product About</string>
+    <string name="benef">This are all informations about the particular product so that a customer will understand more about the product source all are here.</string>
+    <string name="product_benefits">Product Benefits</string>
+    <string name="bbene">This are all informations about the particular product so that a customer will understand more about the product source all are here.</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="select_address">Select Address</string>
+    <string name="grapes">Grapes</string>
+    <string name="busket_cost">Busket Cost</string>
+    <string name="proceedd">Proceed</string>
+    <string name="noorder">Curenttly You don\'t have any order. Place your Order now From Filymart Enjoy.</string>
+    <string name="orderguestbusketinfo">To view all your orders Please Login to your Account and If your new Customer and you Don\'t have an Account You may create Account now. Welcome Again at Filymart Dear Friend.</string>
+    <string name="reg">Register</string>
+    <string name="heading">HEADING</string>
+    <string name="lorem">Lorem ipsum lorem Ipsum Lorem IMpisum lorema ni ipsum so much so i hav eto fight until the end the journey was never simple every has a story to be a warrior for</string>
+    <string name="tomato">Tomato</string>
+    <string name="kg_1">Kg 1</string>
+    <string name="_2">2</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="fruits_and_vergetabless">Fruits and Vergetables</string>
+    <string name="beverages_and_drinkss">Beverages and Drinks</string>
+    <string name="food_grain_and_oill">Food Grain and Oil</string>
+    <string name="eggs_meat_and_fishh">Eggs Meat and Fish</string>
+    <string name="other_productss">Other Products</string>
+    <string name="tsh_12000">TSH.12000</string>
+    <string name="loginnn">Login</string>
+    <string name="full_namee">Full Name</string>
+    <string name="loginnnn">Login</string>
+    <string name="first_nameee">First Name</string>
+    <string name="privacy_policyyy">Privacy Policy</string>
+    <string name="privacy_policyyyy">Privacy Policy</string>
+
 </resources>

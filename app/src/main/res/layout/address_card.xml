@@ -41,7 +41,7 @@
                 android:id="@+id/btnSelectAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select Address"
+                android:text="@string/select_address"
                 android:layout_marginTop="@dimen/tendp"
                 android:background="@drawable/button"
                 android:padding="@dimen/tendp"

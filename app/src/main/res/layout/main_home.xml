@@ -49,9 +49,9 @@
                 android:id="@+id/tvItemViewName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Fruits and Vergetables"
+                android:text="@string/fruits_and_vergetabless"
                 android:textStyle="bold"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -91,9 +91,9 @@
                 android:id="@+id/tvItemViewName_"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Beverages and Drinks"
+                android:text="@string/beverages_and_drinkss"
                 android:textStyle="bold"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -133,9 +133,9 @@
                 android:id="@+id/tvItemViewName1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Food Grain and Oil"
+                android:text="@string/food_grain_and_oill"
                 android:textStyle="bold"
-                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -175,9 +175,9 @@
                 android:id="@+id/tvItemViewName2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Eggs Meat and Fish"
+                android:text="@string/eggs_meat_and_fishh"
                 android:textStyle="bold"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -217,9 +217,9 @@
                 android:id="@+id/tvItemViewName3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Other Products"
+                android:text="@string/other_productss"
                 android:textStyle="bold"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -232,7 +232,7 @@
                 android:padding="@dimen/textspacing"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:src="@drawable/vergetables"
+                android:src="@drawable/papaerbag"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvItemViewName3"/>
 
@@ -270,6 +270,7 @@
                 android:layout_width="wrap_content"
                 android:layout_marginTop="3dp"
                 android:layout_height="wrap_content"
+                android:padding="@dimen/tendp"
                 android:text="@string/long_text"
                 app:layout_constraintStart_toStartOf="@id/tvText"
                 app:layout_constraintTop_toBottomOf="@id/tvText"/>

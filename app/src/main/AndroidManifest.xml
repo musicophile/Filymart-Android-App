@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.filymart">
+    package="com.mart.filymart">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -20,18 +20,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PesapalActivity"></activity>
-        <activity android:name=".PortalActivity"></activity>
-        <activity android:name=".ProductDetailsHomeActivity" />
+
+        <activity android:name=".BrandActivity.BrandsActivity" />
+        <activity android:name=".ProductDetailsContent.ProductDetailsContents" />
+        <activity android:name=".PesapalActivity" />
+        <activity android:name=".PortalActivity" />
+        <activity android:name=".ProductDetailsContentHome.ProductDetailsHomeActivity" />
         <activity android:name=".InfoActivity" />
-        <activity android:name=".CheckAddressActivity" />
+        <activity android:name=".CheckAddressContent.CheckAddressActivity" />
         <activity android:name=".SearchedActivity" />
         <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".OtherProductsActivity" />
-        <activity android:name=".BeveragesDrinksActivity" />
-        <activity android:name=".EggsMeatFishActivity" />
-        <activity android:name=".FoodGrainOilActivity" />
-        <activity android:name=".FruitsVergetablesActivity" />
+        <activity android:name=".OtherProductContent.OtherProductsActivity" />
+        <activity android:name=".BeveragesDrinksContent.BeveragesDrinksActivity" />
+        <activity android:name=".EggsMeatFish.EggsMeatFishActivity" />
+        <activity android:name=".FoodGrainOilContent.FoodGrainOilActivity" />
+        <activity android:name=".FruitsVergetablesContent.FruitsVergetablesActivity" />
         <activity android:name=".SignatureActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -42,21 +45,49 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_api_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".MapsActivity"
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name=".DeliveryInformationContent.DeliveryInformationActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".PaymentActivity" />
         <activity android:name=".DeliveryOptionsActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <data
+                    android:host="mimimi.android.com"
+                    android:scheme="http" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
         <activity android:name=".NewAddressActivity" />
-        <activity android:name=".ProductDetailsActivity" />
         <activity android:name=".activity.PrivacyPolicyActivity" />
         <activity android:name=".activity.AboutUsActivity" />
-        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.HomeActivityContent.HomeActivity">
+            <intent-filter>
+                <data
+                    android:host="mimi.android.com"
+                    android:scheme="http" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

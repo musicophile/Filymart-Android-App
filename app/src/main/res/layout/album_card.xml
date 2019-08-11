@@ -26,7 +26,8 @@
                 android:clickable="true"
                 android:scaleType="fitXY"
                 card_view:layout_constraintTop_toTopOf="parent"
-                card_view:layout_constraintStart_toStartOf="parent"/>
+                card_view:layout_constraintStart_toStartOf="parent"
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/title"
@@ -37,7 +38,7 @@
                 android:paddingRight="@dimen/album_title_padding"
                 android:paddingTop="@dimen/album_title_padding"
                 android:textColor="@color/input_register_bg"
-                android:textSize="@dimen/album_title"
+                android:textAppearance="?android:textAppearanceSmall"
                 card_view:layout_constraintTop_toBottomOf="@id/thumbnail"/>
 
             <TextView
@@ -49,7 +50,7 @@
                 android:paddingBottom="@dimen/songs_count_padding_bottom"
                 android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"
-                android:textSize="@dimen/songs_count"
+                android:textAppearance="?android:textAppearanceSmall"
                 card_view:layout_constraintTop_toBottomOf="@id/title"/>
 
 

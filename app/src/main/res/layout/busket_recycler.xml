@@ -45,9 +45,9 @@
                     android:id="@+id/text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Busket Cost"
+                    android:text="@string/busket_cost"
                     android:textAppearance="?android:textAppearanceSmall"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="@id/content"
                     />
@@ -57,8 +57,7 @@
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tsh.5000"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:textAppearance="?android:textAppearanceSmall"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintRight_toRightOf="parent"/>
@@ -68,6 +67,7 @@
 
 
             <android.support.constraint.ConstraintLayout
+                android:id="@+id/buton"
                 app:layout_constraintTop_toBottomOf="@id/content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -76,8 +76,8 @@
                     android:id="@+id/proceed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Proceed"
-                    android:textSize="20dp"
+                    android:text="@string/proceedd"
+                    android:textSize="20sp"
                     android:padding="9dp"
                     android:layout_gravity="center"
                     android:gravity="center"
@@ -89,6 +89,26 @@
                     />
 
 
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/noOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buton"
+                android:visibility="invisible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:text="@string/noorder"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
             </android.support.constraint.ConstraintLayout>
 
         </android.support.constraint.ConstraintLayout>

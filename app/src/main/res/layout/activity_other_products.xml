@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OtherProductsActivity">
+    tools:context=".OtherProductContent.OtherProductsActivity">
 
 
 
@@ -48,15 +48,6 @@
                 app:layout_constraintStart_toEndOf="@id/backButton"
                 app:layout_constraintTop_toTopOf="parent"
                 />
-            <ImageButton
-                android:background="@color/colorPrimary"
-                android:layout_width="wrap_content"
-                android:padding="@dimen/tendp"
-                android:layout_height="?actionBarSize"
-                android:src="@drawable/ic_shopping_cart_black_24dp"
-                android:layout_gravity="center"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".OtherProductsActivity"
+    tools:context=".OtherProductContent.OtherProductsActivity"
     tools:showIn="@layout/activity_other_products">
 
 

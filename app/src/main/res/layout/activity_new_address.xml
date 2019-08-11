@@ -57,6 +57,7 @@
             </android.support.design.widget.AppBarLayout>
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -159,21 +160,17 @@
                 app:layout_constraintTop_toBottomOf="@id/address_name"/>
 
 
-            <EditText
+
+            <Spinner
                 android:id="@+id/city_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_edittext_states"
-                android:hint="City Name.ie:Arusha"
-                android:inputType="textCapWords"
-                android:textAppearance="?android:textAppearanceSmall"
-                android:padding="10dp"
-                android:singleLine="true"
+                android:layout_marginTop="@dimen/tendp"
+                android:padding="@dimen/tendp"
+                android:layout_centerHorizontal="true"
                 android:textColor="@color/input_login"
-                android:textColorHint="@color/input_login"
-                app:layout_constraintStart_toStartOf="@id/first_name"
-                app:layout_constraintTop_toBottomOf="@id/location"/>
+                app:layout_constraintTop_toBottomOf="@id/location"
+                app:layout_constraintStart_toStartOf="@id/first_name"/>
 
 
             <TextView
@@ -208,6 +205,52 @@
                 app:layout_constraintStart_toStartOf="@id/first_name"
                 app:layout_constraintTop_toBottomOf="@id/lat"/>
 
+            <TextView
+                android:id="@+id/instruction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Instructions"
+                android:layout_marginTop="@dimen/tendp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lng"/>
+
+            <TextView
+                android:id="@+id/inst1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enable Your Google Location."
+                android:layout_marginTop="@dimen/tendp"
+                app:layout_constraintTop_toBottomOf="@id/instruction"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/inst2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Scroll a map into your Area (Your Street) "
+                android:layout_marginTop="@dimen/tendp"
+                app:layout_constraintTop_toBottomOf="@id/inst1"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/inst3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zoom a map until Your able to see your House"
+                android:layout_marginTop="@dimen/tendp"
+                app:layout_constraintTop_toBottomOf="@id/inst2"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/inst4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hold on top of your house for 1 sec"
+                android:layout_marginTop="@dimen/tendp"
+                app:layout_constraintTop_toBottomOf="@id/inst3"
+                app:layout_constraintStart_toStartOf="parent"/>
+
 
 
             <fragment
@@ -217,8 +260,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="500dp"
                 app:layout_constraintStart_toStartOf="@id/first_name"
-                app:layout_constraintTop_toBottomOf="@id/lng"
+                app:layout_constraintTop_toBottomOf="@id/inst4"
                  />
+
+            <ImageView
+                android:id="@+id/transparent_image"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:src="@android:color/transparent"
+                app:layout_constraintStart_toStartOf="@id/first_name"
+                app:layout_constraintTop_toBottomOf="@id/inst4"/>
 
 
             <Button

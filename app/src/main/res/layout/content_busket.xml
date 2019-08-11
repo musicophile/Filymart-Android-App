@@ -6,11 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/colorWhite"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".fragment.BusketsFragment"
+    tools:context=".fragment.BusketFragmentContent.BusketsFragment"
     tools:showIn="@layout/fragment_busket">
-
-
-
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/ConstraintLayoutForGuest"
@@ -23,7 +20,7 @@
                 android:id="@+id/guestInformation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="To view all your orders Please Login to your Account and If your new Customer and you Don't have an Account You may create Account now. Welcome Again at Filymart Dear Friend."
+                android:text="@string/orderguestbusketinfo"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -35,7 +32,7 @@
                 android:id="@+id/btnLoginGuest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Login"
+                android:text="@string/loginnnn"
                 app:layout_constraintTop_toBottomOf="@id/guestInformation"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:padding="@dimen/tendp"
@@ -47,7 +44,7 @@
                 android:id="@+id/btnRegisterGuest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Register"
+                android:text="@string/reg"
                 app:layout_constraintTop_toBottomOf="@id/guestInformation"
                 android:padding="@dimen/tendp"
                 app:layout_constraintRight_toRightOf="parent"

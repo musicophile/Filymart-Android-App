@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EggsMeatFishActivity">
+    tools:context=".EggsMeatFish.EggsMeatFishActivity">
 
 
     <android.support.design.widget.AppBarLayout
@@ -36,8 +36,8 @@
                 android:id="@+id/titlBeveragesDrinks"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Eggs Meat and Fish"
-                android:textSize="20dp"
+                android:text="@string/eggs_meat_and_fish"
+                android:textSize="20sp"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:textColor="@color/input_register_bg"
                 android:textStyle="bold"
@@ -47,15 +47,6 @@
                 app:layout_constraintStart_toEndOf="@id/backButton"
                 app:layout_constraintTop_toTopOf="parent"
                 />
-            <ImageButton
-                android:background="@color/colorPrimary"
-                android:layout_width="wrap_content"
-                android:padding="@dimen/tendp"
-                android:layout_height="?actionBarSize"
-                android:src="@drawable/ic_shopping_cart_black_24dp"
-                android:layout_gravity="center"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
 

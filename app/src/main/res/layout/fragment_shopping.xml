@@ -7,6 +7,10 @@
     android:background="@color/colorWhite"
     tools:context=".fragment.ShoppingFragment">
 
+
+
+
+
     <android.support.constraint.ConstraintLayout
         android:id="@+id/text1"
         android:layout_width="match_parent"
@@ -79,6 +83,7 @@
         >
 
         <include layout="@layout/content_main" />
+
 
     </android.support.constraint.ConstraintLayout>
 

@@ -6,21 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.PrivacyPolicyActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        >
-
-
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-
-            <android.support.design.widget.AppBarLayout
+               <android.support.design.widget.AppBarLayout
                 android:id="@+id/bar"
                 android:layout_width="match_parent"
                 android:layout_marginBottom="4dp"
@@ -51,8 +37,8 @@
                         android:layout_weight="3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Privacy Policy"
-                        android:textSize="20dp"
+                        android:text="@string/privacy_policyyyy"
+                        android:textSize="20sp"
                         android:padding="@dimen/tendp"
                         android:textAppearance="?android:textAppearanceSmall"
                         android:textColor="@color/input_register_bg"
@@ -65,20 +51,38 @@
 
 
             </android.support.design.widget.AppBarLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
 
 
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:id="@+id/head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/terms_and_conditions"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="@dimen/tendp"
+                android:textAppearance="?android:textAppearanceLarge"/>
             <TextView
                 android:layout_margin="@dimen/tendp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/privacy"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/bar"
+                app:layout_constraintTop_toBottomOf="@id/head"
                 android:layout_marginTop="@dimen/tendp"/>
-
         </android.support.constraint.ConstraintLayout>
-    </ScrollView>
-
-
-
-</android.support.constraint.ConstraintLayout>
+               </ScrollView>
+        </android.support.constraint.ConstraintLayout>

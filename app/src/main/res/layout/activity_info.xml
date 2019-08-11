@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
         >
 
 
@@ -50,8 +49,8 @@
                         android:layout_weight="3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="New Address Info"
-                        android:textSize="20dp"
+                        android:text="@string/new_address_info"
+                        android:textSize="20sp"
                         android:padding="@dimen/tendp"
                         android:textAppearance="?android:textAppearanceSmall"
                         android:textColor="@color/input_register_bg"
@@ -70,7 +69,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_edittext_states"
-                android:hint="First Name"
+                android:hint="@string/full_namee"
                 android:inputType="textCapWords"
                 android:padding="10dp"
                 android:layout_marginTop="@dimen/tendp"
@@ -81,13 +80,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/bar"/>
 
-            <EditText
+            <TextView
                 android:id="@+id/tvemail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_edittext_states"
-                android:hint="Email"
+                android:hint="@string/email"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:inputType="textCapWords"
                 android:padding="10dp"
@@ -104,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_edittext_states"
-                android:hint="Phone.i.e:+255765438924"
+                android:hint="@string/phone_i_e_255765438924"
                 android:inputType="phone"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:padding="10dp"
@@ -118,7 +117,7 @@
                 android:id="@+id/btnEditData"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Submit"
+                android:text="@string/submit"
                 android:background="@drawable/button"
                 android:padding="@dimen/tendp"
                 android:layout_marginTop="@dimen/tendp"

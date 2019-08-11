@@ -57,7 +57,7 @@
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/twentydp"
+        android:layout_marginTop="20dp"
         android:text="@string/btn_login"
         android:background="@drawable/button_white"
         android:textAppearance="?android:textAppearanceSmall"
@@ -67,7 +67,7 @@
 
     <TextView
         android:id="@+id/btnSkip"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tendp"
         android:layout_marginRight="@dimen/tendp"
@@ -103,6 +103,7 @@
         android:background="@null"
         android:text="@string/btn_link_to_register"
         android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
         android:textAppearance="?android:textAppearanceSmall"
         app:layout_constraintTop_toBottomOf="@id/btnLogin"
         app:layout_constraintStart_toStartOf="@id/email"

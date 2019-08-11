@@ -29,9 +29,9 @@
                     android:id="@+id/tvProductName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Tomato"
+                    android:text="@string/tomato"
                     android:textColor="@color/input_register_bg"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
 
@@ -49,9 +49,9 @@
                     android:id="@+id/tvPriceProduct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TSH.12000"
+                    android:text="@string/tsh_12000"
                     android:textColor="@color/input_register_bg"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"/>
 

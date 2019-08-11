@@ -5,8 +5,57 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorWhite"
-    tools:context=".fragment.SettingsFragment">
+    tools:context=".fragment.SettingsFragmentContent.SettingsFragment">
 
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ForGuest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/tendp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/guestInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To view all your Settings Please Login to your Account and If your new Customer and you Don't have an Account You may create Account now. Welcome Again at Filymart Dear Friend."
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/tendp"
+            android:layout_marginTop="@dimen/tendp"/>
+
+
+        <Button
+            android:id="@+id/btnLoginGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            app:layout_constraintTop_toBottomOf="@id/guestInformation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:padding="@dimen/tendp"
+            android:background="@drawable/button"
+            android:layout_marginTop="@dimen/tendp"/>
+
+
+        <Button
+            android:id="@+id/btnRegisterGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            app:layout_constraintTop_toBottomOf="@id/guestInformation"
+            android:padding="@dimen/tendp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@drawable/button"
+            android:layout_marginTop="@dimen/tendp"/>
+
+    </android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ForSettings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/tendp"
+        android:visibility="invisible">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/tendp"
-                android:text="Fillbert Nyakunga"
+                android:text=""
                 app:layout_constraintStart_toEndOf="@id/tvNameTitle"
                 app:layout_constraintTop_toTopOf="@id/tvNameTitle"/>
 
@@ -61,7 +110,7 @@
                 android:id="@+id/tvCustomerEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="feusebius1710@gmail.com"
+                android:text=""
                 android:padding="@dimen/tendp"
                 app:layout_constraintStart_toEndOf="@id/tvEmailTitle"
                 app:layout_constraintTop_toTopOf="@id/tvEmailTitle"/>
@@ -82,7 +131,7 @@
                 android:id="@+id/tvCustomerPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+255 765438924"
+                android:text=""
                 android:padding="@dimen/tendp"
                 app:layout_constraintStart_toEndOf="@id/tvPhoneTitle"
                 app:layout_constraintTop_toTopOf="@id/tvPhoneTitle"/>
@@ -120,28 +169,6 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/deleteAccountInfo"/>
 
-            <TextView
-                android:id="@+id/tvAddressInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Address Informations"
-                android:layout_marginTop="@dimen/tendp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/btnDelete"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="1dp"
-                android:layout_marginTop="@dimen/tendp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvAddressInfo"/>
-
-
-
-
 
         </android.support.constraint.ConstraintLayout>
 
@@ -149,5 +176,5 @@
 
     </ScrollView>
 
-
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

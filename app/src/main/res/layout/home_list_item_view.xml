@@ -17,9 +17,9 @@
             android:id="@+id/tvItemViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Grapes"
+            android:text="@string/grapes"
             android:textStyle="bold"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
             app:layout_constraintStart_toEndOf="@id/ivItemViewImage"
             app:layout_constraintTop_toTopOf="@+id/ivItemViewImage" />
 

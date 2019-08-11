@@ -12,7 +12,7 @@
     <android.support.design.widget.AppBarLayout
         android:id="@+id/bar"
         android:layout_width="match_parent"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="@dimen/fourdp"
         android:layout_height="?actionBarSize"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -40,8 +40,8 @@
                 android:layout_weight="3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="About Us"
-                android:textSize="20dp"
+                android:text="@string/about_us"
+                android:textSize="20sp"
                 android:padding="@dimen/tendp"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:textColor="@color/input_register_bg"
@@ -68,18 +68,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             >
-
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/about_us_filymart"
+                android:layout_margin="@dimen/tendp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textAppearance="?android:textAppearanceLarge"/>
 
         <TextView
+            android:id="@+id/aboutInfo"
             android:layout_margin="@dimen/tendp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/about"
+            android:layout_marginBottom="@dimen/tendp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bar"
+            app:layout_constraintTop_toBottomOf="@+id/title"
             android:layout_marginTop="@dimen/tendp"/>
 
-    </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:id="@+id/what"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/what"
+                android:layout_margin="@dimen/tendp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/aboutInfo"
+                android:textAppearance="?android:textAppearanceLarge"/>
+
+            <TextView
+                android:id="@+id/what2"
+                android:layout_margin="@dimen/tendp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/what2"
+                android:layout_marginBottom="@dimen/tendp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/what"
+                android:layout_marginTop="@dimen/tendp"/>
+
+
+        </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
 

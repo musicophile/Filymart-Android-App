@@ -20,11 +20,6 @@
             android:text="@string/grapes"
             android:textStyle="bold"
             android:layout_marginStart="15dp"
-=======
-            android:text="Grapes"
-            android:textStyle="bold"
-            android:layout_marginLeft="15dp"
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
             app:layout_constraintStart_toEndOf="@id/ivItemViewImage"
             app:layout_constraintTop_toTopOf="@+id/ivItemViewImage" />
 

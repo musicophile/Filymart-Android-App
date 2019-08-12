@@ -2,14 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<<<<<<< HEAD
-=======
-    <item
-        android:id="@+id/action_busket"
-        android:orderInCategory="100"
-        android:title="Busket"
-        app:showAsAction="never" />
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
 
     <item
         android:id="@+id/action_logout"

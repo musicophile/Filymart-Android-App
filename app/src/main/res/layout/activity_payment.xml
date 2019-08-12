@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <android.support.constraint.ConstraintLayout
-=======
-<RelativeLayout
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -17,75 +13,49 @@
         android:id="@+id/bar"
         android:layout_width="match_parent"
         android:layout_marginBottom="4dp"
-<<<<<<< HEAD
         android:layout_height="?actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <android.support.constraint.ConstraintLayout
-=======
-        android:layout_height="?actionBarSize">
-
-        <LinearLayout
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:weightSum="4">
 
             <ImageButton
-<<<<<<< HEAD
                 android:id="@+id/backPayment"
                 android:padding="@dimen/tendp"
-=======
-                android:layout_weight="1"
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
                 android:layout_width="wrap_content"
                 android:layout_height="?actionBarSize"
                 android:onClick="paymentBack"
                 android:background="@color/colorPrimary"
                 android:src="@drawable/ic_arrow_back_black_24dp"
-<<<<<<< HEAD
                 android:layout_gravity="center"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                 android:padding="@dimen/tendp"
-=======
-                android:layout_gravity="center"/>
-
-            <TextView
-                android:layout_weight="3"
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Payment Form"
                 android:textSize="20dp"
-<<<<<<< HEAD
                 android:textAppearance="?android:textAppearanceSmall"
-=======
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
                 android:textColor="@color/input_register_bg"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:layout_gravity="center"
-<<<<<<< HEAD
                 app:layout_constraintStart_toEndOf="@id/backPayment"
                 app:layout_constraintTop_toTopOf="parent"
                 />
         </android.support.constraint.ConstraintLayout>
-=======
-                />
-        </LinearLayout>
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
 
 
     </android.support.design.widget.AppBarLayout>
 
 
     <ScrollView
-<<<<<<< HEAD
         app:layout_constraintTop_toBottomOf="@id/bar"
         android:layout_width="match_parent"
         android:padding="10dp"
@@ -96,15 +66,6 @@
 
 
         <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-=======
-        android:layout_below="@id/bar"
-        android:layout_width="match_parent"
-        android:padding="1dp"
-        android:layout_height="wrap_content">
-
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
@@ -112,107 +73,18 @@
             android:orientation="vertical"
             >
 
-<<<<<<< HEAD
-=======
-            <EditText
-                android:id="@+id/first_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/rounded_edittext_states"
-                android:hint="Enter First Name"
-                android:inputType="textCapWords"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/input_login"
-                android:textColorHint="@color/input_login" />
-
-            <EditText
-                android:id="@+id/second_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/rounded_edittext_states"
-                android:hint="Enter Second Name"
-                android:inputType="textCapWords"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/input_login"
-                android:textColorHint="@color/input_login" />
-
-
-            <EditText
-                android:id="@+id/phonenumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/rounded_edittext_states"
-                android:hint="Phonenumber"
-                android:inputType="phone"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/input_login"
-                android:textColorHint="@color/input_login" />
-
-
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/rounded_edittext_states"
-                android:hint="Email"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/input_login"
-                android:textColorHint="@color/input_login" />
-
-
-            <EditText
-                android:id="@+id/sex"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/rounded_edittext_states"
-                android:hint="Sex"
-                android:inputType="text"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/input_login"
-                android:textColorHint="@color/input_login" />
-
-
-            <EditText
-                android:id="@+id/date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/rounded_edittext_states"
-                android:hint="Date"
-                android:inputType="date"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/input_login"
-                android:textColorHint="@color/input_login" />
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
 
 
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-<<<<<<< HEAD
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:src="@android:color/transparent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
-=======
-                android:layout_gravity="center"
-                android:src="@android:color/transparent" />
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
 
 
             <Button
@@ -220,7 +92,6 @@
                 android:id="@+id/getSignature"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-<<<<<<< HEAD
                 android:text="Complete Payment"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/imageView1"
@@ -232,12 +103,3 @@
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>
-=======
-                android:text="Get Signature"
-                />
-
-
-        </LinearLayout>
-    </ScrollView>
-</RelativeLayout>
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06

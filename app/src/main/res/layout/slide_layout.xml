@@ -11,11 +11,7 @@
         android:id="@+id/slide_image"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-<<<<<<< HEAD
         app:srcCompat="@drawable/f"
-=======
-        app:srcCompat="@drawable/code_icon"
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
         android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,13 +25,8 @@
         android:layout_marginTop="10dp"
         android:foregroundGravity="center"
         android:textAppearance="?android:textAppearanceSmall"
-<<<<<<< HEAD
         android:textSize="18sp"
         android:text="@string/heading"
-=======
-        android:textSize="18dp"
-        android:text="HEADING"
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
         android:textColor="@color/colorWhite"
         android:gravity="center"
         app:layout_constraintTop_toBottomOf="@id/slide_image"
@@ -48,18 +39,10 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:textAppearanceSmall"
         android:layout_marginTop="10dp"
-<<<<<<< HEAD
         android:textSize="16sp"
         android:textColor="@color/colorWhite"
         android:gravity="center"
         android:text="@string/lorem"
-=======
-        android:textSize="16dp"
-        android:textColor="@color/colorWhite"
-        android:gravity="center"
-        android:text="Lorem ipsum lorem Ipsum Lorem IMpisum lorema ni ipsum so much so i hav eto fight
-         untill the end the journey was never simple every has a story to be a warrior for"
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
         app:layout_constraintTop_toBottomOf="@id/slide_heading"
         app:layout_constraintEnd_toEndOf="parent"/>
 </android.support.constraint.ConstraintLayout>

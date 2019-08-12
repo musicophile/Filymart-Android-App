@@ -35,11 +35,7 @@
                 android:title="@string/nav_about_us" />
             <item
                 android:id="@+id/nav_privacy_policy"
-<<<<<<< HEAD
                 android:title="@string/privacy_policyyy" />
-=======
-                android:title="@string/privacy_policy" />
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
         </menu>
     </item>
 

@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
 <<<<<<< HEAD
-    tools:context=".activity.HomeActivityContent.HomeActivity">
-=======
-    tools:context="activity.HomeActivity">
 >>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
 
     <android.support.design.widget.AppBarLayout

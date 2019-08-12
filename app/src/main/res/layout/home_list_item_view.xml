@@ -17,7 +17,6 @@
             android:id="@+id/tvItemViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
             android:text="@string/grapes"
             android:textStyle="bold"
             android:layout_marginStart="15dp"

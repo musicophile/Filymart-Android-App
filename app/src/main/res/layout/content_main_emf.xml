@@ -7,9 +7,6 @@
     android:background="@color/colorWhite"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
 <<<<<<< HEAD
-    tools:context=".EggsMeatFish.EggsMeatFishActivity"
-=======
-    tools:context=".EggsMeatFishActivity"
 >>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
     tools:showIn="@layout/activity_eggs_meat_fish">
 

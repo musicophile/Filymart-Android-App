@@ -19,17 +19,13 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_margin="5dp"
-=======
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
         android:layout_below="@id/view_pager_slider"
         android:text="@string/categories_available_in_store"
         android:textAppearance="?android:textAppearanceSmall"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_pager_slider"/>
 
-<<<<<<< HEAD
 
 
     <android.support.v7.widget.CardView

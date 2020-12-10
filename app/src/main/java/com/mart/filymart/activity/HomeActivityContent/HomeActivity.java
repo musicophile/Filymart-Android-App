@@ -41,6 +41,7 @@ import com.mart.filymart.activity.HomeActivityContent.presenter.HomeActivityPres
 import com.mart.filymart.activity.HomeActivityContent.presenter.IHomeActivityPresenter;
 import com.mart.filymart.activity.HomeActivityContent.view.IHomeActivityView;
 import com.mart.filymart.activity.PrivacyPolicyActivity;
+import com.mart.filymart.fragment.GiftCardFragmentContent.GiftCardFragment;
 import com.mart.filymart.fragment.HomeFragmentContent.HomeFragment;
 import com.mart.filymart.fragment.BusketFragmentContent.BusketsFragment;
 import com.mart.filymart.fragment.ContactUsFragment;
@@ -61,11 +62,7 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivityView
     private Toolbar toolbar;
     private FloatingActionButton fab;
 
-    // urls to load navigation header background image
-    // and profile image
     private static final int urlNavHeaderBg = R.drawable.f;
-    // "https://api.androidhive.info/images/nav-menu-header-bg.jpg";
-    private static final String urlProfileImg = "https://lh3.googleusercontent.com/eCtE_G34M9ygdkmOpYvCag1vBARCmZwnVS6rS5t4JLzJ6QgQSBquM0nuTsCpLhYbKljoyS-txg";
 
     // index to identify current nav menu item
     public static int navItemIndex = 0;
@@ -76,6 +73,7 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivityView
     private static final String TAG_MOVIES = "movies";
     private static final String TAG_NOTIFICATIONS = "notifications";
     private static final String TAG_SETTINGS = "settings";
+    private static final String TAG_GIFTCARD = "giftcard";
     public static String CURRENT_TAG = TAG_HOME;
 
     // toolbar titles respected to selected nav menu item
@@ -97,13 +95,10 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivityView
 
         Window window = getWindow();
 
-// clear FLAG_TRANSLUCENT_STATUS flag:
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 
-// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
 
-// finally change the color
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
         }
@@ -174,7 +169,7 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivityView
             iHomeActivityPresenter.loadHomeFragment();
         }else if(getIntent().getIntExtra("fragment",0)==6){
             //set the desired fragment as current fragment to fragment pager
-            navItemIndex = 4;
+            navItemIndex = 5;
             iHomeActivityPresenter.loadHomeFragment();
         }else if(getIntent().getIntExtra("fragmentNumber",0)==1){
             //set the desired fragment as current fragment to fragment pager
@@ -183,10 +178,16 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivityView
         }else if (getIntent().getIntExtra("value",0)==3){
             navItemIndex = 1;
             iHomeActivityPresenter.loadHomeFragment();
+        }else if (getIntent().getIntExtra("value",0)==4){
+            navItemIndex = 2;
+            iHomeActivityPresenter.loadHomeFragment();
         }else if (getIntent().getIntExtra("fragment",0)==5){
             navItemIndex = 1;
             iHomeActivityPresenter.loadHomeFragment();
         }else if (getIntent().getIntExtra("fragment",0)== 2){
+            navItemIndex = 3;
+            iHomeActivityPresenter.loadHomeFragment();
+        }else if (getIntent().getIntExtra("fragment",0)== 3){
             navItemIndex = 2;
             iHomeActivityPresenter.loadHomeFragment();
         }else{
@@ -206,14 +207,10 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivityView
      */
     @Override
     public void loadHomeFragment() {
-        // selecting appropriate nav menu item
         iHomeActivityPresenter.selectNavMenu();
 
         // set toolbar title
         iHomeActivityPresenter.setToolbarTitle();
-
-        // if user select the current navigation menu again, don't do anything
-        // just close the navigation drawer
         if (getSupportFragmentManager().findFragmentByTag(CURRENT_TAG) != null) {
             drawer.closeDrawers();
 
@@ -222,10 +219,6 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivityView
             return;
         }
 
-        // Sometimes, when fragment has huge data, screen seems hanging
-        // when switching between navigation menus
-        // So using runnable, the fragment is loaded with cross fade effect
-        // This effect can be seen in GMail app
         Runnable mPendingRunnable = new Runnable() {
             @Override
             public void run() {
@@ -272,18 +265,24 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivityView
                 ShoppingFragment shoppingFragment = new ShoppingFragment();
                 return shoppingFragment;
             case 2:
+                // settings fragment
+                GiftCardFragment giftCardFragment = new GiftCardFragment();
+                return giftCardFragment;
+            case 3:
                 // movies fragment
                 BusketsFragment moviesFragment = new BusketsFragment();
                 return moviesFragment;
-            case 3:
+            case 4:
                 // notifications fragment
                 ContactUsFragment notificationsFragment = new ContactUsFragment();
                 return notificationsFragment;
 
-            case 4:
+            case 5:
                 // settings fragment
                 SettingsFragment settingsFragment = new SettingsFragment();
                 return settingsFragment;
+
+
             default:
                 return new HomeFragment();
         }
@@ -301,10 +300,8 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivityView
 
     @Override
     public void setUpNavigationView() {
-        //Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
-            // This method will trigger on item Click of navigation menu
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
 
@@ -319,18 +316,23 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivityView
                         navItemIndex = 1;
                         CURRENT_TAG = TAG_PHOTOS;
                         break;
-                    case R.id.nav_movies:
+                    case R.id.nav_gift_card:
                         navItemIndex = 2;
+                        CURRENT_TAG = TAG_GIFTCARD;
+                        break;
+                    case R.id.nav_movies:
+                        navItemIndex = 3;
                         CURRENT_TAG = TAG_MOVIES;
                         break;
                     case R.id.nav_notifications:
-                        navItemIndex = 3;
+                        navItemIndex = 4;
                         CURRENT_TAG = TAG_NOTIFICATIONS;
                         break;
                     case R.id.nav_settings:
-                        navItemIndex = 4;
+                        navItemIndex = 5;
                         CURRENT_TAG = TAG_SETTINGS;
                         break;
+
                     case R.id.nav_about_us:
                         // launch new intent instead of loading fragment
                         startActivity(new Intent(HomeActivity.this, AboutUsActivity.class));
@@ -407,9 +409,7 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivityView
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
 
-        // show menu only when home fragment is selected
         if (navItemIndex == 0) {
             HashMap<String, String> users = db.getUserDetails();
 
@@ -431,9 +431,7 @@ public class HomeActivity extends AppCompatActivity implements IHomeActivityView
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xmljnhukhbnuy hn.
+
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement

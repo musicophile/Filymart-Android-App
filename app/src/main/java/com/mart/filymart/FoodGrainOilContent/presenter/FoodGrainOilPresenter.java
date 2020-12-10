@@ -36,7 +36,6 @@ public class FoodGrainOilPresenter implements IFoodGrainOilPresenter {
         this.iFoodGrainOilView = iFoodGrainOilView;
         productModel=new ArrayList<>();
         a = 2;
-        // initUser();
         handler = new Handler(Looper.getMainLooper());
 
     }
@@ -67,13 +66,10 @@ public class FoodGrainOilPresenter implements IFoodGrainOilPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/foodgrainoil";
-            JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
-                    "GET", params);
+            final String URL_PRODUCTS = "http://www.filymart.com/foodgrainoil";
+            JSONObject json = jsonParser.makeHttpRequest(URL_PRODUCTS, "GET", params);
 
             // check log cat fro response
-
-
             Log.d("Create Response", json.toString());
 
             try {
@@ -82,7 +78,6 @@ public class FoodGrainOilPresenter implements IFoodGrainOilPresenter {
                 JSONArray array = o.getJSONArray("order");
 
                 for (int i = 0; i < array.length(); i++) {
-
                     //getting product object from json array
                     JSONObject product = array.getJSONObject(i);
 
@@ -98,8 +93,6 @@ public class FoodGrainOilPresenter implements IFoodGrainOilPresenter {
                 }
                 // int success = json.getInt("success");
                 //  JSONObject user = json.getJSONObject("user");
-
-
 
             } catch (JSONException e) {
                 e.printStackTrace();

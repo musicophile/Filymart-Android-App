@@ -659,7 +659,7 @@ public class DeliveryInformationActivity extends FragmentActivity implements OnM
             String dd = String.valueOf(d2);
 
                     Uri.Builder uriBuilder = new Uri.Builder();
-                    uriBuilder.scheme("http").authority("www.filymart.com").path("/o-payment.php");
+                    uriBuilder.scheme("https").authority("www.filymart.com").path("/o-payment.php");
                     uriBuilder.appendQueryParameter("amount", dd);
 
                     uriBuilder.appendQueryParameter("description", "Order Payment");

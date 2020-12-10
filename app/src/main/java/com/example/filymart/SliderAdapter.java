@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.mart.filymart.R;
+
 import org.w3c.dom.Text;
 
 public class SliderAdapter extends PagerAdapter {

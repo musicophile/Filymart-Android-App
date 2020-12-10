@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.filymart.activity.HomeActivity;
+import com.mart.filymart.R;
 
 
 public class MainActivity extends AppCompatActivity {

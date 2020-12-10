@@ -20,6 +20,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:gravity="center"
+        android:textSize="24dp"
+        android:textStyle="bold"
         android:layout_below="@id/view_pager_slider"
         android:text="@string/categories_available_in_store"
         android:textAppearance="?android:textAppearanceSmall"
@@ -47,12 +50,11 @@
 
             <TextView
                 android:id="@+id/tvItemViewName"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/fruits_and_vergetabless"
                 android:textStyle="bold"
-                android:layout_marginStart="5dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivItemViewImage"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -60,11 +62,12 @@
                 android:layout_weight="1"
                 android:scaleType="centerCrop"
                 android:padding="@dimen/textspacing"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="100dp"
                 android:src="@drawable/vergetables"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvItemViewName"/>
+                app:layout_constraintTop_toTopOf="@id/tvItemViewName"
+                />
 
         </android.support.constraint.ConstraintLayout>
 
@@ -100,14 +103,13 @@
 
             <ImageView
                 android:id="@+id/ivItemViewImage_"
-                android:layout_weight="1"
                 android:scaleType="centerCrop"
                 android:padding="@dimen/textspacing"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="100dp"
                 android:src="@drawable/beverages"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvItemViewName_"/>
+                app:layout_constraintStart_toEndOf="@id/tvItemViewName_"
+                app:layout_constraintTop_toTopOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
 
@@ -133,10 +135,10 @@
                 android:id="@+id/tvItemViewName1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/food_grain_and_oill"
+                android:text="@string/buy_gift_cards"
                 android:textStyle="bold"
                 android:layout_marginStart="15dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivItemViewImage1"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -145,11 +147,11 @@
                 android:layout_weight="1"
                 android:scaleType="centerCrop"
                 android:padding="@dimen/textspacing"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="100dp"
-                android:src="@drawable/foodgrains"
+                android:src="@drawable/giftcards"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvItemViewName1"/>
+                app:layout_constraintTop_toTopOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
 
@@ -175,7 +177,7 @@
                 android:id="@+id/tvItemViewName2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/eggs_meat_and_fishh"
+                android:text="@string/shoes_shop"
                 android:textStyle="bold"
                 android:layout_marginStart="5dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -187,11 +189,11 @@
                 android:layout_weight="1"
                 android:scaleType="centerCrop"
                 android:padding="@dimen/textspacing"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="100dp"
-                android:src="@drawable/eggsmeatmilk"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvItemViewName2"/>
+                android:src="@drawable/shoes"
+                app:layout_constraintStart_toEndOf="@id/tvItemViewName2"
+                app:layout_constraintTop_toTopOf="parent"/>
 
         </android.support.constraint.ConstraintLayout>
 

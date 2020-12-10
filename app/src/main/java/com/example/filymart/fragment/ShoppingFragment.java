@@ -29,12 +29,12 @@ import com.android.volley.toolbox.Volley;
 import com.example.filymart.JSONParser;
 import com.example.filymart.Product;
 import com.example.filymart.ProductsAdapter;
-import com.example.filymart.R;
 import com.example.filymart.SearchedActivity;
 import com.example.filymart.activity.HomeActivity;
 import com.example.filymart.app.AppConfig;
 import com.example.filymart.helper.SQLiteHandler;
 import com.example.filymart.helper.SessionManager;
+import com.mart.filymart.R;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -52,7 +52,7 @@ import butterknife.OnClick;
 
 public class ShoppingFragment extends Fragment {
 
-    private static final String URL_PRODUCTS = "http://www.filymart.com/get_all_products.php";
+    private static final String URL_PRODUCTS = "https://filymart.000webhostapp.com/get_all_products.php";
 
     @BindView (R.id.recycler_view)
     RecyclerView recyclerView;

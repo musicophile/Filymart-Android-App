@@ -48,7 +48,7 @@ import butterknife.OnClick;
 
 public class ShoppingFragment extends Fragment implements AdapterView.OnItemSelectedListener, IShoppingFragmentView {
 
-    private static final String URL_PRODUCTS = "http://www.filymart.com/get_all_products.php";
+    private static final String URL_PRODUCTS = "https://filymart.000webhostapp.com/get_all_products.php";
 
     //@BindView (R.id.recycler_view)
     RecyclerView recyclerView;

@@ -28,7 +28,7 @@ import com.example.filymart.JSONParser;
 import com.example.filymart.NewAddressActivity;
 import com.example.filymart.Orders;
 import com.example.filymart.OrdersAdapter;
-import com.example.filymart.R;
+import com.mart.filymart.R;
 import com.example.filymart.app.AppConfig;
 import com.example.filymart.helper.SQLiteHandler;
 import com.example.filymart.helper.SessionManager;
@@ -106,7 +106,7 @@ public class BusketsFragment extends Fragment {
 
         String user_id = users.get("uid");
 
-        final String URL_PRODUCTS = "http://www.filymart.com/showMobileorder?user_id=" + user_id;
+        final String URL_PRODUCTS = "https://filymart.000webhostapp.com/showMobileorder?user_id=" + user_id;
 
         StringRequest stringRequest = new StringRequest(Request.Method.GET, URL_PRODUCTS,
                 new Response.Listener<String>() {

@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.filymart.CustomViewPagerAdapter;
-import com.example.filymart.R;
+import com.mart.filymart.R;
 
 public class AboutUsActivity extends AppCompatActivity {
     private static final long SLIDER_TIMER = 2000; // change slider interval

@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_add_shopping_cart_black_24dp"
             android:title="@string/nav_photos" />
         <item
+            android:id="@+id/nav_gift_card"
+            android:icon="@drawable/ic_card_giftcard_black_24dp"
+            android:title="Gift Card" />
+        <item
             android:id="@+id/nav_movies"
             android:icon="@drawable/ic_shopping_basket_black_24dp"
             android:title="@string/nav_movies" />

@@ -12,6 +12,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.mart.filymart.R;
+
 public class PaymentActivity extends AppCompatActivity {
 
     private Button getSignature;

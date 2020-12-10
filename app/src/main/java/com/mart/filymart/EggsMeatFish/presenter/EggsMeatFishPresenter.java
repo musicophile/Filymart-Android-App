@@ -67,7 +67,7 @@ public class EggsMeatFishPresenter implements IEggsMeatFishPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/eggsmeatfish";
+            final String URL_PRDUCTS = "https://filymart.000webhostapp.com/eggsmeatfish";
             JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
                     "GET", params);
 

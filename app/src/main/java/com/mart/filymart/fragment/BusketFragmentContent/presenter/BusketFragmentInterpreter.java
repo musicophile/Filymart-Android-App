@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.util.Log;
 
 import com.mart.filymart.JSONParser;
+import com.mart.filymart.app.AppConfig;
 import com.mart.filymart.fragment.BusketFragmentContent.model.IOrder;
 import com.mart.filymart.fragment.BusketFragmentContent.model.OrderModel;
 import com.mart.filymart.fragment.BusketFragmentContent.view.IBusketFragmentView;
@@ -73,8 +74,7 @@ public class BusketFragmentInterpreter implements IBusketFragmentPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/showMobileorder";
-            JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
+            JSONObject json = jsonParser.makeHttpRequest(AppConfig.URL_SHOWORDER,
                     "GET", params);
 
             // check log cat fro response

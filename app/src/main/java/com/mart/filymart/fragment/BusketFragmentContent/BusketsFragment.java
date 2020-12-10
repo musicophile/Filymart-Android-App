@@ -1,10 +1,14 @@
 package com.mart.filymart.fragment.BusketFragmentContent;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
@@ -33,6 +37,7 @@ import com.mart.filymart.fragment.BusketFragmentContent.view.IBusketFragmentView
 import com.mart.filymart.helper.SQLiteHandler;
 import com.mart.filymart.helper.SessionManager;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,21 +48,24 @@ public class BusketsFragment extends Fragment implements IBusketFragmentView {
 
     private RecyclerView recyclerView;
     private OrdersAdapter adapter;
-    private ConstraintLayout MConstraint, Guest, noOrder;
+    private ConstraintLayout MConstraint, Guest, noOrder,giftbuttonlayout,productbuttonlayout;
     private List<Orders> albumList;
-    private Button pProceed, btnLogin, btnRegister;
+    private Button pProceed, btnLogin, btnRegister,gProceed;
     private TextView PriceSum;
     private SessionManager session;
     private SQLiteHandler db;
+    AlertDialog alertDialog;
     String uid;
     JSONParser jsonParser = new JSONParser();
     private IBusketFragmentPresenter iBusketFragmentPresenter;
+    private TextView text_p,text_g;
 
     private ProgressDialog pDialog;
 
     private TransparentProgressDialog pd;
     private Handler h;
     private Runnable r;
+    private SharedPreferences pref;
 
     public BusketsFragment() {
         // Required empty public constructor
@@ -81,13 +89,20 @@ public class BusketsFragment extends Fragment implements IBusketFragmentView {
         btnLogin = view.findViewById(R.id.btnLoginGuest);
         btnRegister = view.findViewById(R.id.btnRegisterGuest);
         PriceSum = view.findViewById(R.id.tvPriceSum);
-        recyclerView = view.findViewById(R.id.recycler_view);
+        text_g = view.findViewById(R.id.giftText);
+        text_p = view.findViewById(R.id.producttext);
+        giftbuttonlayout = view.findViewById(R.id.giftbutton);
+        productbuttonlayout = view.findViewById(R.id.productbutton);
+        gProceed = view.findViewById(R.id.proceed_g);
         noOrder = view.findViewById(R.id.noOrder);
-
-
         pDialog = new ProgressDialog(getContext());
         pDialog.setCancelable(false);
         albumList = new ArrayList<>();
+        pProceed = view.findViewById(R.id.proceed);
+        db = new SQLiteHandler(getContext());
+        session = new SessionManager(getContext());
+        pref = getContext().getSharedPreferences("filymart", 0);
+
 
         h = new Handler();
         pd = new TransparentProgressDialog(getContext(), R.mipmap.ic_launcher);
@@ -101,41 +116,97 @@ public class BusketsFragment extends Fragment implements IBusketFragmentView {
         };
 
 
-        //intialize linear layout manager vertically
-        LinearLayoutManager linearVertical = new LinearLayoutManager(getContext());
-
-        //LinearLayoutManager
-        recyclerView.setLayoutManager(linearVertical);
-
-        pProceed = view.findViewById(R.id.proceed);
-        db = new SQLiteHandler(getContext());
-        session = new SessionManager(getContext());
         iBusketFragmentPresenter = new BusketFragmentInterpreter(this);
 
         HashMap<String, String> users = db.getUserDetails();
 
         String user_id = users.get("uid");
         noOrder.setVisibility(View.INVISIBLE);
+        Guest.setVisibility(View.INVISIBLE);
+        new AlertDialog.Builder(getContext())
+                .setTitle("Choose One")
+                .setMessage("Choose Goods Busket or Gift Card Busket")
+                .setPositiveButton("Product", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        if (user_id == null){
+                            MConstraint.setVisibility(View.INVISIBLE);
+                            Guest.setVisibility(View.VISIBLE);
+                            recyclerView = view.findViewById(R.id.recycler_view);
+                            //intialize linear layout manager vertically
+                            LinearLayoutManager linearVertical = new LinearLayoutManager(getContext());
 
-        if (user_id == null){
-            MConstraint.setVisibility(View.INVISIBLE);
-            Guest.setVisibility(View.VISIBLE);
-        }else{
-            MConstraint.setVisibility(View.VISIBLE);
-            Guest.setVisibility(View.INVISIBLE);
-            if (isNetworkAvailable()){
-                pd.show();
-                h.postDelayed(r,5000);
-                iBusketFragmentPresenter.loadData(user_id);
-            }else{
-                Toast.makeText(getContext(),
-                        "Check Your Network Connection", Toast.LENGTH_LONG)
-                        .show();
-            }
+                            //LinearLayoutManager
+                            recyclerView.setLayoutManager(linearVertical);
+                        }else
+                        {
+                            MConstraint.setVisibility(View.VISIBLE);
+                            Guest.setVisibility(View.INVISIBLE);
+                            productbuttonlayout.setVisibility(View.VISIBLE);
+                            text_p.setVisibility(View.VISIBLE);
+                            recyclerView = view.findViewById(R.id.recycler_view);
+                            //intialize linear layout manager vertically
+                            LinearLayoutManager linearVertical = new LinearLayoutManager(getContext());
+
+                            //LinearLayoutManager
+                            recyclerView.setLayoutManager(linearVertical);
+                            if (isNetworkAvailable()){
+                                setBusketType("2");
+                                pd.show();
+                                h.postDelayed(r,5000);
+                                iBusketFragmentPresenter.loadData(user_id);
+                            }else{
+                                Toast.makeText(getContext(),
+                                        "Check Your Network Connection", Toast.LENGTH_LONG)
+                                        .show();
+                            }
 
 
 
-        }
+                        }
+                        dialog.dismiss();
+
+                    }
+                })
+                .setNegativeButton("Gift Card", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        if (user_id == null){
+                            MConstraint.setVisibility(View.INVISIBLE);
+                            Guest.setVisibility(View.VISIBLE);
+                            recyclerView = view.findViewById(R.id.recycler_view);
+                            LinearLayoutManager linearVertical = new LinearLayoutManager(getContext());
+
+                            recyclerView.setLayoutManager(linearVertical);
+                        }else
+                        {
+                            MConstraint.setVisibility(View.VISIBLE);
+                            Guest.setVisibility(View.INVISIBLE);
+                            text_g.setVisibility(View.VISIBLE);
+                            giftbuttonlayout.setVisibility(View.VISIBLE);
+                            recyclerView = view.findViewById(R.id.recycler_view);
+                            LinearLayoutManager linearVertical = new LinearLayoutManager(getContext());
+
+                            recyclerView.setLayoutManager(linearVertical);
+                            if (isNetworkAvailable()){
+                                pd.show();
+                                h.postDelayed(r,5000);
+                                setBusketType("1");
+                                iBusketFragmentPresenter.loadData(user_id);
+                            }else{
+                                Toast.makeText(getContext(),
+                                        "Check Your Network Connection", Toast.LENGTH_LONG)
+                                        .show();
+                            }
+
+
+
+                        }
+                        dialog.dismiss();
+                    }
+                })
+                .setCancelable(false)
+                .show();
+
         pProceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -167,6 +238,35 @@ public class BusketsFragment extends Fragment implements IBusketFragmentView {
             }
         });
 
+        gProceed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                HashMap<String, String> users = db.getUserDetails();
+                String user_id = users.get("uid");
+                String user_email = users.get("email");
+                String user_name = users.get("name");
+                String user_phone = users.get("phone");
+                BigDecimal d = new BigDecimal(100);
+                BigDecimal d2 = d.setScale(0, BigDecimal.ROUND_HALF_UP);
+                String dd = String.valueOf(d2);
+
+                Uri.Builder uriBuilder = new Uri.Builder();
+                uriBuilder.scheme("https").authority("www.filymart.com").path("/mobilepayment");
+                uriBuilder.appendQueryParameter("amount", dd);
+
+                uriBuilder.appendQueryParameter("description", "Order Payment");
+                uriBuilder.appendQueryParameter("type", "MERCHANT");
+                uriBuilder.appendQueryParameter("reference", "001");
+                uriBuilder.appendQueryParameter("first_name", user_name);
+                uriBuilder.appendQueryParameter("last_name", "");
+                uriBuilder.appendQueryParameter("email", user_email);
+                Uri payPalUri = uriBuilder.build();
+
+                Intent viewIntent = new Intent(Intent.ACTION_VIEW, payPalUri);
+                startActivity(viewIntent);
+            }
+        });
+
         return view;
     }
 
@@ -179,6 +279,13 @@ public class BusketsFragment extends Fragment implements IBusketFragmentView {
         super.onDestroy();
     }
 
+
+    public boolean setBusketType(String type){
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("BusketType", type);
+        editor.commit(); //commit changes
+        return true;
+    }
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getContext().getSystemService(Context.CONNECTIVITY_SERVICE);

@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mart.filymart.R;
+
 public class FragmentSliderTwo extends Fragment {
     @Nullable
     @Override

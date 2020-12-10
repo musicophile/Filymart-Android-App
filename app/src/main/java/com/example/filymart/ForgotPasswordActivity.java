@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.filymart.app.AppConfig;
 import com.example.filymart.helper.SQLiteHandler;
 import com.example.filymart.helper.SessionManager;
+import com.mart.filymart.R;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -39,8 +40,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     EditText fpassword;
     @BindView(R.id.btnReset)
     Button btnReset;
-    @BindView(R.id.bacArrow)
-    TextView backArrow;
+//    @BindView(R.id.bacArrow)
+//    TextView backArrow;
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
@@ -89,10 +90,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                     .show();
         }
     }
-    @OnClick(R.id.bacArrow)
-    public void closeThisActivityIntent(){
-        this.finish();
-    }
+//    @OnClick(R.id.bacArrow)
+//    public void closeThisActivityIntent(){
+//        this.finish();
+//    }
 
     class CreateNewProduct extends AsyncTask<String, String, String> {
 

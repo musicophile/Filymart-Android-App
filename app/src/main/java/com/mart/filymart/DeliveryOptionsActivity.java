@@ -48,7 +48,7 @@ public class DeliveryOptionsActivity extends AppCompatActivity implements ILogin
         editPass = (EditText) this.findViewById(R.id.et_login_password);
         btnLogin = (Button) this.findViewById(R.id.btn_login_login);
         btnClear = (Button) this.findViewById(R.id.btn_login_clear);
-        progressBar = (ProgressBar) this.findViewById(R.id.progress_login);
+//        progressBar = (ProgressBar) this.findViewById(R.id.progress_login);
 
         //set listener
         btnLogin.setOnClickListener(this);
@@ -56,7 +56,7 @@ public class DeliveryOptionsActivity extends AppCompatActivity implements ILogin
 
         //init
         loginPresenter = new LoginPresenterCompl(this);
-        loginPresenter.setProgressBarVisiblity(View.INVISIBLE);
+//        loginPresenter.setProgressBarVisiblity(View.INVISIBLE);
 
     }
 
@@ -70,7 +70,7 @@ public class DeliveryOptionsActivity extends AppCompatActivity implements ILogin
                 startActivity(in);
                 break;
             case R.id.btn_login_login:
-                loginPresenter.setProgressBarVisiblity(View.VISIBLE);
+//                loginPresenter.setProgressBarVisiblity(View.VISIBLE);
                 btnLogin.setEnabled(false);
                 btnClear.setEnabled(false);
                 loginPresenter.doLogin(editUser.getText().toString(), editPass.getText().toString());
@@ -86,7 +86,7 @@ public class DeliveryOptionsActivity extends AppCompatActivity implements ILogin
 
     @Override
     public void onLoginResult(Boolean result, int code) {
-        loginPresenter.setProgressBarVisiblity(View.INVISIBLE);
+//        loginPresenter.setProgressBarVisiblity(View.INVISIBLE);
         btnLogin.setEnabled(true);
         btnClear.setEnabled(true);
         if (result){

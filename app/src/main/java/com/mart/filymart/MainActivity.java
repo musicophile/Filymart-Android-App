@@ -18,6 +18,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.mart.filymart.Database.dbFunctions;
+import com.mart.filymart.helper.SQLiteHandler;
+
 import org.jsoup.Jsoup;
 
 import java.io.IOException;
@@ -34,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
     private Button mBackBtn;
     private Button mFinishBtn;
     private int mCurrentPage;
+    private dbFunctions db;
+    private SQLiteHandler db2;
+
 
     private SliderAdapter sliderAdapter;
 
@@ -60,13 +66,15 @@ public class MainActivity extends AppCompatActivity {
         mNextBtn = findViewById(R.id.nextButton);
         mBackBtn = findViewById(R.id.prevButton);
         mFinishBtn = findViewById(R.id.finishBtn);
-        CheckUPdate();
+//        CheckUPdate();
         sliderAdapter = new SliderAdapter(this);
         mSlideViewPager.setAdapter(sliderAdapter);
         addDotsIndicator(0);
 
         mSlideViewPager.addOnPageChangeListener(viewListener);
+        db2 = new SQLiteHandler(getApplicationContext());
 
+        db = new dbFunctions(getApplicationContext());
 
         //onClick Listeners
 
@@ -93,8 +101,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
 
+            checkSession();
 
+    }
 
+    public void checkSession(){
+        if (!db.checkSession().isEmpty() || !db.checkSession().equals(""))
+        if(Integer.parseInt(db.checkSession()) > 0){
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     public void addDotsIndicator(int position){

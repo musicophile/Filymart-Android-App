@@ -65,17 +65,19 @@
         app:layout_constraintTop_toBottomOf="@id/password" />
 
 
-    <TextView
+    <Button
         android:id="@+id/btnSkip"
-        android:layout_width="50dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tendp"
         android:layout_marginRight="@dimen/tendp"
         android:layout_weight="1"
         android:text="@string/skip"
         android:clickable="true"
-        android:textAppearance="?android:textAppearanceSmall"
+        android:textSize="20dp"
+        android:background="@null"
         android:textColor="@color/colorWhite"
+        android:textAppearance="?android:textAppearanceSmall"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

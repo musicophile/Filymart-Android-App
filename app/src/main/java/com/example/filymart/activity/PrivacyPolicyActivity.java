@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.filymart.R;
+import com.mart.filymart.R;
 
 public class PrivacyPolicyActivity extends AppCompatActivity {
 

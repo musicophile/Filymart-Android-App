@@ -89,7 +89,7 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
     private Runnable r;
     ScrollView scrollView;
     ImageView transparentImageView;
-    String[] cityNames={"Select your City", "Arusha","Moshi", "Daressalaam", "Other"};
+    String[] cityNames={"Select your City", "Arusha","Moshi", "Dar es salaam", "Other"};
     String cityName;
     String warn;
 
@@ -278,7 +278,7 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
 
         //Animating the camera
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
-        mMap.setMapType(mMap.MAP_TYPE_SATELLITE);
+        mMap.setMapType(mMap.MAP_TYPE_HYBRID);
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setZoomGesturesEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
@@ -312,17 +312,17 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
+        LatLng sydney = new LatLng(-3.3721946, 36.69438739999998);
 
         //Adding marker to that coordinate
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney").draggable(true));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
         //Setting onMarkerDragListener to track the marker drag
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(8));
         mMap.setOnMarkerDragListener(this);
         //Adding a long click listener to the map
         mMap.setOnMapLongClickListener(this);
-        mMap.setMapType(mMap.MAP_TYPE_SATELLITE);
+        mMap.setMapType(mMap.MAP_TYPE_HYBRID);
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.getUiSettings().setZoomGesturesEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
@@ -356,8 +356,8 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
         //Animating the camera
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(18));
-        mMap.setMapType(mMap.MAP_TYPE_SATELLITE);
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(8));
+        mMap.setMapType(mMap.MAP_TYPE_HYBRID);
 
         latitude = latLng.latitude;
         longitude = latLng.longitude;
@@ -428,7 +428,7 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
 
         //Animating the camera
         mMap.animateCamera(CameraUpdateFactory.zoomTo(18));
-        mMap.setMapType(mMap.MAP_TYPE_SATELLITE);
+        mMap.setMapType(mMap.MAP_TYPE_HYBRID);
 
         latitude = latLng.latitude;
         longitude = latLng.longitude;
@@ -487,7 +487,7 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
             HashMap<String, String> users = db.getUserDetails();
 
 
-
+//
             String adfirstname = firstName.getText().toString().trim();
             String adsecondname = secondName.getText().toString().trim();
             String adphone = phoneNumber.getText().toString().trim();
@@ -514,11 +514,15 @@ public class NewAddressActivity extends AppCompatActivity implements OnMapReadyC
 
             // getting JSON Object
             // Note that create product url accepts POST method
+            Log.v("ItWorks", "test");
+
             JSONObject json = jsonParser.makeHttpRequest(AppConfig.URL_ADDRESS,
                     "GET", params);
 
             // check log cat fro response
             Log.d("Create Response", json.toString());
+            Log.v("ItWorks", "test");
+
 
             try {
                 // check for success tag

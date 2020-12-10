@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.filymart.CustomViewPagerAdapter;
-import com.example.filymart.R;
+import com.mart.filymart.R;
 
 
 public class HomeFragment extends Fragment {

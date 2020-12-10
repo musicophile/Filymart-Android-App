@@ -18,7 +18,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     // Database Name
-    private static final String DATABASE_NAME = "android_api";
+    private static final String DATABASE_NAME = "android_api.db";
 
     // Login table name
     private static final String TABLE_USER = "user";
@@ -29,9 +29,23 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String KEY_EMAIL = "email";
     private static final String KEY_UID = "uid";
     private static final String KEY_CREATED_AT = "created_at";
+    private static final String CREATE_TABLE_FOR_SPLASH_SCREEN = "CREATE TABLE IF NOT EXISTS tbl_splash_screen (_id INTEGER PRIMARY KEY AUTOINCREMENT, session VARCHAR(10),date VARCHAR(30),time VARCHAR(10));";
+    private static SQLiteHandler sInstance;
+
 
     public SQLiteHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    public static synchronized SQLiteHandler getInstance(Context context) {
+
+        // Use the application context, which will ensure that you
+        if (sInstance == null) {
+            if (context != null) {
+                sInstance = new SQLiteHandler(context.getApplicationContext());
+            }
+        }
+        return sInstance;
     }
 
     // Creating Tables
@@ -41,7 +55,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_NAME + " TEXT,"
                 + KEY_EMAIL + " TEXT UNIQUE," + KEY_UID + " TEXT,"
                 + KEY_CREATED_AT + " TEXT" + ")";
+     String CREATE_TABLE_FOR_SPLASH_SCREEN = "CREATE TABLE IF NOT EXISTS tbl_splash_screen" +
+             " (_id INTEGER PRIMARY KEY AUTOINCREMENT, session VARCHAR(10),date VARCHAR(30),time VARCHAR(10));";
+
         db.execSQL(CREATE_LOGIN_TABLE);
+        db.execSQL(CREATE_TABLE_FOR_SPLASH_SCREEN);
 
         Log.d(TAG, "Database tables created");
     }
@@ -51,6 +69,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Drop older table if existed
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USER);
+        db.execSQL(CREATE_TABLE_FOR_SPLASH_SCREEN);
+
 
         // Create tables again
         onCreate(db);
@@ -75,6 +95,49 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         Log.d(TAG, "New user inserted into sqlite: " + id);
     }
 
+    public boolean getUserDetailsInfo(String Email) {
+        String id = "";
+        boolean status = false;
+        String selectQuery = "SELECT  id FROM user WHERE email = ?";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        // Move to first row
+        cursor.moveToFirst();
+        if (cursor.getCount() > 0) {
+            id = cursor.getString(1);
+            if (!id.isEmpty()){
+                status = true;
+            }
+            cursor.close();
+            db.close();
+            // return user
+            Log.d(TAG, "Fetching user from Sqlite: " + id);
+
+
+        }
+        return status;
+    }
+
+    public String updateUserInformations(String Email, String operatorId) {
+        String id = "";
+        String selectQuery = "UPDATE  user SET email = ? WHERE id = ?";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, new String[]{Email, operatorId});
+        // Move to first row
+        cursor.moveToFirst();
+        if (cursor.getCount() > 0) {
+//            id = cursor.getString(1);
+            cursor.close();
+            db.close();
+            // return user
+            Log.d(TAG, "Fetching user from Sqlite: " + id);
+
+
+        }
+        return operatorId;
+    }
     /**
      * Getting user data from database
      * */

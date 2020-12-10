@@ -35,7 +35,7 @@ import com.example.filymart.FruitsVergetablesActivity;
 import com.example.filymart.LoginActivity;
 import com.example.filymart.NewAddressActivity;
 import com.example.filymart.OtherProductsActivity;
-import com.example.filymart.R;
+import com.mart.filymart.R;
 import com.example.filymart.RegisterActivity;
 import com.example.filymart.fragment.HomeFragment;
 import com.example.filymart.fragment.BusketsFragment;

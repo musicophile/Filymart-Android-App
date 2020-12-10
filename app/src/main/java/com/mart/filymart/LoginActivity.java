@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mart.filymart.Database.dbFunctions;
 import com.mart.filymart.activity.HomeActivityContent.HomeActivity;
 import com.mart.filymart.app.AppConfig;
 import com.mart.filymart.helper.SQLiteHandler;
@@ -37,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = RegisterActivity.class.getSimpleName();
     private Button btnLogin;
-    private TextView skipBtn;
+    private Button skipBtn;
     private Button btnLinkToRegister;
     private TextView btnForgotPassword;
     private EditText inputEmail;
@@ -45,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
+    private dbFunctions dbF;
     JSONParser jsonParser = new JSONParser();
     private LoginProgressDialog pd;
     private Handler h;
@@ -81,7 +83,8 @@ public class LoginActivity extends AppCompatActivity {
 
         // SQLite database handler
         db = new SQLiteHandler(getApplicationContext());
-
+        dbF = new dbFunctions(getApplicationContext());
+        dbF.recordSession("1");
         // Session manager
         session = new SessionManager(getApplicationContext());
         h = new Handler();
@@ -138,14 +141,12 @@ public class LoginActivity extends AppCompatActivity {
                         new CreateNewProduct().execute();
                     }else{
                         Toast.makeText(getApplicationContext(),
-                                "Check Your Network Connection", Toast.LENGTH_LONG)
-                                .show();
+                                "Check Your Network Connection", Toast.LENGTH_LONG).show();
                     }
                 } else {
                     // Prompt user to enter credentials
                     Toast.makeText(getApplicationContext(),
-                            "Please enter the credentials!", Toast.LENGTH_LONG)
-                            .show();
+                            "Please enter the credentials!", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -209,14 +210,17 @@ public class LoginActivity extends AppCompatActivity {
 
                     // getting JSON Object
                     // Note that create product url accepts POST method
-                    JSONObject json = jsonParser.makeHttpRequest(AppConfig.URL_LOGIN,
+            Log.v("Create Response", params+"");
+
+            JSONObject json = jsonParser.makeHttpRequest(AppConfig.URL_LOGIN,
                             "GET", params);
 
                     // check log cat fro response
-                    Log.d("Create Response", json.toString());
+                    Log.v("Create Response", json+"");
 
                     try {
                         // check for success tag
+                        if(!json.toString().isEmpty()){
                         int success = json.getInt("success");
                         //  int success = 1;
 
@@ -235,15 +239,18 @@ public class LoginActivity extends AppCompatActivity {
                                     .getString("created_at");
 
                             // Inserting row in users table
-                            db.addUser(name, emaill, uid, created_at);
+                            if (db.getUserDetailsInfo(emaill)){
 
+                            }else {
+                                db.addUser(name, emaill, uid, created_at);
+                            }
 
                             Intent i = new Intent(getApplicationContext(), HomeActivity.class);
                             startActivity(i);
 
                             // closing this screen
                             finish();
-                        }
+                        }else
                         if (success == 2) {
                            final String errorMsg = json.getString("error_msg");
                             // successfully created product
@@ -257,9 +264,10 @@ public class LoginActivity extends AppCompatActivity {
 
                             });
 
-                        }
+                        } else
 
                         if (success == 3) {
+
                             final String errorMsg = json.getString("error_msg");
                             // successfully created product
                             runOnUiThread(new Runnable() {
@@ -272,6 +280,20 @@ public class LoginActivity extends AppCompatActivity {
 
                             });
 
+                        }
+                        }
+                        else{
+                            final String errorMsg = "System error, Please wait few minutes then try again. Thank you";
+                            // successfully created product
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+                                    // String errorMsg = json.getString("error_msg");
+                                    Toast.makeText(getApplicationContext(),
+                                            errorMsg, Toast.LENGTH_LONG)
+                                            .show();
+                                }
+
+                            });
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();

@@ -30,6 +30,7 @@ import com.example.filymart.app.AppConfig;
 import com.example.filymart.fragment.ShoppingFragment;
 import com.example.filymart.helper.SQLiteHandler;
 import com.example.filymart.helper.SessionManager;
+import com.mart.filymart.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -256,7 +257,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         
         Intent intent = getIntent();
         dd = intent.getIntExtra("id", dd);
-        final String URL_PRODUCTS = "http://www.filymart.com/get_product_details.php?id=" + dd;
+        final String URL_PRODUCTS = "https://filymart.000webhostapp.com/get_product_details.php?id=" + dd;
 
         //Toast.makeText(this, "This is the requiured value ;"+dd, Toast.LENGTH_LONG).show();
 

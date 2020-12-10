@@ -15,7 +15,6 @@
         <item name="android:layout_width">wrap_content</item>
     </style>
 
-<<<<<<< HEAD
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -38,6 +37,4 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
-=======
->>>>>>> 564a7a32a4057aaaec8d5771acaa1571ed83bd06
 </resources>

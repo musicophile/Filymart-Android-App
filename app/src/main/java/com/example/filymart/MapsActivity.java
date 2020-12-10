@@ -37,6 +37,7 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import com.google.maps.android.SphericalUtil;
+import com.mart.filymart.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -126,13 +127,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
 
-        buttonSetTo = (Button) findViewById(R.id.buttonSetTo);
-        buttonSetFrom = (Button) findViewById(R.id.buttonSetFrom);
+//        buttonSetTo = (Button) findViewById(R.id.buttonSetTo);
+//        buttonSetFrom = (Button) findViewById(R.id.buttonSetFrom);
         buttonCalcDistance = (Button) findViewById(R.id.buttonCalcDistance);
         proceedPayment = findViewById(R.id.proceed_payment);
 
-        buttonSetTo.setOnClickListener(this);
-        buttonSetFrom.setOnClickListener(this);
+//        buttonSetTo.setOnClickListener(this);
+//        buttonSetFrom.setOnClickListener(this);
         buttonCalcDistance.setOnClickListener(this);
         proceedPayment.setOnClickListener(this);
 

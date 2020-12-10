@@ -126,7 +126,7 @@ public class ShoppingFragmentPresenter implements IShoppingFragmentPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/mobileAllProducts";
+            final String URL_PRDUCTS = "https://filymart.com/mobileAllProducts";
             JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
                     "GET", params);
 
@@ -197,7 +197,7 @@ public class ShoppingFragmentPresenter implements IShoppingFragmentPresenter {
             productModel.clear();
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/fruitsvergetable";
+            final String URL_PRDUCTS = "https://filymart.com/fruitsvergetable";
             JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
                     "GET", params);
 
@@ -271,7 +271,7 @@ public class ShoppingFragmentPresenter implements IShoppingFragmentPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/eggsmeatfish";
+            final String URL_PRDUCTS = "https://filymart.com/eggsmeatfish";
             JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
                     "GET", params);
 
@@ -350,7 +350,7 @@ public class ShoppingFragmentPresenter implements IShoppingFragmentPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/brandedsnacksfood";
+            final String URL_PRDUCTS = "https://filymart.com/brandedsnacksfood";
             JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
                     "GET", params);
 
@@ -425,7 +425,7 @@ public class ShoppingFragmentPresenter implements IShoppingFragmentPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/detegentshygiene";
+            final String URL_PRDUCTS = "https://filymart.com/detegentshygiene";
             JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
                     "GET", params);
 
@@ -500,7 +500,7 @@ public class ShoppingFragmentPresenter implements IShoppingFragmentPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/beveragesdrinks";
+            final String URL_PRDUCTS = "https://filymart.com/beveragesdrinks";
             JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
                     "GET", params);
 
@@ -575,7 +575,7 @@ public class ShoppingFragmentPresenter implements IShoppingFragmentPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/foodgrainoil";
+            final String URL_PRDUCTS = "https://filymart.com/foodgrainoil";
             JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
                     "GET", params);
 
@@ -650,7 +650,7 @@ public class ShoppingFragmentPresenter implements IShoppingFragmentPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/kidscollections";
+            final String URL_PRDUCTS = "https://filymart.com/kidscollections";
             JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
                     "GET", params);
 
@@ -729,7 +729,7 @@ public class ShoppingFragmentPresenter implements IShoppingFragmentPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/mencollections";
+            final String URL_PRDUCTS = "https://filymart.com/mencollections";
             JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
                     "GET", params);
 
@@ -804,7 +804,7 @@ public class ShoppingFragmentPresenter implements IShoppingFragmentPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/womencollections";
+            final String URL_PRDUCTS = "https://filymart.com/womencollections";
             JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
                     "GET", params);
 
@@ -854,8 +854,6 @@ public class ShoppingFragmentPresenter implements IShoppingFragmentPresenter {
 
     }
 
-
-
     class AccessoriesElectronics extends AsyncTask<String, String, String> {
 
         /**
@@ -879,7 +877,7 @@ public class ShoppingFragmentPresenter implements IShoppingFragmentPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/accessoriesandelectronics";
+            final String URL_PRDUCTS = "https://filymart.com/accessoriesandelectronics";
             JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
                     "GET", params);
 
@@ -954,7 +952,7 @@ public class ShoppingFragmentPresenter implements IShoppingFragmentPresenter {
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/allbrands";
+            final String URL_PRDUCTS = "https://filymart.com/allbrands";
             JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
                     "GET", params);
 

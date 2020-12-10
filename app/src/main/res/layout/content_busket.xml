@@ -62,8 +62,11 @@
            <include layout="@layout/busket_recycler" />
 
         </android.support.constraint.ConstraintLayout>
-
-
-
-
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ConstraintLayoutForGeneralBusket"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/tendp"
+        android:visibility="invisible">
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

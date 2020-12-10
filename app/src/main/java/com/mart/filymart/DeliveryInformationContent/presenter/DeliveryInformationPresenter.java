@@ -9,6 +9,7 @@ import com.mart.filymart.DeliveryInformationContent.model.IOrderSummary;
 import com.mart.filymart.DeliveryInformationContent.model.OrderSummaryModel;
 import com.mart.filymart.DeliveryInformationContent.view.IDeliveryInformationView;
 import com.mart.filymart.JSONParser;
+import com.mart.filymart.app.AppConfig;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -106,8 +107,7 @@ public class DeliveryInformationPresenter implements IDeliveryInformationPresent
 
             // getting JSON Object
             // Note that create product url accepts POST method
-            final String URL_PRDUCTS = "http://www.filymart.com/showMobileorderSummary";
-            JSONObject json = jsonParser.makeHttpRequest(URL_PRDUCTS,
+            JSONObject json = jsonParser.makeHttpRequest(AppConfig.URL_SAVEDADDRESS,
                     "GET", params);
 
             // check log cat fro response

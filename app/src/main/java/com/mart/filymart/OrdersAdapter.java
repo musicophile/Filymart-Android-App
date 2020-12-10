@@ -3,6 +3,7 @@ package com.mart.filymart;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -22,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.filymart.PriviewUnpaidCardActivity;
 import com.mart.filymart.activity.HomeActivityContent.HomeActivity;
 import com.mart.filymart.app.AppConfig;
 import com.mart.filymart.fragment.BusketFragmentContent.BusketsFragment;
@@ -47,20 +49,23 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
     private SQLiteHandler db;
     String id;
     String Qntyty;
+    String BusketType;
 
     private TransparentProgressDialog pd;
     private Handler h;
     private Runnable r;
     private ProgressDialog pDialog;
+    private SharedPreferences pref;
 
 
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView title, count;
         public ImageView thumbnail;
-        private Button updateBtn;
+        private Button updateBtn, preview;
         private EditText Qntyy;
         private ImageButton deleteBtn;
+
 
 
         public MyViewHolder(View view) {
@@ -70,7 +75,17 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
             thumbnail =  view.findViewById(R.id.thumbnail);
             deleteBtn = view.findViewById(R.id.delete);
             updateBtn = view.findViewById(R.id.update);
+            preview = view.findViewById(R.id.preview);
             Qntyy = view.findViewById(R.id.qnty);
+            if(BusketType.equals("2")){
+                Qntyy.setVisibility(View.VISIBLE);
+                preview.setVisibility(View.INVISIBLE);
+                updateBtn.setVisibility(View.VISIBLE);
+            }else{
+                Qntyy.setVisibility(View.INVISIBLE);
+                preview.setVisibility(View.VISIBLE);
+                updateBtn.setVisibility(View.INVISIBLE);
+            }
 
         }
     }
@@ -90,6 +105,8 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
 
 
         pDialog = new ProgressDialog(parent.getContext());
+        pref = parent.getContext().getSharedPreferences("filymart", 0);
+        BusketType = pref.getString("BusketType", null);
         // SQLite database handler
         db = new SQLiteHandler(parent.getContext());
         pDialog.setCancelable(false);
@@ -174,6 +191,15 @@ public class OrdersAdapter extends RecyclerView.Adapter<OrdersAdapter.MyViewHold
                             "Check Your Network Connection", Toast.LENGTH_LONG)
                             .show();
                 }
+
+            }
+        });
+
+        holder.preview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext.getContext(), PriviewUnpaidCardActivity.class);
+                mContext.getContext().startActivity(intent);
 
             }
         });

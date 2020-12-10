@@ -24,6 +24,7 @@ import com.example.filymart.app.AppConfig;
 import com.example.filymart.app.AppController;
 import com.example.filymart.helper.SQLiteHandler;
 import com.example.filymart.helper.SessionManager;
+import com.mart.filymart.R;
 
 
 import org.apache.http.NameValuePair;
@@ -120,6 +121,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = inputPassword.getText().toString().trim();
 
                 // Check for empty data in the form
+
                 if (!email.isEmpty() && !password.isEmpty()) {
                     // login user
                     new CreateNewProduct().execute();

@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.filymart.activity.HomeActivity;
+import com.mart.filymart.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,7 +30,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FoodGrainOilActivity extends AppCompatActivity {
-    private static final String URL_PRODUCTS = "http://www.filymart.com/get_all_products.php";
+    private static final String URL_PRODUCTS = "https://filymart.000webhostapp.com/get_all_products.php";
 
     private RecyclerView recyclerView;
     private ProductsAdapterFgo adapter;

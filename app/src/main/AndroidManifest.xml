@@ -47,7 +47,6 @@
         <activity
             android:name=".DeliveryInformationContent.DeliveryInformationActivity"
             android:label="@string/title_activity_maps" />
-
         <activity android:name=".PaymentActivity" />
         <activity android:name=".DeliveryOptionsActivity" />
         <activity android:name=".RegisterActivity" />

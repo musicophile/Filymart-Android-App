@@ -1,0 +1,159 @@
+{
+  "project_info": {
+    "project_number": "975656214703",
+    "firebase_url": "https://poaride.firebaseio.com",
+    "project_id": "poaride",
+    "storage_bucket": "poaride.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975656214703:android:f1ff67277fd150bc6fb45a",
+        "android_client_info": {
+          "package_name": "com.mart.filymart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975656214703-292srdgdb2fu43tt2bbroe04ueiub7hg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEaYI2x-EIA5bqbwxTLCqrFf_akpiwoTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975656214703-292srdgdb2fu43tt2bbroe04ueiub7hg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "975656214703-e3ghcc16n0634pbbl0oailqelrop6la4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.poaride.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975656214703:android:ca2f952cd42ba6a46fb45a",
+        "android_client_info": {
+          "package_name": "com.poaride.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975656214703-qq4gs805fqnvr7gqd4cdtovjpqpvbad1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.poaride.app",
+            "certificate_hash": "574f19e29258dff4c43b6a0134bf93a130b42ea5"
+          }
+        },
+        {
+          "client_id": "975656214703-o298nt6c732blo9u3024na0gscie25ss.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.poaride.app",
+            "certificate_hash": "70d6284bb898a0acdc28159197e34afb4b470c93"
+          }
+        },
+        {
+          "client_id": "975656214703-lfhposn6ufngeauqq1ldtlrdekk223ja.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.poaride.app",
+            "certificate_hash": "33fb6eef8e76c1dae882f51634ee081d4fe1a783"
+          }
+        },
+        {
+          "client_id": "975656214703-292srdgdb2fu43tt2bbroe04ueiub7hg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEaYI2x-EIA5bqbwxTLCqrFf_akpiwoTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975656214703-292srdgdb2fu43tt2bbroe04ueiub7hg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "975656214703-e3ghcc16n0634pbbl0oailqelrop6la4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.poaride.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975656214703:android:875f981279609ae26fb45a",
+        "android_client_info": {
+          "package_name": "com.poarider.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975656214703-unb082j5nqrj5491jmjcu7ak4702afim.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.poarider.app",
+            "certificate_hash": "574f19e29258dff4c43b6a0134bf93a130b42ea5"
+          }
+        },
+        {
+          "client_id": "975656214703-m0ikhkvsicmpo7bpniv495e5aoc1lna6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.poarider.app",
+            "certificate_hash": "33fb6eef8e76c1dae882f51634ee081d4fe1a783"
+          }
+        },
+        {
+          "client_id": "975656214703-292srdgdb2fu43tt2bbroe04ueiub7hg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEaYI2x-EIA5bqbwxTLCqrFf_akpiwoTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975656214703-292srdgdb2fu43tt2bbroe04ueiub7hg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "975656214703-e3ghcc16n0634pbbl0oailqelrop6la4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.poaride.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,235 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">Filymart</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_home">Home</string>
+    <string name="nav_photos">Shopping</string>
+    <string name="nav_movies">My Busket</string>
+    <string name="nav_notifications">Contact Us</string>
+
+    <string name="nav_settings">Settings</string>
+    <string name="nav_about_us">About Us</string>
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string name="activity_title_about_us">About Us</string>
+
+    <string name="activity_title_privacy_policy">Privacy Policy</string>
+    <string name="action_clear_all">Clear All</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_login">Login</string>
+    <string name="action_register">Register</string>
+    <string name="action_mark_all_read">Mark All as Read</string>
+    <string name="privacy_policy">Privacy Policy</string>
+
+    <string name="list_events">Select Events</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="action_settings">Settings</string>
+
+    <string name="action_add_favourite">Add to Favourites</string>
+    <string name="action_play_next">Play Next</string>
+    <string name="backdrop_title">LOVE MUSIC</string>
+    <string name="backdrop_subtitle">This season top 20 albums</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="hint_email">youremail@example.com</string>
+
+    <!--login strings-->
+    <string name="hint_password">Password</string>
+
+    <string name="hint_name">Fullname</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="btn_link_to_register">Not a member? Sign up now</string>
+    <string name="btn_link_to_login">Already registred! Login Me.</string>
+    <string name="welcome">Welcome</string>
+    <string name="btn_logout">LOGOUT</string>
+    <string name="name">Fullname</string>
+    <string name="hint_sign">Get Signature</string>
+
+
+    <string name="sign_here_title">Sign Here</string>
+    <string name="hint_cancel">Cancel</string>
+    <string name="hint_clear">Clear</string>
+    <string name="hint_save">Save</string>
+
+    <string name="bill_details_title">Bill Details</string>
+    <string name="date">Date</string>
+    <string name="date_data">16 Mar 2017</string>
+    <string name="order_no">Order Number</string>
+    <string name="order_no_data">10798565</string>
+    <string name="buyers_name">Buyer\'s Name</string>
+    <string name="buyers_name_data">Umesh</string>
+    <string name="buyers_address">Buyer\'s Address</string>
+    <string name="buyers_address_data">Pratap Nagar</string>
+    <string name="contact_no">Contact Number</string>
+    <string name="contact_no_data">0000000000</string>
+    <string name="total_amount">Total Amount</string>
+    <string name="total_amount_data">Rs 1500</string>
+    <string name="checkbox_text">I have Successfully Received the product</string>
+    <string name="get_signature_text">Get Signature</string>
+    <string name="categories_available_in_store">Categories Available in Store</string>
+
+    <string name="price_200tsh">Price: 200Tsh</string>
+    <string name="privacy">
+FILYMART COMPANY are the owner of the brand Filymart, the website filymart.com and Filymart App. Filymart respects your privacy.
+        This Privacy Policy provides succinctly the manner your data is collected and used by Filymart on the Site. As
+        a visitor to the Site/ Customer you are advised to please read the Privacy Policy carefully. By accessing the
+        services provided by the Site you agree to the collection and use of your data by Filymart in the manner provided
+        in this Privacy Policy. Services overview As part of the registration process on the Site, Filymart may collect
+        the following personally identifiable information about you: Name including first and last name, alternate email
+        address, mobile phone number and contact details, Postal code, Demographic profile (address etc.) and information about the pages on the site you visit/access, the links you click on the site.
+Eligibility
+Services of the Site would be available to only select geographies in Tanzania. Persons who do not obey all Tanzanian Act etc.
+        are not eligible to use the Site. If you are a minor i.e. under the age of 18 years but at least 13 years of age you
+        may use the Site only under the supervision of a parent or legal guardian who agrees to be bound by these Terms of Use.
+        If your age is below 18 years your parents or legal guardians can transact on behalf of you if they are registered users.
+That in the event that a non-delivery occurs on account of a mistake by you (i.e. wrong name or address or any other wrong
+        information) any extra cost incurred by Filymart for redelivery shall be claimed from you.
+You may not use the Site for any of the following purposes:
+Disseminating any unlawful, harassing, libellous, abusive, threatening, harmful, vulgar, obscene, or otherwise objectionable
+        material. Transmitting material that encourages conduct that constitutes a criminal offence or results in civil
+        liability or otherwise breaches any relevant laws, regulations or code of practice. Gaining unauthorized access to
+        other computer systems. Interfering with any other person\'s use or enjoyment of the Site. Breaching any applicable
+
+        laws; Interfering or disrupting networks or web sites connected to the Site.</string>
+    <string name="about">Welcome to Filymart. So glad you are here.
+Filymart established February 2019 based in Arusha Tanzania. Filbert Eusabius\' and Anna Urio\'s are the founders and owners of Filymart Co.
+        Filymart focus to become the largest online mart for grocery and food products store East Africa and all over Africa.
+    </string>
+    <string name="what">
+    What is Filymart?</string>
+    <string name="what2">
+Filymart is newest online food and grocerieas store and other many Products. With over 100 products and many brands in our catalogue you will find
+        everything you are looking for. Right from fresh Fruits and Vegetables, Rice and Seasonings to Packaged products,
+        Beverages, Personal care products, Meats – we have it all. Choose from a wide range of options in every category,
+        exclusively handpicked to help you find the best quality available at the normal prices. Select a time slot for delivery
+        and your order will be delivered right to your doorstep, anywhere in Arusha and Moshi but soon we will open our
+        branches in Dar es salaam Tanzania and Nairobi Kenya. You can pay by cash we call it on-delivery payment but also we have
+        online payment through credit card and mobile payment methods with High security. We guarantee on time delivery,
+        and the best quality! Happy Shopping
+Why should I use filymart.com?
+Filymart allows you to walk away from the drudgery of grocery shopping and welcome an easy relaxed way of browsing and
+        shopping for groceries. Discover new products and shop for all your food and grocery needs from the comfort of your
+        home or office. No more getting stuck in traffic jams, paying for parking, standing in long queues and carrying heavy
+        bags – get everything you need, when you need, right at your doorstep. Food shopping online is now easy all you want
+        is now available online at filymart.com ,The newest best online food and grocery store.
+You own it, Just click it&#8320;
+</string>
+    <string name="short_text">Your Warmly Welcome to Filymart</string>
+    <string name="long_text"> Filymart is the best online supermarket for all your daily needs.
+        For all your grocery needs plus wide variety and range and brands you can get all in filymart.
+        Shop now easly Welcome again!</string>
+    <string name="text_category">Your Warmly Welcome to Filymart Filymart is the best online supermarket for all your daily needs.</string>
+    <string name="hint_email_example">youremail@example.com</string>
+
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="skip">Skip</string>
+    <string name="login_page">Login</string>
+    <string name="register">Registration</string>
+    <string name="re_hint_password">Re-enter password</string>
+    <string name="consumer_key">1l0jlUv/Zv+2nq5ybOECZpnYKAMqHgN8</string>
+
+    <string name="consumer_secret">heUWN5Dv6EcGs/E1E54BsHkvjas=</string>
+    <string name="app_author_email">info@kevinomyonga.com</string>
+
+
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="description">Description</string>
+    <string name="amount">Amount</string>
+    <string name="proceed">Proceed to Portal</string>
+    <string name="fname_required">First Name Required</string>
+    <string name="lname_required">Last Name Required</string>
+    <string name="email_required">Email Address Required</string>
+    <string name="phone_required">Phone Number Required</string>
+    <string name="desc_required">Description Required</string>
+    <string name="amount_required">Amount Required</string>
+    <string name="about_the_project">This project is intended to show an example of how you can utilize the PesapalDroid library in your project.\n\n
+    Visit my github repo to find out how you can integrate it.\n\n
+    Enjoy.</string>
+    <string name="github">Github</string>
+    <string name="send_feedback">Send Feedback</string>
+    <string name="donate">Buy Developer a Coffee</string>
+    <string name="names">Names</string>
+    <string name="contacts">Contacts</string>
+    <string name="transaction_details">Transaction Details</string>
+    <string name="amount_warning">For purposes of this demo, use amounts between 1 and 1000</string>
+    <string name="error_message">Error Message</string>
+
+    <string name="retry">Retry</string>
+    <string name="loading">Loading</string>
+    <string name="about_us">About Us</string>
+    <string name="about_us_filymart">About Us Filymart</string>
+    <string name="beverages_and_drinks">Beverages And Drinks</string>
+    <string name="brands_products">Brands Products</string>
+    <string name="address_available">Address Available</string>
+    <string name="create_address">Create Address</string>
+    <string name="username">USERNAME</string>
+    <string name="password">PASSWORD</string>
+    <string name="clear">Clear</string>
+    <string name="correct_user_mvp_mvp">correct user: mvp, mvp</string>
+    <string name="eggs_meat_and_fish">Eggs Meat and Fish</string>
+    <string name="food_grain_and_oil">Food Grain and Oil</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="fruits_and_vergetables">Fruits And Vergetables</string>
+    <string name="new_address_info">New Address Info</string>
+    <string name="phone_i_e_255765438924">Phone.i.e:+25576XXXXXXX</string>
+    <string name="submit">Submit</string>
+    <string name="sign_here">Sign Here</string>
+    <string name="searched_products">Searched Products</string>
+    <string name="product_details">Product Details</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_price">Product Price</string>
+    <string name="enter_amount">Enter Amount</string>
+    <string name="benefits">This are all informations about the particular product so that a customer will understand more about the product source all are here.</string>
+    <string name="abouttt">This are all informations about the particular product so that a customer will understand more about the product source all are here.</string>
+    <string name="add_to_cart">ADD TO CART</string>
+    <string name="product_about">Product About</string>
+    <string name="benef">This are all informations about the particular product so that a customer will understand more about the product source all are here.</string>
+    <string name="product_benefits">Product Benefits</string>
+    <string name="bbene">This are all informations about the particular product so that a customer will understand more about the product source all are here.</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="select_address">Select Address</string>
+    <string name="grapes">Grapes</string>
+    <string name="busket_cost">Busket Cost</string>
+    <string name="proceedd">Proceed</string>
+    <string name="noorder">Curenttly You don\'t have any order. Place your Order now From Filymart Enjoy.</string>
+    <string name="orderguestbusketinfo">To view all your orders Please Login to your Account and If your new Customer and you Don\'t have an Account You may create Account now. Welcome Again at Filymart Dear Friend.</string>
+    <string name="reg">Register</string>
+    <string name="heading">HEADING</string>
+    <string name="lorem">Lorem ipsum lorem Ipsum Lorem IMpisum lorema ni ipsum so much so i hav eto fight until the end the journey was never simple every has a story to be a warrior for</string>
+    <string name="tomato">Tomato</string>
+    <string name="kg_1">Kg 1</string>
+    <string name="_2">2</string>
+    <string name="update">Update</string>
+    <string name="delete">Delete</string>
+    <string name="fruits_and_vergetabless">Fruits and Vergetables</string>
+    <string name="beverages_and_drinkss">Beverages and Drinks</string>
+    <string name="food_grain_and_oill">Food Grain and Oil</string>
+    <string name="buy_gift_cards">Buy Gift Cards</string>
+    <string name="eggs_meat_and_fishh">Eggs Meat and Fish</string>
+    <string name="shoes_shop">Get Best Shoes here</string>
+    <string name="other_productss">Other Products</string>
+    <string name="tsh_12000">TSH.12000</string>
+    <string name="loginnn">Login</string>
+    <string name="full_namee">Full Name</string>
+    <string name="loginnnn">Login</string>
+    <string name="first_nameee">First Name</string>
+    <string name="privacy_policyyy">Privacy Policy</string>
+    <string name="privacy_policyyyy">Privacy Policy</string>
+    <string-array name="nav_item_activity_titles">
+        <item>Home</item>
+        <item>Shopping</item>
+        <item>Gift Card</item>
+        <item>My Busket</item>
+        <item>Contact Us</item>
+        <item>Settings</item>
+    </string-array>
+</resources>

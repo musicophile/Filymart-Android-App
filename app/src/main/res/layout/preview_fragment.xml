@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_height="?actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <ImageButton
+                android:id="@+id/backProductdetailsContent"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:layout_gravity="center"
+                android:padding="@dimen/tendp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/textViewTitle"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:text="Card Preview"
+                android:textSize="30dp"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/backProductdetailsContent"
+                />
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/gcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="5dp"
+        android:outlineSpotShadowColor="@color/colorPrimary"
+        android:outlineAmbientShadowColor="@color/bg_register"
+        app:layout_constraintTop_toBottomOf="@id/appbar">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/birthday"
+                android:scaleType="fitXY"
+                android:tag=""
+                app:layout_constraintTop_toTopOf="parent"/>
+            <View
+                android:id="@+id/view"
+                android:layout_width="200dp"
+                android:layout_height="1dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                />
+
+            <TextView
+                android:id="@+id/short_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Happy Birthday"
+                app:layout_constraintTop_toBottomOf="@id/view"
+                android:textAlignment="center"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/long_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Here it will show all the wishes that you want to send to send to someone all words and messages that you want to share to someone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/short_message"/>
+
+            <View
+                android:id="@+id/view_"
+                android:layout_width="200dp"
+                android:layout_height="1dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/long_message"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                />
+<!--            <TextView-->
+<!--                android:id="@+id/price"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="TSH. 10000"-->
+<!--                android:layout_marginTop="10px"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/long_message"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/shop_name"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Game Supermarket"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/long_message"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                />-->
+
+            <TextView
+                android:id="@+id/code_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1432 2345 7897"
+                android:textStyle="bold"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_"
+                android:paddingTop="10dp"
+                />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/gcard"
+        android:text="SHARE"/>
+</android.support.constraint.ConstraintLayout>

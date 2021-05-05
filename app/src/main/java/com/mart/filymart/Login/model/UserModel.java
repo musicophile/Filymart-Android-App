@@ -1,0 +1,34 @@
+package com.mart.filymart.Login.model;
+
+public class UserModel implements IUser {
+    String name;
+    String passwd;
+
+    public UserModel(String name, String passwd) {
+        this.name = name;
+        this.passwd = passwd;
+    }
+public UserModel(String passwd){
+        this.passwd = passwd;
+}
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String getPasswd() {
+        return passwd;
+    }
+
+    @Override
+    public int checkUserValidity(String name, String passwd) {
+        if (name == null || passwd == null || !name.equals(getName()) || !passwd.equals(getPasswd())) {
+            return -1;
+        } else if (name.equals("a") || passwd.equals("a")) {
+            return 9;
+        }
+
+return 1;
+    }
+}

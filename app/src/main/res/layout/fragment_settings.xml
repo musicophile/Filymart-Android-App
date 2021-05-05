@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite"
+    tools:context=".fragment.SettingsFragmentContent.SettingsFragment">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ForGuest"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/tendp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/guestInformation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To view all your Settings Please Login to your Account and If your new Customer and you Don't have an Account You may create Account now. Welcome Again at Filymart Dear Friend."
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/tendp"
+            android:layout_marginTop="@dimen/tendp"/>
+
+
+        <Button
+            android:id="@+id/btnLoginGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            app:layout_constraintTop_toBottomOf="@id/guestInformation"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:padding="@dimen/tendp"
+            android:background="@drawable/button"
+            android:layout_marginTop="@dimen/tendp"/>
+
+
+        <Button
+            android:id="@+id/btnRegisterGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register"
+            app:layout_constraintTop_toBottomOf="@id/guestInformation"
+            android:padding="@dimen/tendp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@drawable/button"
+            android:layout_marginTop="@dimen/tendp"/>
+
+    </android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ForSettings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/tendp"
+        android:visibility="invisible">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/tendp">
+
+            <TextView
+                android:id="@+id/tvAccountInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account Informations"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvNameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tendp"
+                android:text="Name"
+                android:padding="@dimen/tendp"
+                app:layout_constraintTop_toBottomOf="@id/tvAccountInfo"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvCustomerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/tendp"
+                android:text=""
+                app:layout_constraintStart_toEndOf="@id/tvNameTitle"
+                app:layout_constraintTop_toTopOf="@id/tvNameTitle"/>
+
+            <TextView
+                android:id="@+id/tvEmailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:layout_marginTop="@dimen/tendp"
+                android:padding="@dimen/tendp"
+                app:layout_constraintTop_toBottomOf="@id/tvNameTitle"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvCustomerEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:padding="@dimen/tendp"
+                app:layout_constraintStart_toEndOf="@id/tvEmailTitle"
+                app:layout_constraintTop_toTopOf="@id/tvEmailTitle"/>
+
+
+            <TextView
+                android:id="@+id/tvPhoneTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone"
+                android:layout_marginTop="@dimen/tendp"
+                android:padding="@dimen/tendp"
+                app:layout_constraintTop_toBottomOf="@id/tvEmailTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tvCustomerPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:padding="@dimen/tendp"
+                app:layout_constraintStart_toEndOf="@id/tvPhoneTitle"
+                app:layout_constraintTop_toTopOf="@id/tvPhoneTitle"/>
+
+            <ImageButton
+                android:id="@+id/btnEditInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/tendp"
+                android:src="@drawable/ic_edit_black_24dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintTop_toBottomOf="@id/tvPhoneTitle"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/deleteAccountInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tendp"
+                android:text="Delete Your Account If you delete Account and you have not finished to place your order you will also delete the unfinished process Any Finished order will be safe You may contact us fo any feed back or any support you need before deleting your Account."
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnEditInfo"/>
+
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/tendp"
+                android:layout_marginTop="@dimen/tendp"
+                android:background="@color/colorWhite"
+                android:src="@drawable/ic_delete_black_24dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/deleteAccountInfo"/>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+    </ScrollView>
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

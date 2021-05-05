@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".DeliveryInformationContent.DeliveryInformationActivity"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="4dp"
+        android:layout_height="?actionBarSize"
+        map:layout_constraintTop_toTopOf="parent"
+        map:layout_constraintStart_toStartOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <ImageButton
+                android:id="@+id/icon"
+                android:padding="@dimen/tendp"
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:onClick="deliveryBack"
+                android:background="@color/colorPrimary"
+                android:src="@drawable/ic_arrow_back_black_24dp"
+                android:layout_gravity="center"
+                map:layout_constraintStart_toStartOf="parent"
+                map:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:padding="@dimen/tendp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery Option"
+                android:textSize="20dp"
+                android:textColor="@color/input_register_bg"
+                android:textStyle="bold"
+                android:gravity="left"
+                android:layout_gravity="center"
+                map:layout_constraintTop_toTopOf="@id/icon"
+                map:layout_constraintStart_toEndOf="@id/icon"
+                />
+        </android.support.constraint.ConstraintLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/scrollDeliveryView"
+        android:layout_width="match_parent"
+        android:padding="@dimen/tendp"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toBottomOf="@id/bar"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/deliveryDescriptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Filymart Delivery Description"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+            
+            <TextView
+                android:id="@+id/deliveryDescriptionsINfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose your delivery package as shown below. Filymart have three package of delivery methods."
+                map:layout_constraintLeft_toLeftOf="parent"
+                map:layout_constraintTop_toBottomOf="@id/deliveryDescriptions"
+                map:layout_constraintRight_toRightOf="parent"
+                />
+            <TextView
+                android:id="@+id/shead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.Standard Delivery:"
+                android:textStyle="bold"
+                map:layout_constraintStart_toStartOf="parent"
+                map:layout_constraintTop_toBottomOf="@id/deliveryDescriptionsINfo"/>
+
+            <TextView
+                android:id="@+id/sheadInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Where we do daily Morning delivery from 0700am to 1130am and we have Afternoon Delivery from 0200pm to 0700pm. Choose your favourite time before selecting this package."
+                map:layout_constraintStart_toStartOf="parent"
+                map:layout_constraintTop_toBottomOf="@id/shead"/>
+
+            <TextView
+                android:id="@+id/fhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2.Fast Delivery"
+                android:textStyle="bold"
+                map:layout_constraintTop_toBottomOf="@id/sheadInfo"
+                map:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/fheadInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Where we do delivery for your product within 90minutes only. This is only for Arusha and Moshi,Tanzania."
+                map:layout_constraintStart_toStartOf="parent"
+                map:layout_constraintTop_toBottomOf="@id/fhead"
+                />
+
+            <TextView
+                android:id="@+id/whead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.Week Delivery"
+                android:textStyle="bold"
+                map:layout_constraintTop_toBottomOf="@id/fheadInfo"
+                map:layout_constraintStart_toStartOf="parent"/>
+
+
+            <TextView
+                android:id="@+id/wheadInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Where we do delivery for your product within 7 Days after purchase. Cost for this delivery is only Tsh.5000"
+                map:layout_constraintStart_toStartOf="parent"
+                map:layout_constraintTop_toBottomOf="@id/whead"
+                />
+
+
+
+    <android.support.constraint.ConstraintLayout
+        map:layout_constraintTop_toBottomOf="@id/wheadInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/regions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            map:layout_constraintStart_toStartOf="parent"
+            map:layout_constraintTop_toTopOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/unOther"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                map:layout_constraintStart_toStartOf="parent"
+                map:layout_constraintTop_toTopOf="parent">
+                <android.support.v7.widget.CardView
+                    android:id="@+id/standardCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tendp"
+                    app:cardElevation="3dp"
+                    app:cardCornerRadius="3dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintHorizontal_weight="1"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/tvStandard"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Standard Delivery"
+                                android:textColor="@color/input_register_bg"
+                                android:textSize="20dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+
+                            <Spinner
+                                android:id="@+id/simpleSpinner"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:textColor="@color/input_register_bg"
+                                app:layout_constraintTop_toBottomOf="@id/tvStandard"
+                                app:layout_constraintStart_toStartOf="@id/tvStandard"/>
+
+                        </android.support.constraint.ConstraintLayout>
+
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintHorizontal_weight="1"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent">
+
+                            <TextView
+                                android:id="@+id/tvtsh2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TSH."
+                                android:textAppearance="?android:textAppearanceSmall"
+                                android:textColor="@color/input_register_bg"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"/>
+
+                            <TextView
+                                android:id="@+id/tvSPrice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                android:textColor="@color/input_register_bg"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/tvtsh2"/>
+
+                            <Button
+                                android:id="@+id/standardBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/button"
+                                android:text="STANDARD"
+                                android:visibility="visible"
+                                app:layout_constraintTop_toBottomOf="@id/tvSPrice"
+                                app:layout_constraintStart_toStartOf="@id/tvSPrice"/>
+
+                        </android.support.constraint.ConstraintLayout>
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/fastCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tendp"
+                    app:cardElevation="3dp"
+                    app:cardCornerRadius="3dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/standardCard">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2"
+                        android:orientation="horizontal">
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/tvFast"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Fast Delivery"
+                                android:textColor="@color/input_register_bg"
+                                android:textSize="20dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+                            <TextView
+                                android:id="@+id/tvFastDeliveryTime"
+                                android:layout_width="wrap_content"
+                                android:textColor="@color/input_register_bg"
+                                android:layout_height="wrap_content"
+                                android:text="Within 90Mnts"
+                                app:layout_constraintStart_toStartOf="@id/tvFast"
+                                app:layout_constraintTop_toBottomOf="@id/tvFast"/>
+
+                        </android.support.constraint.ConstraintLayout>
+
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/tvtsh"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TSH."
+                                android:textColor="@color/input_register_bg"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                />
+
+                            <TextView
+                                android:id="@+id/tvFastPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/input_register_bg"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/tvtsh"/>
+
+                            <Button
+                                android:id="@+id/fastBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/button"
+                                android:text="FAST"
+                                android:visibility="visible"
+                                app:layout_constraintTop_toBottomOf="@id/tvFastPrice"
+                                app:layout_constraintStart_toStartOf="@id/tvFastPrice"/>
+
+                        </android.support.constraint.ConstraintLayout>
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/weekCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tendp"
+                    app:cardElevation="3dp"
+                    app:cardCornerRadius="3dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fastCard">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:weightSum="2"
+                        android:orientation="horizontal">
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/tvWeek"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Weekly Delivery"
+                                android:textColor="@color/input_register_bg"
+                                android:textSize="20dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+                            <TextView
+                                android:id="@+id/tvWeekDeliveryTime"
+                                android:layout_width="wrap_content"
+                                android:textColor="@color/input_register_bg"
+                                android:layout_height="wrap_content"
+                                android:text="Within 7Days"
+                                app:layout_constraintStart_toStartOf="@id/tvWeek"
+                                app:layout_constraintTop_toBottomOf="@id/tvWeek"/>
+
+                        </android.support.constraint.ConstraintLayout>
+
+                        <android.support.constraint.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/tvwtsh"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TSH."
+                                android:textColor="@color/input_register_bg"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                />
+
+                            <TextView
+                                android:id="@+id/tvWeekPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/input_register_bg"
+                                android:text="5000"
+                                android:textAppearance="?android:textAppearanceSmall"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/tvwtsh"/>
+
+                            <Button
+                                android:id="@+id/weekBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/button"
+                                android:text="WEEK"
+                                app:layout_constraintTop_toBottomOf="@id/tvWeekPrice"
+                                app:layout_constraintStart_toStartOf="@id/tvWeekPrice"/>
+
+                        </android.support.constraint.ConstraintLayout>
+                    </android.support.constraint.ConstraintLayout>
+                </android.support.v7.widget.CardView>
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/summaryOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/regions"
+            app:layout_constraintStart_toStartOf="@id/regions"
+            android:layout_marginBottom="4dp">
+
+            <TextView
+                android:id="@+id/tvTitleOrderSummary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order Summary"
+                android:textColor="@color/input_register_bg"
+                android:textSize="20dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerViewOrderSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:layout_marginTop="@dimen/tendp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTitleOrderSummary"/>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/sumLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tendp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/summaryOrder"
+            app:layout_constraintStart_toStartOf="parent">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Busket"
+                    android:textColor="@color/input_register_bg"
+                    android:textSize="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/totalBusket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TSH.33000"
+                    android:textColor="@color/input_register_bg"
+                    android:textSize="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/deliveryCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            app:layout_constraintTop_toBottomOf="@id/sumLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            android:orientation="horizontal">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Delivery Cost"
+                    android:textColor="@color/input_register_bg"
+                    android:textSize="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvDeliveryCost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TSH.33000"
+                    android:textColor="@color/input_register_bg"
+                    android:textSize="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/totalCost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_margin="3dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/deliveryCost">
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Cost"
+                    android:textColor="@color/input_register_bg"
+                    android:textSize="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TSH.33000"
+                    android:textColor="@color/input_register_bg"
+                    android:textSize="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+
+        <Button
+            android:id="@+id/proceed_payment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Proceed Payment"
+            android:background="@drawable/button"
+            android:layout_gravity="center"
+            android:padding="@dimen/tendp"
+            android:gravity="center"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@id/totalCost"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/infoLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="@id/regions"
+            app:layout_constraintTop_toBottomOf="@id/proceed_payment">
+
+            <TextView
+                android:id="@+id/addressInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your delivery address is Home address and its location is according to how the map shown below. If this is not your address you want your order to be delivered you may Change address by click the button below for Change Address"
+                android:textSize="17dp"
+                android:textColor="@color/input_register_bg"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                />
+            <Button
+                android:id="@+id/btnChangeAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change Address"
+                android:background="@drawable/button"
+                android:layout_gravity="center"
+                android:padding="@dimen/tendp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/addressInfo"/>
+
+            <TextView
+                android:id="@+id/mapInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/input_register_bg"
+                android:text="Delivery cost is charged per km such that 1Km is Tsh.600 and the distance from your address location to markert is 5Km"
+                android:textSize="17dp"
+                app:layout_constraintTop_toBottomOf="@id/btnChangeAddress"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+    <fragment
+        app:layout_constraintStart_toStartOf="@id/regions"
+        app:layout_constraintTop_toBottomOf="@id/btnLayout"
+        android:layout_marginTop="@dimen/tendp"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+         />
+        <ImageView
+            android:id="@+id/transparent_image"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:src="@android:color/transparent"
+            app:layout_constraintStart_toStartOf="@id/regions"
+            app:layout_constraintTop_toBottomOf="@id/btnLayout"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/btnLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/infoLayout"
+        app:layout_constraintStart_toStartOf="@id/regions">
+
+            <Button
+                android:id="@+id/buttonCalcDistance"
+                android:text="Calc Distance"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="@dimen/tendp"
+                android:visibility="visible"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+    </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

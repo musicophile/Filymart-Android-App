@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.HomeFragmentContent.HomeFragment"
+    android:background="@color/colorWhite"
+    tools:showIn="@layout/fragment_home">
+
+    <include layout="@layout/main_home"/>
+
+    </android.support.v4.widget.NestedScrollView>

@@ -50,7 +50,7 @@
         <activity android:name=".PaymentActivity" />
         <activity android:name=".DeliveryOptionsActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".activity.HomeActivityContent.HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -65,17 +65,17 @@
         <activity android:name=".NewAddressActivity" />
         <activity android:name=".activity.PrivacyPolicyActivity" />
         <activity android:name=".activity.AboutUsActivity" />
-        <activity android:name=".activity.HomeActivityContent.HomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+        <activity android:name=".LoginActivity">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
 
-                <category android:name="android.intent.category.DEFAULT" />
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
 
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data
-                    android:host="mimi.android.com"
-                    android:scheme="http" />
-            </intent-filter>
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
+<!--                <data-->
+<!--                    android:host="mimi.android.com"-->
+<!--                    android:scheme="http" />-->
+<!--            </intent-filter>-->
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

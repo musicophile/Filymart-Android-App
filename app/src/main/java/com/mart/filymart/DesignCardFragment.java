@@ -1,6 +1,7 @@
 
 package com.mart.filymart;
 
+        import android.content.SharedPreferences;
         import android.graphics.BitmapFactory;
         import android.os.AsyncTask;
         import android.os.Bundle;
@@ -42,6 +43,7 @@ public class DesignCardFragment extends Fragment {
     SQLiteHandler db;
     ImageView imageView;
     int finalI = 0;
+    public SharedPreferences pref;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.design_card_fragment, container, false);
@@ -52,11 +54,13 @@ public class DesignCardFragment extends Fragment {
         images = new ArrayList<>();
         spin.setPrompt("Title");
         db = new SQLiteHandler(getActivity());
+        pref= getContext().getSharedPreferences("filymart", 0);
+
 
         spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+                setEventId(spin.getSelectedItem().toString().trim());
             }
 
             @Override
@@ -186,6 +190,7 @@ public class DesignCardFragment extends Fragment {
                                 .transition(withCrossFade())
                                 //.diskCacheStrategy(DiskCacheStrategy.ALL)
                                 .into(image);
+                        setImageSelected(images.get(finalI1));
                         Toast.makeText(getContext(), "Testing", Toast.LENGTH_LONG).show();
 //                    image.setImageResource(R.drawable.birthday);
 //                    image.setTag(R.drawable.birthday);
@@ -208,6 +213,20 @@ public class DesignCardFragment extends Fragment {
 //            iEggsMeatFishView.loadDatas((ArrayList<ProductModel>) productModel);
         }
 
+    }
+
+    public boolean setEventId(String event_id){
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("event_id", event_id);
+        editor.commit(); //commit changes
+        return true;
+    }
+
+    public boolean setImageSelected(String image){
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("image", image);
+        editor.commit(); //commit changes
+        return true;
     }
 
 }

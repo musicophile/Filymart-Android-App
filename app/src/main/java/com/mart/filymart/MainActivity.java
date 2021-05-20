@@ -3,6 +3,7 @@ package com.mart.filymart;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private int mCurrentPage;
     private dbFunctions db;
     private SQLiteHandler db2;
+    public SharedPreferences pref;
 
 
     private SliderAdapter sliderAdapter;
@@ -68,7 +70,9 @@ public class MainActivity extends AppCompatActivity {
         mFinishBtn = findViewById(R.id.finishBtn);
 //        CheckUPdate();
         sliderAdapter = new SliderAdapter(this);
+        pref= getApplicationContext().getSharedPreferences("filymart", 0);
         mSlideViewPager.setAdapter(sliderAdapter);
+
         addDotsIndicator(0);
 
         mSlideViewPager.addOnPageChangeListener(viewListener);

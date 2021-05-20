@@ -38,6 +38,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     private static final String CREATE_TABLE_FOR_SPLASH_SCREEN = "CREATE TABLE IF NOT EXISTS tbl_splash_screen " +
             "(_id INTEGER PRIMARY KEY AUTOINCREMENT, session VARCHAR(10),date VARCHAR(30),time VARCHAR(10));";
 
+//    private static final String CREATE_TABLE_FOR_GIFT_CARD = "CREATE TABLE IF NOT EXISTS tbl_gift " +
+//            "(_id INTEGER PRIMARY KEY AUTOINCREMENT, session VARCHAR(10),date VARCHAR(30),time VARCHAR(10));";
+
 
     public SQLiteHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
